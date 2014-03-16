@@ -22,7 +22,7 @@ This is the list of potential functions:
 
 - pathnode with modifications ( for Node density effect)
 
-
+- NEW plot rates trough time along lineages
 
 
 The dependencies are:
