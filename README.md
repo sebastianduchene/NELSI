@@ -1,5 +1,5 @@
 
-Loco, la embarraste Esto hay que revertilo
+Loco, la embarraste Esto hay que revertirlo
 
 adicion d duchene
 This is the home of NELSI: Nucleotide Evolutionary rate Simulator
