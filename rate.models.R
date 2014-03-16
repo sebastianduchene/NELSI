@@ -9,13 +9,99 @@ source("utilities.R")
 #Testing
 
 tr1 <- sim.bdtree(b = 1, d = 0, stop = "taxa", n = 20)
-s1 <- simulate.clock(tr1)
+params1 <- list(rate = 0.002, noise = 0.00001)
+s1 <- simulate.clock(tr1, params1)
 
-params <- list(rate = 0.002, noise = 0.00001)
+params2 <- list(initial.rate = 0.001, v = 0.4)
+s2 <- simulate.autocor.thorne(tr1, params2)
+plot(s2$phylogram)
 
-s2 <- simulate.clock(tr1, params)
+params3 <- list(initial.rate = 0.001, v = 1.4)
+s3 <- simulate.autocor.kishino(tr1, params3)
+plot(s3$phylogram)
+
+params4 <- list(mean.log = -3.8, sd.log = 0.5)
+s4 <- simulate.uncor.lnorm(tr1, params4)
+plot(s4$phylogram)
+
 ######
 
+# uncorrelated lognormal (Drummond et al 2006)
+simulate.uncor.lnorm <- function(tree, params = list(mean.log = -3.9, sd.log = 0.1)){
+    mean.log <- params$mean.log
+    sd.log <- params$sd.log
+    data.matrix <- get.tree.data.matrix(tree)
+    branch.rates <- rlnorm(n = length(tree$edge.length), meanlog = mean.log, sdlog = sd.log)
+    data.matrix[, 5] <- branch.rates
+    data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
+    tree$edge.length <- data.matrix[, 6]
+    res <- list(tree, data.matrix)
+    names(res) <- c("phylogram", "tree.data.matrix")
+    return(res)
+}
+#
+
+
+# atuocorrelated rates with Kishino (2001)
+simulate.autocor.kishino <- function(tree, params = list(initial.rate = 0.01, v = 0.3)){
+    require(phangorn)
+    require(geiger)
+    initial.rate <- params$initial.rate
+    v = params$v
+    data.matrix <- get.tree.data.matrix(tree)
+    while(any(is.na(data.matrix[, 5])) | any(is.nan(data.matrix[, 5]))){
+        data.matrix[1, 5] <- initial.rate
+        for(i in 2:nrow(data.matrix)){
+            parent.node <- data.matrix[i, 2]
+            preceeding.parent <- data.matrix[, 2][data.matrix[ ,3] == parent.node]
+            preceeding.parent.brage <- data.matrix[, 4][data.matrix[, 2] == preceeding.parent][1]
+            preceeding.parent.brrate <- data.matrix[, 5][data.matrix[, 2] == preceeding.parent][1]
+            if(!(is.na(preceeding.parent.brrate)) & !(is.nan(preceeding.parent.brrate)) & (parent.node %in% data.matrix[, 3])){
+                data.matrix[i, 5] <- abs(rlnorm(1, mean = log(abs(preceeding.parent.brrate)), sd = v * data.matrix[i - 1, 7]^0.5))
+            }else if(!(parent.node %in% data.matrix[, 3])){
+                data.matrix[i, 5] <- abs(rlnorm(1, mean = log(abs(initial.rate)), sd = sqrt(initial.rate)))
+            }
+        }
+    }
+    data.matrix[, 6]  <- data.matrix[, 7] * data.matrix[, 5]
+    tree$edge.length <- data.matrix[, 6]
+    res <- list(tree, data.matrix)
+    names(res) <- c("phylogram", "tree.data.matrix")
+    return(res)
+}
+###
+
+
+
+
+# atuocorrelated rates with thorne (1998)
+simulate.autocor.thorne <- function(tree, params = list(initial.rate = 0.01, v = 0.3)){
+    require(phangorn)
+    require(geiger)
+    initial.rate <- params$initial.rate
+    v = params$v
+    data.matrix <- get.tree.data.matrix(tree)
+    while(any(is.na(data.matrix[, 5])) | any(is.nan(data.matrix[, 5]))){
+        data.matrix[1, 5] <- initial.rate
+        for(i in 2:nrow(data.matrix)){
+            parent.node <- data.matrix[i, 2]
+            preceeding.parent <- data.matrix[, 2][data.matrix[ ,3] == parent.node]
+            preceeding.parent.brage <- data.matrix[, 4][data.matrix[, 2] == preceeding.parent][1]
+            preceeding.parent.brrate <- data.matrix[, 5][data.matrix[, 2] == preceeding.parent][1]
+            if(!(is.na(preceeding.parent.brrate)) & !(is.nan(preceeding.parent.brrate)) & (parent.node %in% data.matrix[, 3])){
+                data.matrix[i, 5] <- abs(rlnorm(1, mean = log(abs(preceeding.parent.brrate)), sd = v * abs(data.matrix[i, 4] - preceeding.parent.brage)^0.5))
+            }else if(!(parent.node %in% data.matrix[, 3])){
+                data.matrix[i, 5] <- abs(rlnorm(1, mean = log(abs(initial.rate)), sd = sqrt(initial.rate)))
+            }
+        }
+    }
+    data.matrix[, 6]  <- data.matrix[, 7] * data.matrix[, 5]
+    tree$edge.length <- data.matrix[, 6]
+    res <- list(tree, data.matrix)
+    names(res) <- c("phylogram", "tree.data.matrix")
+    return(res)
+}
+###
 
 
 # Evolution under a strict clock
@@ -32,3 +118,4 @@ simulate.clock <- function(tree, params = list(rate = 0.02, noise = 0.0001)){
     names(res) <- c("phylogram", "tree.data.matrix")
     return(res)
 }
+###
