@@ -16,15 +16,22 @@ This is the list of potential functions:
 
 - get.rate.descendant.pairs
 
-- allnode.times (if used for substitutions and time, then it can be used for linear regression to test for clocklike behaviour as in path-o-gen)
+- ~~allnode.times (if used for substitutions and time, then it can be used for linear regression to test for clocklike behaviour as in path-o-gen)X~~
 
-- mid.ages
+- ~~mid.ages~~
 
 - pathnode with modifications ( for Node density effect)
 
 - NEW plot rates trough time along lineages
 
+- NEW plot root to tip distance with a chronogram and a phylogram
 
 The dependencies are:
+
+- APE
+
+- GEIGER
+
+- PHANGORN
 
 
