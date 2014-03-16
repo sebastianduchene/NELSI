@@ -1,0 +1,1 @@
+# This script contains the functions to simulate under different rate models
