@@ -24,7 +24,25 @@ params4 <- list(mean.log = -3.8, sd.log = 0.5)
 s4 <- simulate.uncor.lnorm(tr1, params4)
 plot(s4$phylogram)
 
+params5 <- list(mean.exp = 0.0001)
+s5 <- simulate.uncor.exp(tr1, params5)
+plot(s5$phylogram)
 ######
+
+# uncorrelated exponential (Drummond et al 2006)
+simulate.uncor.exp <- function(tree, params = list(mean.exp = 0.001)){
+    mean.exp <- params$mean.exp
+    data.matrix <- get.tree.data.matrix(tree)
+    branch.rates <- rexp(n = length(tree$edge.length), rate = 1 / mean.exp)
+    data.matrix[, 5] <- branch.rates
+    data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
+    tree$edge.length <- data.matrix[, 6]
+    res <- list(tree, data.matrix)
+    names(res) <- c("phylogram", "tree.data.matrix")
+    return(res)
+}
+#
+
 
 # uncorrelated lognormal (Drummond et al 2006)
 simulate.uncor.lnorm <- function(tree, params = list(mean.log = -3.9, sd.log = 0.1)){

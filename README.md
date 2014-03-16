@@ -5,7 +5,7 @@ This is the list of potential functions:
 - molrate.sim (currently molrate.sim.tree)
   - ~~strict clock X~~
   - ~~uncorrelated lognormal X~~
-  - uncorrelated exponential
+  - ~~uncorrelated exponential~~
   - uncorrelated gamma
   - ~~autocorrelated Kishino (2001) X~~
   - ~~autocorrelated Thorne (1998) X~~

@@ -12,7 +12,7 @@ This is the list of potential functions:
   - ?White noise
   - Time dependent exponential decay
 
-- get.tree.data.matrix
+- ~~get.tree.data.matrix~~
 
 - get.rate.descendant.pairs
 
