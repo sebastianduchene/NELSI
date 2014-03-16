@@ -3,12 +3,12 @@ This is the home of NELSI: Nucleotide Evolutionary rate Simulator
 This is the list of potential functions:
 
 - molrate.sim (currently molrate.sim.tree)
-  - strict clock X
-  - uncorrelated lognormal X
+  - *strict clock X*
+  - *uncorrelated lognormal X*
   - uncorrelated exponential
   - uncorrelated gamma
-  - autocorrelated Kishino (2001) X
-  - autocorrelated Thorne (1998) X
+  - *autocorrelated Kishino (2001) X*
+  - *autocorrelated Thorne (1998) X*
   - ?White noise
   - Time dependent exponential decay
 
