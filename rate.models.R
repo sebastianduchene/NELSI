@@ -27,7 +27,32 @@ plot(s4$phylogram)
 params5 <- list(mean.exp = 0.0001)
 s5 <- simulate.uncor.exp(tr1, params5)
 plot(s5$phylogram)
+
+params6 <- list(shape = 95, rate = 7000)
+s6 <- simulate.uncor.gamma(tr1, params6)
+plot(s6$phylogram)
+hist(s6$tree.data.matrix[,5])
+
+
 ######
+
+
+# uncorrelated gamma rates (Drummond et al 2006)
+simulate.uncor.gamma <- function(tree, params = list(shape = 98, rate = 4361)){
+    shape.gamma <- params$shape
+    rate.gamma <- params$rate
+    data.matrix <- get.tree.data.matrix(tree)
+    branch.rates <- rgamma(n = length(tree$edge.length), shape = shape.gamma, rate = rate.gamma)
+    data.matrix[, 5] <- branch.rates
+    data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
+    tree$edge.length <- data.matrix[, 6]
+    res <- list(tree, data.matrix)
+    names(res) <- c("phylogram", "tree.data.matrix")
+    return(res)
+}
+#
+
+
 
 # uncorrelated exponential (Drummond et al 2006)
 simulate.uncor.exp <- function(tree, params = list(mean.exp = 0.001)){

@@ -6,7 +6,7 @@ This is the list of potential functions:
   - ~~strict clock X~~
   - ~~uncorrelated lognormal X~~
   - ~~uncorrelated exponential~~
-  - uncorrelated gamma
+  - ~~uncorrelated gamma~~
   - ~~autocorrelated Kishino (2001) X~~
   - ~~autocorrelated Thorne (1998) X~~
   - ?White noise
