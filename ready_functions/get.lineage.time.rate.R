@@ -19,8 +19,7 @@ get.lineage.time.rate <- function(taxon, sim.rate.object){
     	last.rate <- rate.time[1]
     	rate.time <- c(last.rate, rate.time, first.rate)
     	branch.times <- c(0, branch.times, max(branching.times(chrono)))
-print(branching.times(chrono))    	
-return(data.frame(branch.times, rate.time))
+	return(data.frame(branch.times, rate.time))
     }else{
     	stop("The taxon name was not found in the tree data matrix. It should be a number between 1 and the number of nodes (internal and external)")
     }
