@@ -10,7 +10,7 @@ This is the list of potential functions:
   - ~~autocorrelated Kishino (2001) X~~
   - ~~autocorrelated Thorne (1998) X~~
   - ?White noise
-  - Time dependent exponential decay
+  - ~~Time dependent exponential decay~~
 
 - ~~get.tree.data.matrix~~
 
