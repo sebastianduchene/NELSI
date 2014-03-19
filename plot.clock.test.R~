@@ -1,0 +1,15 @@
+
+
+setwd("ready_functions")
+for(i in dir()) source(i)
+setwd("..")
+
+library(geiger)
+
+tr1 <- sim.bdtree(b = 1, d = 0, n = 10, stop ="taxa")
+
+sim. <- simulate.autocor.kishino(tr1)
+
+
+
+#plot.clock()

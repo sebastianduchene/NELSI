@@ -1,4 +1,5 @@
-simulate.tdep.generic <- function(tree, noise = 0.001, fun = function(time){ 0.035 * (0.015 * exp(-0.1 * time)) }){
+simulate.tdep.generic <-
+function(tree, noise = 0.001, fun = function(time){ 0.035 * (0.015 * exp(-0.1 * time)) }){
     require(phangorn)
     require(geiger)
     fun.rate <- function(time){

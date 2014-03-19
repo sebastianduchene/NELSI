@@ -1,0 +1,69 @@
+\name{simulate.uncor.exp}
+\alias{simulate.uncor.exp}
+%- Also NEED an '\alias' for EACH other topic documented here.
+\title{
+%%  ~~function to do ... ~~
+}
+\description{
+%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+}
+\usage{
+simulate.uncor.exp(tree, params = list(mean.exp = 0.001))
+}
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+  \item{tree}{
+%%     ~~Describe \code{tree} here~~
+}
+  \item{params}{
+%%     ~~Describe \code{params} here~~
+}
+}
+\details{
+%%  ~~ If necessary, more details than the description above ~~
+}
+\value{
+%%  ~Describe the value returned
+%%  If it is a LIST, use
+%%  \item{comp1 }{Description of 'comp1'}
+%%  \item{comp2 }{Description of 'comp2'}
+%% ...
+}
+\references{
+%% ~put references to the literature/web site here ~
+}
+\author{
+%%  ~~who you are~~
+}
+\note{
+%%  ~~further notes~~
+}
+
+%% ~Make other sections like Warning with \section{Warning }{....} ~
+
+\seealso{
+%% ~~objects to See Also as \code{\link{help}}, ~~~
+}
+\examples{
+##---- Should be DIRECTLY executable !! ----
+##-- ==>  Define data, use random,
+##--	or do  help(data=index)  for the standard data sets.
+
+## The function is currently defined as
+function (tree, params = list(mean.exp = 0.001)) 
+{
+    mean.exp <- params$mean.exp
+    data.matrix <- get.tree.data.matrix(tree)
+    branch.rates <- rexp(n = length(tree$edge.length), rate = 1/mean.exp)
+    data.matrix[, 5] <- branch.rates
+    data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
+    tree$edge.length <- data.matrix[, 6]
+    res <- list(tree, data.matrix)
+    names(res) <- c("phylogram", "tree.data.matrix")
+    return(res)
+  }
+}
+% Add one or more standard keywords, see file 'KEYWORDS' in the
+% R documentation directory.
+\keyword{ ~kwd1 }
+\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
