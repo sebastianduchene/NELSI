@@ -11,6 +11,7 @@ This is the list of potential functions:
   - ~~autocorrelated Thorne (1998) X~~
   - ?White noise
   - ~~Time dependent exponential decay~~
+  - ~~Time dependent with custom function~~
 
 - ~~get.tree.data.matrix~~
 
@@ -24,7 +25,7 @@ This is the list of potential functions:
 
 - ~~plot rates trough time along lineages~~
 
-- NEW plot root to tip distance with a chronogram and a phylogram
+- ~~plot root to tip distance with a chronogram and a phylogram~~
 
 The dependencies are:
 
