@@ -22,4 +22,4 @@ plot.clock <- function(rate.sim.object, tipsonly = T, ...){
 }
 
 
-plot.clock(rate.sim.object)
+test1 <- plot.clock(rate.sim.object, pch = 20, col = "red")

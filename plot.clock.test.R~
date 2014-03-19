@@ -6,10 +6,20 @@ setwd("..")
 
 library(geiger)
 
-tr1 <- sim.bdtree(b = 1, d = 0, n = 10, stop ="taxa")
+tr1 <- rtree(10)
 
-sim. <- simulate.autocor.kishino(tr1)
+rate.sim.object <- simulate.autocor.kishino(tr1, params = list(initial.rate = 0.01, v = 0.5))
 
 
+plot.clock <- function(rate.sim.object, tipsonly = T, ...){
+  phylogram <- rate.sim.object$phylogram
+  chrono <- rate.sim.object$phylogram
+  chrono$edge.length <- rate.sim.object[[2]][, 7]
+  times <- allnode.times(chrono, tipsonly)
+  substitutions <- allnode.times(phylogram, tipsonly)
+  plot(times, substitutions, ...)
+  return(data.frame(times, substitutions))
+}
 
-#plot.clock()
+
+plot.clock(rate.sim.object)
