@@ -12,9 +12,19 @@ r1 <- simulate.tdep.generic(t1, params = list(mu = 0.015, srate = 0.035, lambda 
 
 
 
-plot.rates.time(rate.sim.object = r1, col.lineages = rainbow(10))
+plot.rates.time(rate.sim.object = r1, col.lineages = rainbow(10), type ="s")
 
 
-r2 <- simulate.tdep.generic(t1, params = list(mu = 0.15, srate = 0.01, lambda = 5, noise = 0.0002))
+r2 <- simulate.tdep.generic(t1, params = list(mu = 0.01, srate = 0.001, lambda = 5, noise = 0.00001))
 
-plot.rates.time(rate.sim.object = r2, col.lineages = rainbow(10))
+plot.rates.time(rate.sim.object = r2, col.lineages = rainbow(10), type = "s")
+
+
+
+t2 <- rtree(10)
+
+t2.factor <- max(allnode.times(t2)) / 50 
+
+t2$edge.length <- t2$edge.length / t2.factor
+
+

@@ -10,11 +10,25 @@ setwd("..")
 
 r1 <- simulate.tdep.generic(t1, params = list(mu = 0.015, srate = 0.035, lambda = 0.2, noise = 0.0002))
 
+plot.rates.time(rate.sim.object = r1, col.lineages = rainbow(10), type ="s")
 
+system("sleep 2")
 
-plot.rates.time(rate.sim.object = r1, col.lineages = rainbow(10))
+r2 <- simulate.tdep.generic(t1, params = list(mu = 0.01, srate = 0.001, lambda = 5, noise = 0.00001))
 
+plot.rates.time(rate.sim.object = r2, col.lineages = rainbow(10), type = "s")
 
-r2 <- simulate.tdep.generic(t1, params = list(mu = 0.01, srate = 0.0001, lambda = 5, noise = 0.0002))
+system("sleep 2")
 
-plot.rates.time(rate.sim.object = r2, col.lineages = rainbow(10))
+###
+# Testing with an heterochronous tree
+
+t2 <- rtree(10)
+
+t2.factor <- max(allnode.times(t2)) / 50 
+
+t2$edge.length <- t2$edge.length / t2.factor
+
+r3 <- simulate.autocor.kishino(t2)
+
+plot.rates.time(rate.sim.object = r3, col.lineages = rainbow(10), type = "s")

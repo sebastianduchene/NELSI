@@ -14,7 +14,8 @@ simulate.tdep.generic <- function(tree, params = list(mu = 0.015, srate = 0.035,
     }
 
     data.matrix <- get.tree.data.matrix(tree)
-    b.times <- c(rep(0, length(tree$tip.label)), branching.times(tree))
+    node.ages <- allnode.times(tree)
+    b.times <- c(rep(0, length(tree$tip.label)), node.ages[(length(tree$tip.label) + 1):length(node.ages)])
     names(b.times) <- 1:length(b.times)
 
     ratetemp <- vector()

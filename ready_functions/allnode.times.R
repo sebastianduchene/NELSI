@@ -7,5 +7,5 @@ allnode.times <- function(phylo, tipsonly = FALSE){
     if(tipsonly == TRUE){
     	node.times <- phylo.depth - di.phylo[as.numeric(rownames(di.phylo)) == root.phylo, 1:length(phylo$tip.label)]
     }
-    return(round(node.times, 5))
+    return(node.times)
 }
