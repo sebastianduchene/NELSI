@@ -1,14 +1,10 @@
 
-simulate.tdep.ho <- function(tree, params = list(mu = 0.015, srate = 0.035, lambda = 0.1, noise = 0.001)){
+simulate.tdep.generic <- function(tree, noise = 0.001, fun = function(time){ 0.035 * (0.015 * exp(-0.1 * time)) }){
     require(phangorn)
     require(geiger)
-    mu <- params$mu
-    srate <- params$srate
-    lambda <- params$lambda
-    noise <- params$noise
-    fun.rate <- function(x, m = mu, s = srate, lam = lambda){
-        if(any(x >= 0)){
-            return(s + (m * exp(-lam * x)))
+    fun.rate <- function(time){
+        if(any(time >= 0)){
+            return(fun(time))
         }else{
             stop("x is cannot be a negative number")
         }
