@@ -1,13 +1,9 @@
-simulate.tdep.generic <- function(tree, params = list(mu = 0.015, srate = 0.035, lambda = 0.1, noise = 0.001)){
+simulate.tdep.generic <- function(tree, noise = 0.001, fun = function(time){ 0.035 * (0.015 * exp(-0.1 * time)) }){
     require(phangorn)
     require(geiger)
-    mu <- params$mu
-    srate <- params$srate
-    lambda <- params$lambda
-    noise <- params$noise
-    fun.rate <- function(x, m = mu, s = srate, lam = lambda){
-        if(any(x >= 0)){
-            return(s + (m * exp(-lam * x)))
+    fun.rate <- function(time){
+        if(any(time >= 0)){
+            return(fun(time))
         }else{
             stop("x is cannot be a negative number")
         }
@@ -15,14 +11,14 @@ simulate.tdep.generic <- function(tree, params = list(mu = 0.015, srate = 0.035,
 
     data.matrix <- get.tree.data.matrix(tree)
     node.ages <- allnode.times(tree)
-    b.times <- c(rep(0, length(tree$tip.label)), node.ages[(length(tree$tip.label) + 1):length(node.ages)])
+    b.times <- c(rep(0, length(tree$tip.label)), node.ages[(length(tree$tip.labels)+1):length(node.ages)])
     names(b.times) <- 1:length(b.times)
 
     ratetemp <- vector()
     for(i in 1:length(tree$edge.length)){
-     parentage <- b.times[as.character(data.matrix[i,2])]
-     daughterage <- b.times[as.character(data.matrix[i,3])]
-     ratetemp[i] <- integrate(fun.rate, lower = daughterage, upper = parentage)$value / data.matrix[i,7]
+    	  parentage <- b.times[as.character(data.matrix[i,2])]
+    	  daughterage <- b.times[as.character(data.matrix[i,3])]
+    	  ratetemp[i] <- integrate(fun.rate, lower = daughterage, upper = parentage)$value / data.matrix[i,7]
     }
 
     data.matrix[, 5] <- abs(ratetemp + rnorm(nrow(data.matrix), mean = 0, sd = noise))

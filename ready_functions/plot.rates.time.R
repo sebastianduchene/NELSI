@@ -1,4 +1,3 @@
-
 plot.rates.time <- function(rate.sim.object, col.lineages = colors(), type = "l"){
   
   rates.time.list <- list()
