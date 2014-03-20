@@ -1,4 +1,5 @@
-get.tree.data.matrix <- function(phylo){
+get.tree.data.matrix <-
+function(phylo){
     require(phangorn)
     require(geiger)
     data.matrix <- matrix(data = NA, ncol = 7, nrow = length(phylo$edge.length))
@@ -11,4 +12,3 @@ get.tree.data.matrix <- function(phylo){
     class(data.matrix) <- "tree.data.matrix"
     return(data.matrix)
 }
-

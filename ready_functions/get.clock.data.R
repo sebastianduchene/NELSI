@@ -1,4 +1,4 @@
-plot.clock <- function(rate.sim.object, tipsonly = T, ...){
+get.clock.data <- function(rate.sim.object, tipsonly = T, ...){
   phylogram <- rate.sim.object$phylogram
   chrono <- rate.sim.object$phylogram
   chrono$edge.length <- rate.sim.object[[2]][, 7]

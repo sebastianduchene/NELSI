@@ -10,13 +10,13 @@ setwd("..")
 
 r1 <- simulate.tdep.ho(t1, params = list(mu = 0.015, srate = 0.035, lambda = 0.2, noise = 0.0002))
 
-plot.rates.time(rate.sim.object = r1, col.lineages = rainbow(10), type ="s")
+plot(rate.sim.object = r1, col.lineages = rainbow(10), type ="s")
 
 system("sleep 2")
 
 r2 <- simulate.tdep.ho(t1, params = list(mu = 0.01, srate = 0.001, lambda = 5, noise = 0.00001))
 
-plot.rates.time(rate.sim.object = r2, col.lineages = rainbow(10), type = "s")
+plot(rate.sim.object = r2, col.lineages = rainbow(10), type = "s")
 
 system("sleep 2")
 
@@ -31,7 +31,7 @@ t2$edge.length <- t2$edge.length / t2.factor
 
 r3 <- simulate.autocor.kishino(t2)
 
-plot.rates.time(rate.sim.object = r3, col.lineages = rainbow(10), type = "s")
+plot(rate.sim.object = r3, col.lineages = rainbow(10), type = "s")
 
 system("sleep 2")
 
@@ -48,5 +48,5 @@ lin.rate <- function(time) return((time*3))
 
 r4 <- simulate.tdep.generic(t4, noise = 0.000001, fun = lin.rate)
 
-plot.rates.time(rate.sim.object = r4, col.lineages = rainbow(10), type = "s")
+plot(rate.sim.object = r4, col.lineages = rainbow(10), type = "s")
 

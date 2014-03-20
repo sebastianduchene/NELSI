@@ -1,17 +1,5 @@
-
-
-setwd("ready_functions")
-for(i in dir()) source(i)
-setwd("..")
-
-library(geiger)
-
-tr1 <- rtree(10)
-
-rate.sim.object <- simulate.autocor.kishino(tr1, params = list(initial.rate = 0.01, v = 0.5))
-
-
-plot.clock <- function(rate.sim.object, tipsonly = T, ...){
+get.clock.data <-
+function(rate.sim.object, tipsonly = T, ...){
   phylogram <- rate.sim.object$phylogram
   chrono <- rate.sim.object$phylogram
   chrono$edge.length <- rate.sim.object[[2]][, 7]
@@ -20,6 +8,3 @@ plot.clock <- function(rate.sim.object, tipsonly = T, ...){
   plot(times, substitutions, ...)
   return(data.frame(times, substitutions))
 }
-
-
-plot.clock(rate.sim.object)

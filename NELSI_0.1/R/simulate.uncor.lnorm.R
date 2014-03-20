@@ -1,4 +1,5 @@
-simulate.uncor.lnorm <- function(tree, params = list(mean.log = -3.9, sd.log = 0.1)){
+simulate.uncor.lnorm <-
+function(tree, params = list(mean.log = -3.9, sd.log = 0.1)){
     mean.log <- params$mean.log
     sd.log <- params$sd.log
     data.matrix <- get.tree.data.matrix(tree)

@@ -8,5 +8,6 @@ simulate.uncor.gamma <- function(tree, params = list(shape = 98, rate = 4361)){
     tree$edge.length <- data.matrix[, 6]
     res <- list(tree, data.matrix)
     names(res) <- c("phylogram", "tree.data.matrix")
+    class(res) <- "ratesim"
     return(res)
 }

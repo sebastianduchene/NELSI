@@ -9,5 +9,6 @@ simulate.clock <- function(tree, params = list(rate = 0.02, noise = 0.0001)){
     tree$edge.length <- data.matrix[, 6]
     res <- list(tree, data.matrix)
     names(res) <- c("phylogram", "tree.data.matrix")
+    class(res) <- "ratesim"
     return(res)
 }

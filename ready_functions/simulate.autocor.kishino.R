@@ -22,5 +22,6 @@ simulate.autocor.kishino <- function(tree, params = list(initial.rate = 0.01, v 
     tree$edge.length <- data.matrix[, 6]
     res <- list(tree, data.matrix)
     names(res) <- c("phylogram", "tree.data.matrix")
+    class(res) <- "ratesim"
     return(res)
 }

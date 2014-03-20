@@ -7,5 +7,6 @@ simulate.uncor.exp <- function(tree, params = list(mean.exp = 0.001)){
     tree$edge.length <- data.matrix[, 6]
     res <- list(tree, data.matrix)
     names(res) <- c("phylogram", "tree.data.matrix")
+    class(res) <- "ratesim"
     return(res)
 }

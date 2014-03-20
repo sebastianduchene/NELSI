@@ -2,13 +2,13 @@ This is the home of NELSI: Nucleotide Evolutionary rate Simulator
 
 This is the list of potential functions:
 
-- molrate.sim (currently molrate.sim.tree)
-  - ~~strict clock X~~
-  - ~~uncorrelated lognormal X~~
+- simulate.rate
+  - ~~strict clock ~~
+  - ~~uncorrelated lognormal ~~
   - ~~uncorrelated exponential~~
   - ~~uncorrelated gamma~~
-  - ~~autocorrelated Kishino (2001) X~~
-  - ~~autocorrelated Thorne (1998) X~~
+  - ~~autocorrelated Kishino (2001) ~~
+  - ~~autocorrelated Thorne (1998) ~~
   - ?White noise
   - ~~Time dependent exponential decay~~
   - ~~Time dependent with custom function~~
@@ -17,7 +17,7 @@ This is the list of potential functions:
 
 - ~~get.rate.descendant.pairs~~
 
-- ~~allnode.times (if used for substitutions and time, then it can be used for linear regression to test for clocklike behaviour as in path-o-gen)X~~
+- ~~allnode.times (if used for substitutions and time, then it can be used for linear regression to test for clocklike behaviour as in path-o-gen)~~
 
 - ~~mid.ages~~
 
@@ -26,6 +26,7 @@ This is the list of potential functions:
 - ~~plot rates trough time along lineages~~
 
 - ~~plot root to tip distance with a chronogram and a phylogram~~
+
 
 The dependencies are:
 

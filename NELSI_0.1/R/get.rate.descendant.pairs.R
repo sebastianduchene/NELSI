@@ -1,4 +1,5 @@
-get.rate.descendant.pairs <- function(rate.sim.object){
+get.rate.descendant.pairs <-
+function(rate.sim.object){
 	dat <- rate.sim.object$tree.data.matrix
 	parent.rate <- vector()
 	daughter.rate <- vector()

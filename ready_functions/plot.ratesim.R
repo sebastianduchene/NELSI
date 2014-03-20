@@ -1,4 +1,4 @@
-plot.rates.time <- function(rate.sim.object, col.lineages = colors(), type = "l"){
+plot.ratesim <- function(rate.sim.object, col.lineages = colors(), type = "l"){
   
   rates.time.list <- list()
   for(i in 1:length(rate.sim.object[[1]]$tip.label)){

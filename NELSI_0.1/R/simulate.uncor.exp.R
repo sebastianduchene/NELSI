@@ -1,8 +1,8 @@
-simulate.uncor.lnorm <- function(tree, params = list(mean.log = -3.9, sd.log = 0.1)){
-    mean.log <- params$mean.log
-    sd.log <- params$sd.log
+simulate.uncor.exp <-
+function(tree, params = list(mean.exp = 0.001)){
+    mean.exp <- params$mean.exp
     data.matrix <- get.tree.data.matrix(tree)
-    branch.rates <- rlnorm(n = length(tree$edge.length), meanlog = mean.log, sdlog = sd.log)
+    branch.rates <- rexp(n = length(tree$edge.length), rate = 1 / mean.exp)
     data.matrix[, 5] <- branch.rates
     data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
     tree$edge.length <- data.matrix[, 6]

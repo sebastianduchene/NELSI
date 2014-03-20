@@ -1,4 +1,5 @@
-simulate.autocor.thorne <- function(tree, params = list(initial.rate = 0.01, v = 0.3)){
+simulate.autocor.kishino <-
+function(tree, params = list(initial.rate = 0.01, v = 0.3)){
     require(phangorn)
     require(geiger)
     initial.rate <- params$initial.rate
@@ -12,7 +13,7 @@ simulate.autocor.thorne <- function(tree, params = list(initial.rate = 0.01, v =
             preceeding.parent.brage <- data.matrix[, 4][data.matrix[, 2] == preceeding.parent][1]
             preceeding.parent.brrate <- data.matrix[, 5][data.matrix[, 2] == preceeding.parent][1]
             if(!(is.na(preceeding.parent.brrate)) & !(is.nan(preceeding.parent.brrate)) & (parent.node %in% data.matrix[, 3])){
-                data.matrix[i, 5] <- abs(rlnorm(1, mean = log(abs(preceeding.parent.brrate)), sd = v * abs(data.matrix[i, 4] - preceeding.parent.brage)^0.5))
+                data.matrix[i, 5] <- abs(rlnorm(1, mean = log(abs(preceeding.parent.brrate)), sd = v * data.matrix[i - 1, 7]^0.5))
             }else if(!(parent.node %in% data.matrix[, 3])){
                 data.matrix[i, 5] <- abs(rlnorm(1, mean = log(abs(initial.rate)), sd = sqrt(initial.rate)))
             }
@@ -22,6 +23,6 @@ simulate.autocor.thorne <- function(tree, params = list(initial.rate = 0.01, v =
     tree$edge.length <- data.matrix[, 6]
     res <- list(tree, data.matrix)
     names(res) <- c("phylogram", "tree.data.matrix")
-    class(res)  <- "ratesim"
+    class(res) <- "ratesim"
     return(res)
 }
