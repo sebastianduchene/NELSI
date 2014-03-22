@@ -7,8 +7,8 @@ This is the list of potential functions:
   - ~~uncorrelated lognormal ~~
   - ~~uncorrelated exponential~~
   - ~~uncorrelated gamma~~
-  - ~~autocorrelated Kishino (2001) ~~
-  - ~~autocorrelated Thorne (1998) ~~
+  - ~~autocorrelated Kishino (2001)~~
+  - ~~autocorrelated Thorne (1998)~~
   - ~~White noise~~
   - ~~Time dependent exponential decay~~
   - ~~Time dependent with custom function~~
