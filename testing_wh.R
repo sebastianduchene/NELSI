@@ -1,0 +1,1 @@
+tr <- sim.bdtree(b = 1, d = 0, n = 10, stop = "taxa")

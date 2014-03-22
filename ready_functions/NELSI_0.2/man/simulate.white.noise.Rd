@@ -1,0 +1,73 @@
+\name{simulate.white.noise}
+\alias{simulate.white.noise}
+%- Also NEED an '\alias' for EACH other topic documented here.
+\title{
+%%  ~~function to do ... ~~
+}
+\description{
+%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+}
+\usage{
+simulate.white.noise(tree, params = list(mean.log = -3.9, sd.log = 0.1))
+}
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+  \item{tree}{
+%%     ~~Describe \code{tree} here~~
+}
+  \item{params}{
+%%     ~~Describe \code{params} here~~
+}
+}
+\details{
+%%  ~~ If necessary, more details than the description above ~~
+}
+\value{
+%%  ~Describe the value returned
+%%  If it is a LIST, use
+%%  \item{comp1 }{Description of 'comp1'}
+%%  \item{comp2 }{Description of 'comp2'}
+%% ...
+}
+\references{
+%% ~put references to the literature/web site here ~
+}
+\author{
+%%  ~~who you are~~
+}
+\note{
+%%  ~~further notes~~
+}
+
+%% ~Make other sections like Warning with \section{Warning }{....} ~
+
+\seealso{
+%% ~~objects to See Also as \code{\link{help}}, ~~~
+}
+\examples{
+##---- Should be DIRECTLY executable !! ----
+##-- ==>  Define data, use random,
+##--	or do  help(data=index)  for the standard data sets.
+
+## The function is currently defined as
+function (tree, params = list(mean.log = -3.9, sd.log = 0.1)) 
+{
+    mean.log <- params$mean.log
+    sd.log <- params$sd.log
+    data.matrix <- get.tree.data.matrix(tree)
+    branch.noise <- sd.log * (data.matrix[, 7]/mean(data.matrix[, 
+        7]))
+    branch.rates <- sapply(branch.noise, function(x) rlnorm(1, 
+        mean.log, branch.noise))
+    data.matrix[, 5] <- branch.rates
+    data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
+    tree$edge.length <- data.matrix[, 6]
+    res <- list(tree, data.matrix)
+    class(res) <- "ratesim"
+    return(res)
+  }
+}
+% Add one or more standard keywords, see file 'KEYWORDS' in the
+% R documentation directory.
+\keyword{ ~kwd1 }
+\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
