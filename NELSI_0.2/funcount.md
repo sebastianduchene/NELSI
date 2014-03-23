@@ -4,15 +4,15 @@ This is the list for the documentation completed for the functions
 
 - ~~allnode.times.Rd~~
 
-- get.clock.data.Rd
+- ~~get.clock.data.Rd~~
 
 - get.lineage.time.rate.Rd
 
 - get.rate.descendant.pairs.Rd
 
-- get.tree.data.matrix.Rd
+- ~~get.tree.data.matrix.Rd~~
 
-- mid.edge.ages.Rd
+- ~~mid.edge.ages.Rd~~
 
 - ~~pathnode.Rd~~
 

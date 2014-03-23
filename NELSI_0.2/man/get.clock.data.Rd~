@@ -14,7 +14,7 @@ get.clock.data(rate.sim.object, tipsonly = T, ...)
 An object of class ratesim, which is typically obtained with the rate simulation functions (see example).
 }
   \item{tipsonly}{
-Logical.
+logical.
 root-to-tip regressions are usually conducted for the tips only, but it can also include the internal nodes. If tipsonly == T, the data only include the tips, if tipsonly == F it will include the tips and internal nodes.
 }
   \item{\dots}{
@@ -54,14 +54,12 @@ tiplabels(round(myTreeTimes[1:10], 2))
 nodelabels(round(myTreeTimes[11:19], 2))
 
 # Simulate rates along the tree with the uncorrlated lognormal model with default settings.
-rateTree <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm)
+rateTree <- simulate.uncor.lnorm(myTree)
 
 clockDataTree <- get.clock.data(rateTree, pch = 20, col = "blue")
 
 # Linear regression for substitutions as a function of time
 
-lmRate <- lm(substitutions ~ times, data = clockDataTree)
-summary(lmRate)
 
 
 ## The function is currently defined as
@@ -76,4 +74,7 @@ function (rate.sim.object, tipsonly = T, ...)
     return(data.frame(times, substitutions))
   }
 }
-\keyword{ molecular-clock }
+% Add one or more standard keywords, see file 'KEYWORDS' in the
+% R documentation directory.
+\keyword{ ~kwd1 }
+\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

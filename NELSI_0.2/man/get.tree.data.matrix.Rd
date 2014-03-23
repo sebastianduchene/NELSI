@@ -1,50 +1,52 @@
 \name{get.tree.data.matrix}
 \alias{get.tree.data.matrix}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+get.tree.data.matrix
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Obtain the tree data matrix from a phylogenetic tree. The tree should be a chronogram, with branch lengths representing time.
 }
 \usage{
 get.tree.data.matrix(phylo)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{phylo}{
-%%     ~~Describe \code{phylo} here~~
+A phylogenetic tree of class 'phylo'. The tree should be a chronogram, with branch lengths representing time. 
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+None
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A matrix with 7 colums and number of rows = number of edges in the tree. Each row corresponds to a branch (or edge) of the tree. The columns of the matrix correspond to the following:
+
+branch.index: The number of the branch (or edge) in the tree.
+parent.node: The node of the corresponding branch that is closer to the root of the tree.
+daughter.node: The node of the corresponding branch that is closer to the tips.
+branch.midage: The median age of the branch.
+branch.rate: The rate along the branch. It is set to NA if get.tree.data.matrix is called directly on a phylogenetic trees.  The functions simulate.rate and trann2trdat fill this column with the branch-wise rates.
+lengths.subst: Number of substitutions along the branch. It is set to NA if get.tree.data.matrix is called directly on a phylogenetic trees.  The functions simulate.rate and trann2trdat fill this column with the branch-wise rates.
+length.time: The branch lengths in units of time.
 }
 \references{
-%% ~put references to the literature/web site here ~
+None.
 }
 \author{
-%%  ~~who you are~~
+David Duchene and Sebastian Duchene
 }
 \note{
-%%  ~~further notes~~
+This function is used internally by the simulate.rate()]
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+simulate.rate
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+set.seed(12345)
+myTree <- rcoal(10)
+myDataMatrix <- get.tree.data.matrix(myTree)
+print(myDataMatrix)
+
 
 ## The function is currently defined as
 function (phylo) 
@@ -64,7 +66,4 @@ function (phylo)
     return(data.matrix)
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ phylo }
