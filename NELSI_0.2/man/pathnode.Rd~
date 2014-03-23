@@ -1,53 +1,55 @@
 \name{pathnode}
 \alias{pathnode}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+pathnode
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+pathnode obtains the root-to tip distance for all tips in the tree, and the number of nodes along the path to each tip. These data are useful to evaluate the Node Density effect in phylogenetic trees.
 }
 \usage{
 pathnode(phylo, tipsonly = T)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{phylo}{
-%%     ~~Describe \code{phylo} here~~
+A phylogenetic tree of class 'phylo'
 }
   \item{tipsonly}{
-%%     ~~Describe \code{tipsonly} here~~
+A logical value (T / F) indicating whether the function should only return the root-to-tip distance and number of nodes along a lineage for the tips only. Select T for the tips only, and F for the tips and internal nodes.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+The function plots the root-to-tip distance and the number of nodes along each lineage. It also returns a list with the two variables. The data can be used to assess the node-density effect in phylogenetic trees.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A list with two items:
+roottotippath is the distance from the root to the tips. If tipsonly==F, it will also include the distances for internal nodes.
+nodesinpath is the number of nodes along a lineage. If tipsonly==F, it will also include the number of nodes for internal nodes. These are counted from the tips to the root.
 }
 \references{
-%% ~put references to the literature/web site here ~
+Venditti, Chris, Andrew Meade, and Mark Pagel. "Detecting the node-density artifact in phylogeny reconstruction." Systematic biology 55.4 (2006): 637-643.
+
+Hugall, Andrew F., and Michael SY Lee. "The likelihood node density effect and consequences for evolutionary studies of molecular rates." Evolution 61.10 (2007): 2293-2307.
 }
 \author{
-%%  ~~who you are~~
+David Duchene
 }
 \note{
-%%  ~~further notes~~
+Please see the references for more detailed information.
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+Pending.
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+set.seed(12345)
+myTree <- rtree(10)
+
+par(mfrow = c(1, 2))
+plot(myTree)
+nde <- pathnode(myTree)
+nde
+
+
 
 ## The function is currently defined as
 function (phylo, tipsonly = T) 
@@ -67,15 +69,11 @@ function (phylo, tipsonly = T)
     else {
         roottotippath <- di.tr[as.numeric(rownames(di.tr)) == 
             root.tr, ]
-        nodesinpath <- sapply(1:length(phylo$tip.label), function(x) length(Ancestors(phylo, 
-            x)))
+	nodesinpath <- sapply(1:(length(phylo$tip.label)+phylo$Nnode), function(x) length(Ancestors(phylo, x)))
     }
     plot(roottotippath, nodesinpath, xlab = "Root-to-tip path length", 
         ylab = "Number of parent nodes", pch = 20)
     return(list(roottotippath = roottotippath, nodesinpath = nodesinpath))
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ Node-density-effect }
