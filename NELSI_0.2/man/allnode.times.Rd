@@ -2,52 +2,58 @@
 \alias{allnode.times}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+allnode.times
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+allnode.times is used to obtain the ages of all nodes in the tree. It is similar to branching.times() in ape, but it also returns the ages of the tips. This is particularly useful for heterochronous trees.
 }
 \usage{
 allnode.times(phylo, tipsonly = FALSE)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{phylo}{
-%%     ~~Describe \code{phylo} here~~
+A phylogenetic tree of class 'phylo'
 }
   \item{tipsonly}{
-%%     ~~Describe \code{tipsonly} here~~
+A logical (T / F). With T, the function returns the ages of the tips only. With F, it returns the ages of the tips and internal nodes.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This function is similar to branching.times, but it also returns the ages of the tips. In ultrametric trees, the ages of all tips are 0, but in heterocrhonous trees they can have different ages.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A vector with the ages of all nodes in the tree. The youngest tip always has age 0.
+The items of the vector are numbered according to the 'phylo' object. To inspect the numbering of the tips and internal nodes see the example.
 }
 \references{
-%% ~put references to the literature/web site here ~
+Pending.
 }
 \author{
-%%  ~~who you are~~
+David Duchene and Sebastian Duchene
 }
 \note{
-%%  ~~further notes~~
+None
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+branching.times() from package 'ape'
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+set.seed(12345)
+myTree <- rtree(10)
+plot(myTree)
+# See the numbering of internal nodes and tips. Note that the tip labels and the actual numbering of the tips are different.
+nodelabels()
+tiplabels()
+allnode.times(myTree)
+
+# Plot the tree and add the ages of the tips and internal nodes.
+plot(myTree, show.tip.label = F)
+allTimes <- allnode.times(myTree)
+allTimes
+tiplabels(round(allTimes[1:10]))
+nodelabels(round(allTimes[11:19]))
+
 
 ## The function is currently defined as
 function (phylo, tipsonly = FALSE) 
@@ -67,7 +73,4 @@ function (phylo, tipsonly = FALSE)
     return(node.times)
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ chronogram }

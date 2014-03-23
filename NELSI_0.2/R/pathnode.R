@@ -10,7 +10,7 @@ function(phylo, tipsonly = T){
     	nodesinpath <- sapply(1:length(phylo$tip.label), function(x) length(Ancestors(phylo, x)))
     } else {
 		roottotippath <- di.tr[as.numeric(rownames(di.tr)) == root.tr, ]
-		nodesinpath <- sapply(1:length(phylo$tip.label), function(x) length(Ancestors(phylo, x)))
+		nodesinpath <- sapply(1:(length(phylo$tip.label)+phylo$Nnode), function(x) length(Ancestors(phylo, x)))
 	}
 	plot(roottotippath, nodesinpath, xlab = "Root-to-tip path length", ylab = "Number of parent nodes", pch = 20)
 	return(list(roottotippath = roottotippath, nodesinpath = nodesinpath))
