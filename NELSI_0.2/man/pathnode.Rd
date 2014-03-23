@@ -22,8 +22,8 @@ The function plots the root-to-tip distance and the number of nodes along each l
 }
 \value{
 A list with two items:
-roottotippath is the distance from the root to the tips. If tipsonly==F, it will also include the distances for internal nodes.
-nodesinpath is the number of nodes along a lineage. If tipsonly==F, it will also include the number of nodes for internal nodes. These are counted from the tips to the root.
+  \item{roottotippath }{A vector with the distance from the root to the tips. If tipsonly==F, it will also include the distances for internal nodes.}
+  \item{nodesinpath }{A vector with the number of nodes along a lineage. If tipsonly==F, it will also include the number of nodes for internal nodes. These are counted from the tips to the root.}
 }
 \references{
 Venditti, Chris, Andrew Meade, and Mark Pagel. "Detecting the node-density artifact in phylogeny reconstruction." Systematic biology 55.4 (2006): 637-643.
