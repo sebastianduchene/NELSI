@@ -1,6 +1,6 @@
 ~~NELSI_0.2-package.Rd~~
 ~~allnode.times.Rd~~
-get.clock.data.Rd
+get.clock.data.Rd\n
 get.lineage.time.rate.Rd
 get.rate.descendant.pairs.Rd
 get.tree.data.matrix.Rd

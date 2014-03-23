@@ -1,12 +1,11 @@
-NELSI_0.2-package.Rd
-allnode.times.Rd
+~~NELSI_0.2-package.Rd~~
+~~allnode.times.Rd~~
 get.clock.data.Rd
 get.lineage.time.rate.Rd
 get.rate.descendant.pairs.Rd
 get.tree.data.matrix.Rd
 mid.edge.ages.Rd
-pathnode.Rd
-pathnode.Rd~
+~~pathnode.Rd~~
 plot.ratesim.Rd
 simulate.autocor.kishino.Rd
 simulate.autocor.thorne.Rd
