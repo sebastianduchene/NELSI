@@ -40,36 +40,21 @@ An object of class 'ratesim'. This is a list with two items:
 See the original reference for NELSI: Pending.
 }
 \author{
-David Duchene and Sebastian Duchene
+%%  ~~who you are~~
 }
 \note{
-None.
+%%  ~~further notes~~
 }
+
+%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
- - simulate.autocor.kishino
- - simulate.autocor.thorne
- - simulate.clock
- - simulate.tdep.generic
- - simulate.tdep.ho
- - simulate.uncor.exp
- - simulate.uncor.lnorm
- - simulate.uncor.gamma
- - simulate.white.noise
+%% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-set.seed(1234525)
-
-myTree <- rcoal(50)
-
-# Simulate uncorrelated rates with default parameters:
-rateTree.default <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm)
-plot(rateTree.default, col.lineages = rainbow(50))
-
-# Simulate uncorrelated rates with custom parameters:
-rateTree.custom <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm, params = list(mean.log = -3.9, sd.log = 0.8))
-plot(rateTree.custom, col.lineages = rainbow(50))
-
+##---- Should be DIRECTLY executable !! ----
+##-- ==>  Define data, use random,
+##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
 function (tree, FUN, ...) 
@@ -78,5 +63,7 @@ function (tree, FUN, ...)
     return(ratesim.object)
   }
 }
-\keyword{ phylo }
-\keyword{ rate of evolution }
+% Add one or more standard keywords, see file 'KEYWORDS' in the
+% R documentation directory.
+\keyword{ ~kwd1 }
+\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

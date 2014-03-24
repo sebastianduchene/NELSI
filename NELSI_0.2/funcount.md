@@ -24,7 +24,7 @@ This is the list for the documentation completed for the functions
 
 - ~~simulate.clock.Rd~~
 
-- simulate.rate.Rd
+- ~~simulate.rate.Rd~~
 
 - simulate.tdep.generic.Rd
 
