@@ -29,5 +29,11 @@ Pending.
 \seealso{
 }
 \examples{
-%~~ simple examples of the most important functions ~~
+set.seed(1234525)
+
+myTree <- rcoal(50)
+
+# Simulate uncorrelated rates with default parameters:
+rateTree.default <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm)
+plot(rateTree.default, col.lineages = rainbow(50))
 }
