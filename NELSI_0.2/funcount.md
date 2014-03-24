@@ -22,7 +22,7 @@ This is the list for the documentation completed for the functions
 
 - ~~simulate.autocor.thorne.Rd~~
 
-- simulate.clock.Rd
+- ~~simulate.clock.Rd~~
 
 - simulate.rate.Rd
 

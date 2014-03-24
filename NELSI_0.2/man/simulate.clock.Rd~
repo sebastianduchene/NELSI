@@ -14,7 +14,7 @@ simulate.clock(tree, params = list(rate = 0.02, noise = 1e-04))
 A phylogeneti tree of class 'phylo'. The tree should be a chronogram, with branch lengths in time.
 }
   \item{params}{
-parameters for the clock rate simulation function. This should be a list with two items:
+parameters for the autocorrelation function. This should be a list with two items:
  \item{rate}{The rate for the tree}
  \item{noise}{The stochastic noise. Note that if this parameter is set very high compared to the rate, the model will be similar to an uncorrelated rates model}
 }
