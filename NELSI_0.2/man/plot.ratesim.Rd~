@@ -1,59 +1,56 @@
 \name{plot.ratesim}
 \alias{plot.ratesim}
+%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-plot.ratesim
+%%  ~~function to do ... ~~
 }
 \description{
-This function plots the rate through time for all lineages in the tree of a ratesim object.
+%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
 plot.ratesim(rate.sim.object, col.lineages = colors(), type = "l")
 }
+%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{rate.sim.object}{
-An object of class ratesim, obtained with simulate.rate()
+%%     ~~Describe \code{rate.sim.object} here~~
 }
   \item{col.lineages}{
-A vector with the colours for the lineages in the tree. The length should be the same as the number of tips in the tree. The default uses the first colours from the colors() function.
+%%     ~~Describe \code{col.lineages} here~~
 }
   \item{type}{
-The type of plot. The default is "l", but "s" or "p"  can represent the rates more accurately because in most models the rates are averages over the branches.
+%%     ~~Describe \code{type} here~~
 }
 }
 \details{
-none.
+%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-The funtion plots the rate in the active graphics device.
+%%  ~Describe the value returned
+%%  If it is a LIST, use
+%%  \item{comp1 }{Description of 'comp1'}
+%%  \item{comp2 }{Description of 'comp2'}
+%% ...
 }
 \references{
-None.
+%% ~put references to the literature/web site here ~
 }
 \author{
-Sebastian Duchene
+%%  ~~who you are~~
 }
 \note{
-None.
+%%  ~~further notes~~
 }
+
+%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-get.lineage.time.rate()
+%% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-
-set.seed(123425)
-myTree <- rcoal(10)
-rateTree <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm)
-plot(rateTree, col.lineages = rainbow(10), type = "s")
-
-# for a non-ultrametric tree
-set.seed(123425)
-myTree1 <- rtree(10)
-rateTree1 <- simulate.rate(tree = myTree1, FUN = simulate.uncor.lnorm)
-plot(rateTree1, col.lineages = rainbow(10), type = "s")
-
-
-
+##---- Should be DIRECTLY executable !! ----
+##-- ==>  Define data, use random,
+##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
 function (rate.sim.object, col.lineages = colors(), type = "l") 
@@ -85,4 +82,5 @@ function (rate.sim.object, col.lineages = colors(), type = "l")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ simulate.rate }
+\keyword{ ~kwd1 }
+\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
