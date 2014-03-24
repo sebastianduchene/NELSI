@@ -3,8 +3,8 @@ This is the home of NELSI: Nucleotide Evolutionary rate Simulator
 This is the list of potential functions:
 
 - simulate.rate
-  - ~~strict clock ~~
-  - ~~uncorrelated lognormal ~~
+  - ~~strict clock~~
+  - ~~uncorrelated lognormal~~
   - ~~uncorrelated exponential~~
   - ~~uncorrelated gamma~~
   - ~~autocorrelated Kishino (2001)~~

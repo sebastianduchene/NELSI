@@ -1,3 +1,5 @@
+As of March 24 2014 this needs to be updated. Add tutorial and fix readme file
+
 This is the home of NELSI: Nucleotide Evolutionary rate Simulator
 
 This is the list of potential functions:
