@@ -18,7 +18,7 @@ This is the list for the documentation completed for the functions
 
 - ~~plot.ratesim.Rd~~
 
-- simulate.autocor.kishino.Rd
+- ~~simulate.autocor.kishino.Rd~~
 
 - simulate.autocor.thorne.Rd
 

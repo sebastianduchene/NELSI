@@ -28,7 +28,7 @@ An object of class 'ratesim'. This is a list with two items:
  \item{tree.data.matrix }{This is a matrix with the number of substitutions, rates, and times along every branch in the tree. See get.tree.data.matrix for more details}
 }
 \references{
-Kishino, H., Thorne, J.L., and Bruno, W. J. "Performance of a divergence time estimation method under a probabilistic model of rate evolution." Molecular Biology and Evolution 18.3 (2001): 352-361.
+Kishino, Hirohisa, Jeffrey L. Thorne, and William J. Bruno. "Performance of a divergence time estimation method under a probabilistic model of rate evolution." Molecular Biology and Evolution 18.3 (2001): 352-361.
 }
 \author{
 Sebastian Duchene. But see the reference for the original method.

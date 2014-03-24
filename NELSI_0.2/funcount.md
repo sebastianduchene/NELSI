@@ -20,7 +20,7 @@ This is the list for the documentation completed for the functions
 
 - ~~simulate.autocor.kishino.Rd~~
 
-- simulate.autocor.thorne.Rd
+- ~~simulate.autocor.thorne.Rd~~
 
 - simulate.clock.Rd
 
