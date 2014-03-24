@@ -32,10 +32,10 @@ This is the list for the documentation completed for the functions
 
 - ~~simulate.uncor.exp.Rd~~
 
-- simulate.uncor.gamma.Rd
+- ~~simulate.uncor.gamma.Rd~~
 
 - ~~simulate.uncor.lnorm.Rd~~
 
-- simulate.white.noise.Rd
+- ~~simulate.white.noise.Rd~~
 
 - ~~trann2trdat.Rd~~

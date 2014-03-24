@@ -1,53 +1,56 @@
 \name{simulate.uncor.gamma}
 \alias{simulate.uncor.gamma}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+simulate.uncor.gamma
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Simulate the rate of evolution along a phylogenetic tree using the gamma distributed rates model described in Drummond et al. (2006)
 }
 \usage{
 simulate.uncor.gamma(tree, params = list(shape = 98, rate = 4361))
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{tree}{
-%%     ~~Describe \code{tree} here~~
-}
-  \item{params}{
-%%     ~~Describe \code{params} here~~
+
+  \item{tree}{A phylogenetic tree of class 'phylo'. The branch lengths should be in units of time (chronogram)}
+\item(params}{
+parameters for the uncorrelated rates function. This should be a list with two items:
+ \item{shape}{The shape of the gamma distribution. It follows the usual parametrisation of the gamma distribution}
+ \item{rate}{The rate of the gamma distribution. Note that this is different from the substitution rate. Instead, this the the rate parameter typically used for the gamma distribution}
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+None
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+An object of class 'ratesim'. This is a list with two items:
+ \item{phylogram }{The phylogenetic tree with branch lengths in units of substitutions (phylogram)}
+ \item{tree.data.matrix }{This is a matrix with the number of substitutions, rates, and times along every branch in the tree. See get.tree.data.matrix for more details}
 }
 \references{
-%% ~put references to the literature/web site here ~
+Drummond, A.J., et al. "Relaxed phylogenetics and dating with confidence." PLoS biology 4.5 (2006): e88.
 }
 \author{
-%%  ~~who you are~~
+Sebastian Duchene. See the reference for the original description of the model.
 }
 \note{
-%%  ~~further notes~~
+Notes
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+simulate.uncor.lnorm
+simulate.uncor.exp
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+
+set.seed(1234525)
+
+myTree <- rcoal(50)
+
+rateTree <- simulate.uncor.gamma(tree = myTree, params = list(shape = 98, rate = 4361))
+plot(rateTree, col.lineages = rainbow(50))
+
+#See the histogram of the branch-wise rates
+hist(rateTree$tree.data.matrix[, 5])
 
 ## The function is currently defined as
 function (tree, params = list(shape = 98, rate = 4361)) 
@@ -66,7 +69,5 @@ function (tree, params = list(shape = 98, rate = 4361))
     return(res)
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ rate of evolution }
+\keyword{ phylo }

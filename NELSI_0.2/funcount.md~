@@ -30,11 +30,11 @@ This is the list for the documentation completed for the functions
 
 - simulate.tdep.ho.Rd
 
-- simulate.uncor.exp.Rd
+- ~~simulate.uncor.exp.Rd~~
 
-- simulate.uncor.gamma.Rd
+- ~~simulate.uncor.gamma.Rd~~
 
-- simulate.uncor.lnorm.Rd
+- ~~simulate.uncor.lnorm.Rd~~
 
 - simulate.white.noise.Rd
 
