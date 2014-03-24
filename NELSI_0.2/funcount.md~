@@ -8,7 +8,7 @@ This is the list for the documentation completed for the functions
 
 - ~~get.lineage.time.rate.Rd~~
 
-- get.rate.descendant.pairs.Rd
+- ~~get.rate.descendant.pairs.Rd~~
 
 - ~~get.tree.data.matrix.Rd~~
 
