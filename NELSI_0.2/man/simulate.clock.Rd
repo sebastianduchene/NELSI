@@ -1,53 +1,58 @@
 \name{simulate.clock}
 \alias{simulate.clock}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+simulate.clock
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+simulate.clock simulates a constant rate of evolution along a phylogenetic tree
 }
 \usage{
 simulate.clock(tree, params = list(rate = 0.02, noise = 1e-04))
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{tree}{
-%%     ~~Describe \code{tree} here~~
+A phylogeneti tree of class 'phylo'. The tree should be a chronogram, with branch lengths in time.
 }
   \item{params}{
-%%     ~~Describe \code{params} here~~
-}
+parameters for the autocorrelation function. This should be a list with two items:
+ \item{rate}{The rate for the tree}
+ \item{noise}{The stochastic noise. Note that if this parameter is set very high compared to the rate, the model will be similar to an uncorrelated rates model}
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+None
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+An object of class 'ratesim'. This is a list with two items:
+ \item{phylogram }{The phylogenetic tree with branch lengths in units of substitutions (phylogram)}
+ \item{tree.data.matrix }{This is a matrix with the number of substitutions, rates, and times along every branch in the tree. See get.tree.data.matrix for more details}
 }
 \references{
-%% ~put references to the literature/web site here ~
+This is a constant molecular rate model. The original model can be found in:
+Zuckerkandl, Emile, and Linus Pauling. "Molecular disease, evolution and genetic heterogeneity." (1962): 189-225.
+
+Zuckerkandl, Emile, and Linus Pauling. "Evolutionary divergence and convergence in proteins." Evolving genes and proteins 97 (1965): 97-166.
 }
 \author{
-%%  ~~who you are~~
+Sebastian Duchene. See references for the original description of the molecular clock.
 }
 \note{
-%%  ~~further notes~~
+None
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+None.
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+set.seed(1234525)
+
+myTree <- rcoal(10)
+
+# A tree with low stochastic variation
+rateClock <- simulate.clock(tree = myTree, params = list(rate = 0.01, noise = 0.00001))
+
+#Note the scale in the y axis. Rate variation is very low
+plot(rateClock, col.lineages = rainbow(10))
+
 
 ## The function is currently defined as
 function (tree, params = list(rate = 0.02, noise = 1e-04)) 
@@ -69,5 +74,6 @@ function (tree, params = list(rate = 0.02, noise = 1e-04))
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ clock }
+\keyword{ phylo }
+
