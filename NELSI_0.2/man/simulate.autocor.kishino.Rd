@@ -1,53 +1,58 @@
 \name{simulate.autocor.kishino}
 \alias{simulate.autocor.kishino}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+simulate.autocor.kishino
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Simulate rates of evolution along a phylogenetic tree with the model reported in Kishino et al. (2001).
 }
 \usage{
 simulate.autocor.kishino(tree, params = list(initial.rate = 0.01, v = 0.3))
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{tree}{
-%%     ~~Describe \code{tree} here~~
+A phylogeneti tree of class 'phylo'. The tree should be a chronogram, with branch lengths in time.
 }
   \item{params}{
-%%     ~~Describe \code{params} here~~
+parameters for the autocorrelation function. This should be a list with two items:
+ \item{inital.rate}{The rate at the root of the tree}
+ \item{v}{This is the nu parameter described in Kishino et al. (2001). A high value implies low autocorrelation, with high differences in the rates of parent and daughter branches. A low value of v implies high autocorrelation, with very similar rates between parent and daughter branches.
 }
 }
+}
+
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+See the original reference for further details.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+An object of class 'ratesim'. This is a list with two items:
+ \item{phylogram }{The phylogenetic tree with branch lengths in units of substitutions (phylogram)}
+ \item{tree.data.matrix }{This is a matrix with the number of substitutions, rates, and times along every branch in the tree. See get.tree.data.matrix for more details}
 }
 \references{
-%% ~put references to the literature/web site here ~
+Kishino, H., Thorne, J.L., and Bruno, W. J. "Performance of a divergence time estimation method under a probabilistic model of rate evolution." Molecular Biology and Evolution 18.3 (2001): 352-361.
 }
 \author{
-%%  ~~who you are~~
+Sebastian Duchene. But see the reference for the original method.
 }
 \note{
-%%  ~~further notes~~
+None
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+simulate.rate() can call all the rate simulation functions internally. 
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+set.seed(1234525)
+myTree <- rcoal(20)
+
+#Simulate high autocorrelation
+kishinoRateTreeHigh <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, v = 0.001))
+plot(kishinoRateTreeHigh, col.lineages = rainbow(20))
+
+#Simulate low autocorrelation
+kishinoRateTreeLow <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, v = 0.5))
+plot(kishinoRateTreeLow, col.lineages = rainbow(20))
 
 ## The function is currently defined as
 function (tree, params = list(initial.rate = 0.01, v = 0.3)) 
@@ -87,7 +92,5 @@ function (tree, params = list(initial.rate = 0.01, v = 0.3))
     return(res)
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ phylo }
+\keyword{ rate of evolution }

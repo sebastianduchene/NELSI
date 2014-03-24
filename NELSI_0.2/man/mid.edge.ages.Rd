@@ -1,50 +1,47 @@
 \name{mid.edge.ages}
 \alias{mid.edge.ages}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+mid.edge.ages obtans the ages of the mid point of the branches of a phylogenetic tree. It is not necessary for the tree to be ultrametric. 
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+mid.edge.ages produces a vector of length = number of edges of the tree with the mid.age of the branchies. Assuming that the tree is a chronogram.
 }
 \usage{
 mid.edge.ages(phylo)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{phylo}{
-%%     ~~Describe \code{phylo} here~~
+A phylogenetic tree of class 'phylo'. The branch lengths should be units of time.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+None
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A vector of length = number of edges in the tree. Each value is the median branch age.
 }
 \references{
-%% ~put references to the literature/web site here ~
+None
 }
 \author{
-%%  ~~who you are~~
+David Duchene
 }
 \note{
 %%  ~~further notes~~
+None
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+allnode.times produces the ages of internal nodes and tips.
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+set.seed(12345)
+myTree <- rcoal(10)
+
+plot(myTree)
+midAges <- mid.edge.ages(myTree)
+edgelabels(round(midAges, 2)) 
 
 ## The function is currently defined as
 function (phylo) 
@@ -99,7 +96,5 @@ function (phylo)
     }
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+
+\keyword{ phylo }

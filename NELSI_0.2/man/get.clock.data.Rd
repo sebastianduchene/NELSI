@@ -1,56 +1,68 @@
 \name{get.clock.data}
 \alias{get.clock.data}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+get.clock.data
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+get.clock.data returns a data frame with the root-to-tip distance in units of time and substitutions. These data are useful to test for clock-like behaviour with a OLS regression. The function also prints a plot of substitutions vs. time. The results are similar to those produced in path-o-gen (2009)
 }
 \usage{
 get.clock.data(rate.sim.object, tipsonly = T, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{rate.sim.object}{
-%%     ~~Describe \code{rate.sim.object} here~~
+An object of class ratesim, which is typically obtained with the rate simulation functions (see example).
 }
   \item{tipsonly}{
-%%     ~~Describe \code{tipsonly} here~~
+Logical.
+root-to-tip regressions are usually conducted for the tips only, but it can also include the internal nodes. If tipsonly == T, the data only include the tips, if tipsonly == F it will include the tips and internal nodes.
 }
   \item{\dots}{
-%%     ~~Describe \code{\dots} here~~
+Additional arguments passed to plot()
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+None.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A data frame with two colums. If tipsonly == T, the first colum is the time from the root to the tips and the second column is the number of substitutions from the root to the tip. If tipsonly == F, the data frame will also include the root-to-tip distances for the internal nodes.
 }
 \references{
-%% ~put references to the literature/web site here ~
+For a the original method implemented in java see:
+Rambaut, A. "Path-O-Gen: temporal signal investigation tool." (2009).
+http://tree.bio.ed.ac.uk/software/pathogen/
 }
 \author{
-%%  ~~who you are~~
+Sebastian Duchene
 }
 \note{
-%%  ~~further notes~~
+This function can also be used to analyse trees from a BEAST analysis.
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+trann2trdat can obtain the tree data matrix from a tree estimated with BEAST
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+set.seed(12345)
+myTree <- rtree(10) # Note that this tree is not ultrametric.
+myTreeTimes <- allnode.times(myTree)
+
+
+plot(myTree, show.tip.label = F)
+tiplabels(round(myTreeTimes[1:10], 2))
+nodelabels(round(myTreeTimes[11:19], 2))
+
+# Simulate rates along the tree with the uncorrlated lognormal model with default settings.
+rateTree <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm)
+
+clockDataTree <- get.clock.data(rateTree, pch = 20, col = "blue")
+
+# Linear regression for substitutions as a function of time
+
+lmRate <- lm(substitutions ~ times, data = clockDataTree)
+summary(lmRate)
+
 
 ## The function is currently defined as
 function (rate.sim.object, tipsonly = T, ...) 
@@ -64,7 +76,4 @@ function (rate.sim.object, tipsonly = T, ...)
     return(data.frame(times, substitutions))
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ molecular-clock }

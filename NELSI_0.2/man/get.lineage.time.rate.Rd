@@ -1,53 +1,56 @@
 \name{get.lineage.time.rate}
 \alias{get.lineage.time.rate}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+get.lineage.time.rate
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+get.lineage.time.rate obtains the branch-wise rates along a lineage. It uses a taxon to trace the rates back to the root of the tree.
+It is used internally by plot.ratesim().
 }
 \usage{
 get.lineage.time.rate(taxon, sim.rate.object)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{taxon}{
-%%     ~~Describe \code{taxon} here~~
+An integer corresponding to the index of a taxon. The index is the order of the taxa in the tree, which can be obtained with tr$tip.label. See example.
 }
   \item{sim.rate.object}{
-%%     ~~Describe \code{sim.rate.object} here~~
+An object of class ratesim. Usually produced with simulate.rate
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+None
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A data frame with two colums. The rows correspond to the each of the branches from the taxon to the root of the tree.
+The first column of the data frame is the mid age of the branch, and the second column is the rate along the branch.
 }
 \references{
-%% ~put references to the literature/web site here ~
+None.
 }
 \author{
-%%  ~~who you are~~
+Sebastian Duchene
 }
 \note{
-%%  ~~further notes~~
+None
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+simulate.rate()
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+set.seed(123425)
+myTree <- rcoal(10)
+rateTree <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm)
+plot(rateTree, col.lineages = rainbow(10))
+
+# Get the rate for the lineages ascending from the first taxon
+# Find the name of the first taxon
+myTree$tip.label
+
+get.lineages.rate(taxon = 1, sim.rate.object = rateTree)
+
+
 
 ## The function is currently defined as
 function (taxon, sim.rate.object) 
@@ -85,7 +88,5 @@ function (taxon, sim.rate.object)
     }
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ substitution rate }
+\keyword{ phylo }

@@ -1,53 +1,59 @@
 \name{simulate.white.noise}
 \alias{simulate.white.noise}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+simulate.white.noise
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+simulate.white.noise simulates the rate along a phylogeneti tree according to a white noise process. In particular, it samples from a lognormal distribution with a given mean and standard deviation. For each branch a rate is drawn from a distribution with the given mean. The standard deviation is divided by the branch length divided by the mean of the branch lengths. As a result, the rate of a long branch will be drawn from a distribution with a lower standard deviation than that for a short branch (i.e. the rate is more uncertain for shorter branches). 
 }
 \usage{
 simulate.white.noise(tree, params = list(mean.log = -3.9, sd.log = 0.1))
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{tree}{
-%%     ~~Describe \code{tree} here~~
+A phylogenetic tree of class 'phylo'. The branch lengths should be in units of time (a chronogram).
 }
   \item{params}{
-%%     ~~Describe \code{params} here~~
+  \item{mean.log}{The mean of the lognormal distribution. It should be in log scale}
+  \item{sd.log}{The standard deviation of the lognormal distribution. The actual value used for each branch will vary inversely with the branch length. See the description of the function}
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+None
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+An object of class 'ratesim'. This is a list with two items:
+ \item{phylogram }{The phylogenetic tree with branch lengths in units of substitutions (phylogram)}
+ \item{tree.data.matrix }{This is a matrix with the number of substitutions, rates, and times along every branch in the tree. See get.tree.data.matrix for more details}
+}
 }
 \references{
-%% ~put references to the literature/web site here ~
+A similar model is described in:
+Lepage, Thomas, et al. "A general comparison of relaxed molecular clock models." Molecular biology and evolution 24.12 (2007): 2669-2680.
 }
 \author{
-%%  ~~who you are~~
+Sebastian Duchene and David Duchene
 }
 \note{
-%%  ~~further notes~~
+none
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+simulate.uncor.lnorm
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+
+
+set.seed(1234525)
+
+myTree <- rcoal(50)
+
+rateTree <- simulate.white.noise(tree = myTree, params = list(mean.log = -3.9, sd.log = 0.1))
+plot(rateTree, col.lineages = rainbow(50))
+
+#See the histogram of the branch-wise rates
+hist(rateTree$tree.data.matrix[, 5])
 
 ## The function is currently defined as
 function (tree, params = list(mean.log = -3.9, sd.log = 0.1)) 
@@ -55,19 +61,17 @@ function (tree, params = list(mean.log = -3.9, sd.log = 0.1))
     mean.log <- params$mean.log
     sd.log <- params$sd.log
     data.matrix <- get.tree.data.matrix(tree)
-    branch.noise <- sd.log * (data.matrix[, 7]/mean(data.matrix[, 
+    branch.noise <- sd.log / (data.matrix[, 7]/mean(data.matrix[, 
         7]))
     branch.rates <- sapply(branch.noise, function(x) rlnorm(1, 
         mean.log, branch.noise))
     data.matrix[, 5] <- branch.rates
     data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
     tree$edge.length <- data.matrix[, 6]
-    res <- list(tree, data.matrix)
+    res <- list(tree, tree.data.matrix = data.matrix)
     class(res) <- "ratesim"
     return(res)
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ white noise }
+\keyword{ phylo }

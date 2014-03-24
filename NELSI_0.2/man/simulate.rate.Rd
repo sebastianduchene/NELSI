@@ -1,56 +1,75 @@
 \name{simulate.rate}
 \alias{simulate.rate}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+simulate.rate is the generic function to simulate rates along phylogenetic trees with any of the models.
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+simulate.rate simulates the rate with any of the models implemented in NELSI
 }
 \usage{
 simulate.rate(tree, FUN, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{tree}{
-%%     ~~Describe \code{tree} here~~
-}
+A phylogenetic tree of class 'phylo'. The branch lengths should be in units of time (a chronogram)}
   \item{FUN}{
-%%     ~~Describe \code{FUN} here~~
+This is any of the rate simulation functions (please see the help for each for details on the models):
+ - simulate.autocor.kishino
+ - simulate.autocor.thorne
+ - simulate.clock
+ - simulate.tdep.generic
+ - simulate.tdep.ho
+ - simulate.uncor.exp
+ - simulate.uncor.lnorm
+ - simulate.uncor.gamma
+ - simulate.white.noise
 }
   \item{\dots}{
-%%     ~~Describe \code{\dots} here~~
+This should be the parameters for the rate models. To specify this use: params = list(parameter1 , parameter2). See the help files for each rate simulation function for details on the parameters.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+None
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+An object of class 'ratesim'. This is a list with two items:
+ \item{phylogram }{The phylogenetic tree with branch lengths in units of substitutions (phylogram)}
+ \item{tree.data.matrix }{This is a matrix with the number of substitutions, rates, and times along every branch in the tree. See get.tree.data.matrix for more details}
 }
 \references{
-%% ~put references to the literature/web site here ~
+See the original reference for NELSI: Pending.
 }
 \author{
-%%  ~~who you are~~
+David Duchene and Sebastian Duchene
 }
 \note{
-%%  ~~further notes~~
+None.
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+ - simulate.autocor.kishino
+ - simulate.autocor.thorne
+ - simulate.clock
+ - simulate.tdep.generic
+ - simulate.tdep.ho
+ - simulate.uncor.exp
+ - simulate.uncor.lnorm
+ - simulate.uncor.gamma
+ - simulate.white.noise
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+set.seed(1234525)
+
+myTree <- rcoal(50)
+
+# Simulate uncorrelated rates with default parameters:
+rateTree.default <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm)
+plot(rateTree.default, col.lineages = rainbow(50))
+
+# Simulate uncorrelated rates with custom parameters:
+rateTree.custom <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm, params = list(mean.log = -3.9, sd.log = 0.8))
+plot(rateTree.custom, col.lineages = rainbow(50))
+
 
 ## The function is currently defined as
 function (tree, FUN, ...) 
@@ -59,7 +78,5 @@ function (tree, FUN, ...)
     return(ratesim.object)
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ phylo }
+\keyword{ rate of evolution }

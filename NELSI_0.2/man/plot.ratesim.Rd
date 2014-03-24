@@ -1,56 +1,59 @@
 \name{plot.ratesim}
 \alias{plot.ratesim}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+plot.ratesim
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function plots the rate through time for all lineages in the tree of a ratesim object in two pannels in the active graphics device. The first plot is the branch-wise rate vs the mid-age of the branch (rate vs. age). This is done for the branches that ascend from every tip in the tree. The second plot is the chronogram. The tips are coloured according to the lineages as shown in the rate vs. age plot. The width of the branches in the chronogram are proportional to their rate.
 }
 \usage{
 plot.ratesim(rate.sim.object, col.lineages = colors(), type = "l")
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{rate.sim.object}{
-%%     ~~Describe \code{rate.sim.object} here~~
+An object of class ratesim, obtained with simulate.rate()
 }
   \item{col.lineages}{
-%%     ~~Describe \code{col.lineages} here~~
+A vector with the colours for the lineages in the tree. The length should be the same as the number of tips in the tree. The default uses the first colours from the colors() function.
 }
   \item{type}{
-%%     ~~Describe \code{type} here~~
+The type of plot. The default is "l", but "s" or "p"  can represent the rates more accurately because in most models the rates are averages over the branches.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+none.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+The funtion plots the rate in the active graphics device.
 }
 \references{
-%% ~put references to the literature/web site here ~
+None.
 }
 \author{
-%%  ~~who you are~~
+Sebastian Duchene
 }
 \note{
-%%  ~~further notes~~
+None.
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+get.lineage.time.rate()
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+
+set.seed(123425)
+myTree <- rcoal(10)
+rateTree <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm)
+plot(rateTree, col.lineages = rainbow(10), type = "s")
+
+# for a non-ultrametric tree
+set.seed(123425)
+myTree1 <- rtree(10)
+rateTree1 <- simulate.rate(tree = myTree1, FUN = simulate.uncor.lnorm)
+plot(rateTree1, col.lineages = rainbow(10), type = "s")
+
+
+
 
 ## The function is currently defined as
 function (rate.sim.object, col.lineages = colors(), type = "l") 
@@ -82,5 +85,4 @@ function (rate.sim.object, col.lineages = colors(), type = "l")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ simulate.rate }
