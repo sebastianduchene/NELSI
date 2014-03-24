@@ -4,7 +4,7 @@
 plot.ratesim
 }
 \description{
-This function plots the rate through time for all lineages in the tree of a ratesim object.
+This function plots the rate through time for all lineages in the tree of a ratesim object in two pannels in the active graphics device. The first plot is the branch-wise rate vs the mid-age of the branch (rate vs. age). This is done for the branches that ascend from every tip in the tree. The second plot is the chronogram. The tips are coloured according to the lineages as shown in the rate vs. age plot. The width of the branches in the chronogram are proportional to their rate.
 }
 \usage{
 plot.ratesim(rate.sim.object, col.lineages = colors(), type = "l")
