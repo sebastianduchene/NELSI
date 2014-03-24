@@ -1930,7 +1930,7 @@ function (tree)
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  7.842 0.274 8.182 0 0.001 
+Time elapsed:  7.732 0.267 8.013 0 0.001 
 > grDevices::dev.off()
 null device 
           1 
