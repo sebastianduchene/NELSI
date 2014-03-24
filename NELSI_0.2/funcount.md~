@@ -16,7 +16,7 @@ This is the list for the documentation completed for the functions
 
 - ~~pathnode.Rd~~
 
-- plot.ratesim.Rd
+- ~~plot.ratesim.Rd~~
 
 - simulate.autocor.kishino.Rd
 

@@ -1,50 +1,67 @@
 \name{get.rate.descendant.pairs}
 \alias{get.rate.descendant.pairs}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+get.rate.descendant.pairs
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+The functions returns a data.frame with the rates for all pairs of parent-daughter lineage pairs. This is useful to assess the covariance of rates, which can be used as a measure of rate autcorrelation.
 }
 \usage{
 get.rate.descendant.pairs(rate.sim.object)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{rate.sim.object}{
-%%     ~~Describe \code{rate.sim.object} here~~
+An object of class ratesim, typically obtained with simulate.rate
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+None
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A data.frame.
+Each row is a daughter-parent pair. The columns are the rate of the parent branch, the rate of the daughter branch, and their difference in mid branch lengths.
 }
 \references{
-%% ~put references to the literature/web site here ~
-}
+None}
 \author{
-%%  ~~who you are~~
+Sebastian Duchene
 }
 \note{
-%%  ~~further notes~~
+None.
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+plot.ratesim
+ratesim
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+
+set.seed(1234525)
+myTree <- rcoal(50)
+
+#Simulate rates with no autocorrelation (uncorrelated rates)
+
+rateTreeUncor <- simulate.rate(myTree, FUN = simulate.uncor.lnorm)
+
+uncorRates <- get.rate.descendant.pairs(rateTreeUncor)
+
+#Simulate rates with high autocorrelation
+
+rateTreeAutocor <- simulate.rate(myTree, FUN = simulate.autocor.kishino, params = list(initial.rate = 0.01, v = 0.01))
+
+autocorRates <- get.rate.descendant.pairs(rateTreeAutocor)
+
+# Plot the rates through time for all lineages to inspect the degree of autocorrelation
+
+plot(rateTreeAutocor, col.lineages = rainbow(50))
+plot(rateTreeUncor, col.lineages = rainbow(50))
+
+# Estimate correlation of branch and daughter branch-wise rates. The correlation coefficient should be higher for the autocorrelated rates:
+
+cor(x = autocorRates$parent.rate, y = autocorRates$daughter.rate)
+
+cor(x = uncorRates$parent.rate, y = uncorRates$daughter.rate)
+
 
 ## The function is currently defined as
 function (rate.sim.object) 
@@ -70,5 +87,4 @@ function (rate.sim.object)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ phylo }
