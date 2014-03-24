@@ -19,7 +19,6 @@ parameters for the autocorrelation function. This should be a list with two item
  \item{v}{This is the nu parameter described in Kishino et al. (2001). A high value implies low autocorrelation, with high differences in the rates of parent and daughter branches. A low value of v implies high autocorrelation, with very similar rates between parent and daughter branches.
 }
 }
-}
 \details{
 See the original reference for further details.
 }

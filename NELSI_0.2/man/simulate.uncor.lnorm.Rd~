@@ -1,0 +1,70 @@
+\name{simulate.uncor.lnorm}
+\alias{simulate.uncor.lnorm}
+\title{
+simulate.uncor.lnorm
+}
+\description{
+Simulate the rate of evolution along a phylogenetic tree using the lognormal model described in Drummond et al. (2006)
+}
+\usage{
+simulate.uncor.lnorm(tree, params = list(mean.log = -3.9, sd.log = 0.1))
+}
+\arguments{
+  \item{tree}{A phylogenetic tree of class 'phylo'. The branch lengths should be in units of time (chronogram)}
+\item(params}{
+parameters for the autocorrelation function. This should be a list with two items:
+ \item{inital.rate}{The rate at the root of the tree}
+ \item{v}{This is the nu parameter described in Kishino et al. (2001). A high value implies low autocorrelation, with high differences in the rates of parent and daughter branches. A low value of v implies high autocorrelation, with very similar rates between parent and daughter branches.}
+}
+}
+\details{
+%%  ~~ If necessary, more details than the description above ~~
+}
+\value{
+%%  ~Describe the value returned
+%%  If it is a LIST, use
+%%  \item{comp1 }{Description of 'comp1'}
+%%  \item{comp2 }{Description of 'comp2'}
+%% ...
+}
+\references{
+%% ~put references to the literature/web site here ~
+}
+\author{
+%%  ~~who you are~~
+}
+\note{
+%%  ~~further notes~~
+}
+
+%% ~Make other sections like Warning with \section{Warning }{....} ~
+
+\seealso{
+%% ~~objects to See Also as \code{\link{help}}, ~~~
+}
+\examples{
+##---- Should be DIRECTLY executable !! ----
+##-- ==>  Define data, use random,
+##--	or do  help(data=index)  for the standard data sets.
+
+## The function is currently defined as
+function (tree, params = list(mean.log = -3.9, sd.log = 0.1)) 
+{
+    mean.log <- params$mean.log
+    sd.log <- params$sd.log
+    data.matrix <- get.tree.data.matrix(tree)
+    branch.rates <- rlnorm(n = length(tree$edge.length), meanlog = mean.log, 
+        sdlog = sd.log)
+    data.matrix[, 5] <- branch.rates
+    data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
+    tree$edge.length <- data.matrix[, 6]
+    res <- list(tree, data.matrix)
+    names(res) <- c("phylogram", "tree.data.matrix")
+    class(res) <- "ratesim"
+    return(res)
+  }
+}
+% Add one or more standard keywords, see file 'KEYWORDS' in the
+% R documentation directory.
+\keyword{ ~kwd1 }
+\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
