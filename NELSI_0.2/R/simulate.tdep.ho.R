@@ -1,5 +1,5 @@
 simulate.tdep.ho <-
-function(tree, params = list(mu = 0.015, srate = 0.035, lambda = 0.1, noise = 0.001)){
+function(tree, params = list(mu = 0.035, srate = 0.015, lambda = 0.1, noise = 0.001)){
     require(phangorn)
     require(geiger)
     mu <- params$mu

@@ -2,57 +2,62 @@
 \alias{simulate.tdep.generic}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+simulate.tdep.generic
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function simulates time-dependent molecular rates for branches in a chronogram using any specified function of rate through time.
 }
 \usage{
 simulate.tdep.generic(tree, noise = 0.001, fun = function(time) {
-    0.035 * (0.015 * exp(-0.1 * time))
+    0.015 * (0.035 * exp(-0.1 * time))
 })
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{tree}{
-%%     ~~Describe \code{tree} here~~
+A phylogenetic tree of class 'phylo', with branch lengths in terms of time.
 }
   \item{noise}{
-%%     ~~Describe \code{noise} here~~
+This is the standard deviation of a normal distribution from which noise for the rate is added.
 }
   \item{fun}{
-%%     ~~Describe \code{fun} here~~
+A function of the rate through time. The default is a vertically transformed exponential function. All the parameters for the function must be provided, except for time.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This function generalises simulate.tdep.ho so that the user can provide any function for the (time-dependent) variation of the rate through time.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+An object of class "ratesim". This is similar to a list; the first element is of class "phylo" with branch lengths in terms of substitutions. The second is a "tree.data.matrix" which can be used as a "data.frame". The tree.data.matrix contains the edge object of the phylogeny, the mid age of a branch, and branch lengths in terms of substitutions, time, and molecular rate.
 }
 \references{
-%% ~put references to the literature/web site here ~
+Pending.
 }
 \author{
-%%  ~~who you are~~
+David Duchene and Sebastian Duchene
 }
 \note{
-%%  ~~further notes~~
+None
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+simulate.tdep.ho
+simulate.autocor.kishino
+simulate.autocor.thorne
+simulate.uncor.exp
+simulate.uncor.gamma
+simulate.uncor.lnorm
+simulate.white.noise
+simulate.clock
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+
+set.seed(12345)
+myTree <- coal(50)
+plot(myTree); axisPhylo()
+# Using a simple linear function of rate variation:
+rate.simulation <- simulate.tdep.generic(myTree, noise = 0.0001, fun = function(x) -0.015*x + 0.035)
+plot(rate.simulation[[2]][,4], rate.simulation[[2]][,5], pch = 19, xlab = "Mid age of branch", ylab = "Molecular rate")
+plot(rate.simulation[[1]])
 
 ## The function is currently defined as
 function (tree, noise = 0.001, fun = function(time) {
@@ -92,7 +97,8 @@ function (tree, noise = 0.001, fun = function(time) {
     return(res)
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+
+\keyword{ phylogenetics }
+\keyword{ molecular rates }
+\keyword{ time-dependence }
+

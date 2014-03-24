@@ -2,55 +2,62 @@
 \alias{simulate.tdep.ho}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+simulate.tdep.ho
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function simulates time-dependent molecular rates for branches in a chronogram using an vertically transformed exponential curve (Ho et al. 2005).
 }
 \usage{
 simulate.tdep.ho(tree, params = list(mu = 0.015, srate = 0.035, lambda = 0.1, noise = 0.001))
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{tree}{
-%%     ~~Describe \code{tree} here~~
+A phylogenetic tree of class 'phylo', with branch lengths in terms of time.
 }
   \item{params}{
-%%     ~~Describe \code{params} here~~
+These are the three parameters describing the variation in rate through time. mu is the instantaneous mutation rate, observed near the present. srate is the long term observed substitutions rate. lambda is the rate of the rate decrease towards the past. noise is the standard deviation of a normal distribution from which noise for the rate is added.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+The number of substitutions for each branch is calculated by integrating the function given by the user within the limits of the age of a branch. Values of substitutions are added noise and used to determine the rate at each branch.
+
+Note that this is function only uses one of the possible models for time dependence (see simulate.tdep.generic for a more general form).
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+An object of class "ratesim". This is similar to a list; the first element is of class "phylo" with branch lengths in terms of substitutions. The second is a "tree.data.matrix" which can be used as a "data.frame". The tree.data.matrix contains the edge object of the phylogeny, the mid age of a branch, and branch lengths in terms of substitutions, time, and molecular rate.
 }
 \references{
-%% ~put references to the literature/web site here ~
+Ho, S. Y., Phillips, M. J., Cooper, A., & Drummond, A. J. (2005). Time dependency of molecular rate estimates and systematic overestimation of recent divergence times. Molecular biology and evolution, 22(7), 1561-1568.
 }
 \author{
-%%  ~~who you are~~
+David Duchene and Sebastian Duchene
 }
 \note{
-%%  ~~further notes~~
+None
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+simulate.tdep.generic
+simulate.autocor.kishino
+simulate.autocor.thorne
+simulate.uncor.exp
+simulate.uncor.gamma
+simulate.uncor.lnorm
+simulate.white.noise
+simulate.clock
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+
+set.seed(12345)
+myTree <- rcoal(50)
+plot(myTree); axisPhylo()
+# Perhaps a lamda value of 4 is more appropriate to simulate a significant rate change through time in this phylogeny. We also add additional noise, and leave the other default values unchanged.
+plot(function(x) 0.015 + (0.035 * exp(-4 * x)), xlim = c(0, max(branching.times(myTree))))
+rate.simulation <- simulate.tdep.ho(myTree, params = list(mu = 0.035, srate = 0.015, lambda = 4, noise = 0.003))
+plot(rate.simulation[[2]][,4], rate.simulation[[2]][,5], pch = 19, xlab = "Mid age of branch", ylab = "Molecular rate")
+plot(rate.simulation[[1]])
 
 ## The function is currently defined as
-function (tree, params = list(mu = 0.015, srate = 0.035, lambda = 0.1, 
+function (tree, params = list(mu = 0.035, srate = 0.015, lambda = 0.1, 
     noise = 0.001)) 
 {
     require(phangorn)
@@ -89,7 +96,7 @@ function (tree, params = list(mu = 0.015, srate = 0.035, lambda = 0.1,
     return(res)
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+
+\keyword{ phylogenetics }
+\keyword{ molecular rates }
+\keyword{ time-dependence }
