@@ -1,6 +1,5 @@
 \name{simulate.tdep.ho}
 \alias{simulate.tdep.ho}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 simulate.tdep.ho
 }
@@ -8,7 +7,7 @@ simulate.tdep.ho
 This function simulates time-dependent molecular rates for branches in a chronogram using an vertically transformed exponential curve (Ho et al. 2005).
 }
 \usage{
-simulate.tdep.ho(tree, params = list(mu = 0.015, srate = 0.035, lambda = 0.1, noise = 0.001))
+simulate.tdep.ho(tree, params = list(mu = 0.035, srate = 0.015, lambda = 0.1, noise = 0.001))
 }
 \arguments{
   \item{tree}{

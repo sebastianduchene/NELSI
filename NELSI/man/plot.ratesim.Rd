@@ -44,13 +44,13 @@ get.lineage.time.rate()
 set.seed(123425)
 myTree <- rcoal(10)
 rateTree <- simulate.rate(tree = myTree, FUN = simulate.uncor.lnorm)
-plot(rateTree, col.lineages = rainbow(10), type = "s")
+plot.ratesim(rate.sim.object = rateTree, col.lineages = rainbow(10), type = "s")
 
 # for a non-ultrametric tree
 set.seed(123425)
 myTree1 <- rtree(10)
 rateTree1 <- simulate.rate(tree = myTree1, FUN = simulate.uncor.lnorm)
-plot(rateTree1, col.lineages = rainbow(10), type = "s")
+plot.ratesim(rate.sim.object = rateTree1, col.lineages = rainbow(10), type = "s")
 
 
 

@@ -49,7 +49,7 @@ myTree <- rtree(10) # Note that this tree is not ultrametric.
 myTreeTimes <- allnode.times(myTree)
 
 
-plot(myTree, show.tip.label = F)
+plot(myTree, show.tip.label = FALSE)
 tiplabels(round(myTreeTimes[1:10], 2))
 nodelabels(round(myTreeTimes[11:19], 2))
 

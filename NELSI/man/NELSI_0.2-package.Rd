@@ -1,6 +1,6 @@
-\name{NELSI_0.2-package}
-\alias{NELSI_0.2-package}
-\alias{NELSI_0.2}
+\name{NELSI-package}
+\alias{NELSI-package}
+\alias{NELSI}
 \docType{package}
 \title{
 NELSI: Nucleotide EvoLution Simulator
@@ -10,7 +10,7 @@ NELSI simulates rates of molecular evolution along phylogenetic trees.
 }
 \details{
 \tabular{ll}{
-Package: \tab NELSI_0.2\cr
+Package: \tab NELSI\cr
 Type: \tab Package\cr
 Version: \tab 0.2\cr
 Date: \tab 2014-03-22\cr

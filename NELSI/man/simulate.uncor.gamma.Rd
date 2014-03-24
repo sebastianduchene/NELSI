@@ -1,23 +1,23 @@
-\name{simulate.uncor.exp}
-\alias{simulate.uncor.exp}
+\name{simulate.uncor.gamma}
+\alias{simulate.uncor.gamma}
 \title{
-simulate.uncor.exp
+simulate.uncor.gamma
 }
 \description{
-Simulate the rate of evolution along a phylogenetic tree using the exponential model described in Drummond et al. (2006)
+Simulate the rate of evolution along a phylogenetic tree using the gamma distributed rates model described in Drummond et al. (2006)
 }
 \usage{
-simulate.uncor.exp(tree, params = list(mean.exp = 0.001))
+simulate.uncor.gamma(tree, params = list(shape = 98, rate = 4361))
 }
 \arguments{
+
   \item{tree}{A phylogenetic tree of class 'phylo'. The branch lengths should be in units of time (chronogram)}
-  \item(params}{
-parameters for the autocorrelation function. This should be a list with one items:
- \item{mean.exp}{This is the mean rate of the exponential distribution. Note that this is the same as the sd for this distribution}
-}
+\item{params}{
+parameters for the uncorrelated rates function. This should be a list with two items:}
+ \item{shape}{The shape of the gamma distribution. It follows the usual parametrisation of the gamma distribution}
+ \item{rate}{The rate of the gamma distribution. Note that this is different from the substitution rate. Instead, this the the rate parameter typically used for the gamma distribution}
 }
 
-}
 \details{
 None
 }
@@ -30,32 +30,36 @@ An object of class 'ratesim'. This is a list with two items:
 Drummond, A.J., et al. "Relaxed phylogenetics and dating with confidence." PLoS biology 4.5 (2006): e88.
 }
 \author{
-Sebastian Duchene. See the reference for the description of the model.
+Sebastian Duchene. See the reference for the original description of the model.
 }
 \note{
-None
+Notes
 }
 
 \seealso{
-None
+simulate.uncor.lnorm
+simulate.uncor.exp
 }
 \examples{
+
 set.seed(1234525)
 
 myTree <- rcoal(50)
 
-rateTree <- simulate.uncor.exp(tree = myTree, params = list(mean.exp = 0.01))
+rateTree <- simulate.uncor.gamma(tree = myTree, params = list(shape = 98, rate = 4361))
 plot(rateTree, col.lineages = rainbow(50))
 
 #See the histogram of the branch-wise rates
 hist(rateTree$tree.data.matrix[, 5])
 
 ## The function is currently defined as
-function (tree, params = list(mean.exp = 0.001)) 
+function (tree, params = list(shape = 98, rate = 4361)) 
 {
-    mean.exp <- params$mean.exp
+    shape.gamma <- params$shape
+    rate.gamma <- params$rate
     data.matrix <- get.tree.data.matrix(tree)
-    branch.rates <- rexp(n = length(tree$edge.length), rate = 1/mean.exp)
+    branch.rates <- rgamma(n = length(tree$edge.length), shape = shape.gamma, 
+        rate = rate.gamma)
     data.matrix[, 5] <- branch.rates
     data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
     tree$edge.length <- data.matrix[, 6]

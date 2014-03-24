@@ -1,0 +1,27 @@
+NELSI-package           NELSI: Nucleotide EvoLution Simulator
+allnode.times           allnode.times
+get.clock.data          get.clock.data
+get.lineage.time.rate   get.lineage.time.rate
+get.rate.descendant.pairs
+                        get.rate.descendant.pairs
+get.tree.data.matrix    get.tree.data.matrix
+mid.edge.ages           mid.edge.ages obtans the ages of the mid point
+                        of the branches of a phylogenetic tree. It is
+                        not necessary for the tree to be ultrametric.
+pathnode                pathnode
+plot.ratesim            plot.ratesim
+simulate.autocor.kishino
+                        simulate.autocor.kishino
+simulate.autocor.thorne
+                        simulate.autocor.thorne
+simulate.clock          simulate.clock
+simulate.rate           simulate.rate is the generic function to
+                        simulate rates along phylogenetic trees with
+                        any of the models.
+simulate.tdep.ho        simulate.tdep.ho
+simulate.uncor.exp      simulate.uncor.exp
+simulate.uncor.gamma    simulate.uncor.gamma
+simulate.uncor.lnorm    simulate.uncor.lnorm
+simulate.white.noise    simulate.white.noise
+trann2trdat             trann2trdat. extract annontations from a nexus
+                        tree.

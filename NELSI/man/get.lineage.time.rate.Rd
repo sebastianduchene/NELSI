@@ -48,7 +48,7 @@ plot(rateTree, col.lineages = rainbow(10))
 # Find the name of the first taxon
 myTree$tip.label
 
-get.lineages.rate(taxon = 1, sim.rate.object = rateTree)
+get.lineage.time.rate(taxon = 1, sim.rate.object = rateTree)
 
 
 

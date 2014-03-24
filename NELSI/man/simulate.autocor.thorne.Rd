@@ -14,10 +14,10 @@ simulate.autocor.thorne(tree, params = list(initial.rate = 0.01, v = 0.3))
 A phylogeneti tree of class 'phylo'. The tree should be a chronogram, with branch lengths in time.
 }
   \item{params}{
-parameters for the autocorrelation function. This should be a list with two items:
- \item{inital.rate}{The rate at the root of the tree}
+parameters for the autocorrelation function. This should be a list with two items:}
+ \item{initial.rate}{The rate at the root of the tree}
  \item{v}{This is the nu parameter described in Kishino et al. (2001). A high value implies low autocorrelation, with high differences in the rates of parent and daughter branches. A low value of v implies high autocorrelation, with very similar rates between parent and daughter branches.
-}
+
 }
 }
 \details{

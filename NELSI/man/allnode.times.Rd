@@ -48,7 +48,7 @@ tiplabels()
 allnode.times(myTree)
 
 # Plot the tree and add the ages of the tips and internal nodes.
-plot(myTree, show.tip.label = F)
+plot(myTree, show.tip.label = FALSE)
 allTimes <- allnode.times(myTree)
 allTimes
 tiplabels(round(allTimes[1:10]))

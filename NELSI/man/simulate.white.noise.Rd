@@ -13,11 +13,11 @@ simulate.white.noise(tree, params = list(mean.log = -3.9, sd.log = 0.1))
   \item{tree}{
 A phylogenetic tree of class 'phylo'. The branch lengths should be in units of time (a chronogram).
 }
-  \item{params}{
+  \item{params}{A list with the parameters for the simulation function, corresponding to the following two items:}
   \item{mean.log}{The mean of the lognormal distribution. It should be in log scale}
   \item{sd.log}{The standard deviation of the lognormal distribution. The actual value used for each branch will vary inversely with the branch length. See the description of the function}
 }
-}
+
 \details{
 None
 }
@@ -26,7 +26,7 @@ An object of class 'ratesim'. This is a list with two items:
  \item{phylogram }{The phylogenetic tree with branch lengths in units of substitutions (phylogram)}
  \item{tree.data.matrix }{This is a matrix with the number of substitutions, rates, and times along every branch in the tree. See get.tree.data.matrix for more details}
 }
-}
+
 \references{
 A similar model is described in:
 Lepage, Thomas, et al. "A general comparison of relaxed molecular clock models." Molecular biology and evolution 24.12 (2007): 2669-2680.
