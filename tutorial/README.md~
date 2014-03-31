@@ -1,0 +1,24 @@
+List of topics for NELSI tutorial
+=================================
+
+- Simulate a phylogenetic tree under a Yule speciation process
+
+  - Plot tree with intenral node ages with branching times
+
+- Simulate constant rate and explain tree.data.matrix
+
+- Simulate autocorrelated with Kishino model
+
+- Simulate uncorrelated with lognormal
+
+- Simulate nucleotide sequences and write everything in an external file
+
+- Load a virus tree from BEAST
+
+  - Plot tree with ages of internal nodes and tips
+
+- Get the tree data matrix
+
+  - Plot rates with plot.ratesim
+
+- Get root-to-tip regression data and plot
