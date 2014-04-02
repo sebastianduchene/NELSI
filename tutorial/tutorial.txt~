@@ -1,0 +1,12 @@
+NELSI: Nucleotide EvoLutionary Rate Simulator
+=============================================
+
+David Duchene and Sebastian Duchene
+
+X March 2014
+
+
+1. Inatallation and setup
+-------------------------
+
+NELSI requires a recent version of R (>=2.5). If R is not installed in your machine, download and install the appropriate version here 
