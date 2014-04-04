@@ -4,7 +4,7 @@ NELSI: Nucleotide EvoLutionary Rate Simulator
 David Duchene and Sebastian Duchene
 david.duchene[at]anu.edu.au and sebastian.duchene[at]sydney.edu.au
 
-X March 2014
+X April 2014
 
 
 1. Installation and setup
@@ -47,8 +47,8 @@ library(NELSI)
  - This is all for the installation of NELSI. Please contact the authors to report any bugs.
 
 
-2. Simulate phylogenetic trees with random topologies
------------------------------------------------------
+2. Loading phylogenetic trees
+-----------------------------
 
 To simulate rates of evolution we need a phylogenetic tree in which the branch lengths repesetn units of time, known as a chronogram. We can simulate a tree in R, but for this tutorial we will load the tree in the example_data folder in [github](github.com/sebastianduchene/nelsi). 
 
