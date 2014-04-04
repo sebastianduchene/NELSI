@@ -2,11 +2,56 @@ NELSI: Nucleotide EvoLutionary Rate Simulator
 =============================================
 
 David Duchene and Sebastian Duchene
+david.duchene[at]anu.edu.au and sebastian.duchene[at]sydney.edu.au
 
 X March 2014
 
 
-1. Inatallation and setup
+1. Installation and setup
 -------------------------
 
-NELSI requires a recent version of R (>=2.5). If R is not installed in your machine, download and install the appropriate version here 
+NELSI requires a recent version of R (>=2.5). If R is not installed in your machine, download and install the appropriate version [here](www.r-project.org). 
+
+R packages can be downloaded and installed directly from [github](github.com/sebastianduchene/nelsi) with the package [devtools](https://github.com/hadley/devtools). This is the easiest way to install NELSI (and many other packages). 
+
+We will begin by installing devtools from the Comprehensive R Archive Network (CRAN). Please follow the instructions bellow:
+
+ - Open the R console by clicking on the R icon in your desktop or in Applications (depending on the operating system)
+
+ - Make sure that you have an internet connection and type in the code bellow:
+
+```
+install.packages("devtools")
+```
+
+Follow the instructions in the prompt. 
+
+ - Load devtools with the following code:
+
+```
+library(devtools)
+```
+
+ - The devtools package has a function to download packages from github repositories. To download and install NELSI type the following at the prompt:
+
+```
+install_github(rep = "NELSI", username = "sebastianduchene")
+```
+
+ - NELSI is now installed. To make all the functions available, load the package by typing:
+
+```{r}
+library(NELSI)
+```
+
+ - This is all for the installation of NELSI. Please contact the authors to report any bugs.
+
+
+2. Simulate phylogenetic trees with random topologies
+-----------------------------------------------------
+
+To simulate rates of evolution we need a phylogenetic tree in which the branch lengths repesetn units of time, known as a chronogram.
+
+
+
+ 
