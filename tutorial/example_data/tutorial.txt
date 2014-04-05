@@ -1,8 +1,12 @@
 NELSI: Nucleotide EvoLutionary Rate Simulator
 =============================================
 
+
 David Duchene and Sebastian Duchene
-david.duchene[at]anu.edu.au and sebastian.duchene[at]sydney.edu.au
+
+david.duchene[at]anu.edu.au
+
+sebastian.duchene[at]sydney.edu.au
 
 X April 2014
 
@@ -44,7 +48,7 @@ install_github(rep = "NELSI", username = "sebastianduchene")
 library(NELSI)
 ```
 
- - This is all for the installation of NELSI. Please contact the authors to report any bugs.
+This is all for the installation of NELSI. Please contact the authors to report any bugs.
 
 
 2. Loading phylogenetic trees
@@ -52,7 +56,7 @@ library(NELSI)
 
 To simulate rates of evolution we need a phylogenetic tree in which the branch lengths repesetn units of time, known as a chronogram. We can simulate this kind of tree in R, but for this tutorial we will load the tree in the example_data folder in [github](github.com/sebastianduchene/nelsi). 
 
- - Set the R working directory to the example_data folder. Load the example tree with the following code:
+ - Set the R [working directory](http://www.statmethods.net/interface/workspace.html) to the example_data folder. Load the example tree with the following code:
 
 ```{r}
 myTree <- read.tree("tr_example.tree")
@@ -82,7 +86,7 @@ The output is an object of class ratesim, which is the output of all the rate si
  - To observe how the rate changes through time in each lineage, you can plot the output of your simulation function directly using the ratesim object. The fist plot will show the rate through time for each lineage, while the second shows the chronogram with the tips coloured proportional to the rate. Therefore, colours of lines in the first plot correspond to the colours of tips in the second plot.
 
 ```{r}
-plot(clock.sim)
+plot(clock.sim, col.lineages = rainbow(20), type = "s")
 ```
 
 4. Simulate autocorrelated rates
@@ -95,9 +99,9 @@ One way to relax the assumption of having a single rate throughout is to propose
 ```{r}
 sim.low.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, v = 0.3))
 sim.high.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, v = 0.1))
-plot(sim.low.autocor)
+plot(sim.low.autocor, col.lineages = rainbow(20), type = "s")
 dev.new()
-plot(sim.high.autocor)
+plot(sim.high.autocor, col.lineages = rainbow(20), type = "s")
 ```
 
 5. Simulate uncorrelated lognormal rates
@@ -109,10 +113,11 @@ To simulate rates that are uncorrelated among branches, but are independently an
  
 ```{r}
 sim.uncor <- simulate.uncor.lnorm(myTree, params = list(mean.log = -3.9, sd.log = 0.2))
-plot(sim.uncor)
+plot(sim.uncor, col.lineages = rainbow(20), type = "s")
 ```
 
 There are other methods for rate simulation in NELSI, but this tutorial covers the most well-known models. Please refer to the package doccumentation and help files for a full list of functions.
+
 
 6. Simulate nucleotide sequences using phangorn and export 
 ----------------------------------------------------------
@@ -131,13 +136,6 @@ write.phyDat(sim.dna.data, file = "nelsi_tutorial_dna.fasta", format = "fasta")
 ```{r}
 write.tree(sim.uncor[[1]], file = "nelsi_tutorial_pylogram.tree")
 ```
-
-
-
-
-
-
-
 
 
 7. Loading a virus data set estimated in BEAST 
@@ -217,10 +215,12 @@ tipsSubstitutions <- allnode.times(hivPhylogram, tipsonly = T)
 ```{r}
 plot(tipsTimes, tipsSubstitutions, pch = 20, ylab = "Substitutions from the root to tips (substitutions)", xlab = "Time from the root to the tip (years)")
 hivRegression <- lm(tipsSubstitutions ~ tipsTimes)
+abline(hivRegression)
 summary(hivRegression)
 ```
 
 In this case it the data appear to have clock-like behaviour.
+
 
 References
 ----------

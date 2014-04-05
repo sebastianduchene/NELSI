@@ -114,6 +114,7 @@ plot(sim.uncor)
 
 There are other methods for rate simulation in NELSI, but this tutorial covers the most well-known models. Please refer to the package doccumentation and help files for a full list of functions.
 
+
 6. Simulate nucleotide sequences using phangorn and export 
 ----------------------------------------------------------
 
@@ -131,13 +132,6 @@ write.phyDat(sim.dna.data, file = "nelsi_tutorial_dna.fasta", format = "fasta")
 ```{r}
 write.tree(sim.uncor[[1]], file = "nelsi_tutorial_pylogram.tree")
 ```
-
-
-
-
-
-
-
 
 
 7. Loading a virus data set estimated in BEAST 
@@ -221,6 +215,7 @@ summary(hivRegression)
 ```
 
 In this case it the data appear to have clock-like behaviour.
+
 
 References
 ----------
