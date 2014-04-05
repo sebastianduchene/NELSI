@@ -1,61 +1,45 @@
-NELSI: Nucleotide EvoLutionary Rate Simulator
-=============================================
 
-David Duchene and Sebastian Duchene
-david.duchene[at]anu.edu.au and sebastian.duchene[at]sydney.edu.au
+7. Loading a virus data set estimated in BEAST 
+-----------------------------------------------
 
-X April 2014
+Phylogenetic trees in NEXUS format can have a large number of annotations, with information about rates, times, or other traits for every branch in the tree. These annotationa can be read in R with the pacakge [epibase](http://www.inside-r.org/packages/cran/epibase) and then imported into a tree data matrix to be used with NELSI.
 
+The examples_data folder contains a tree from *ENV* sequences from HIV type A collected between 1991 and 2008. 
 
-1. Installation and setup
--------------------------
-
-NELSI requires a recent version of R (>=2.5). If R is not installed in your machine, download and install the appropriate version [here](www.r-project.org). 
-
-R packages can be downloaded and installed directly from [github](github.com/sebastianduchene/nelsi) with the package [devtools](https://github.com/hadley/devtools). This is the easiest way to install NELSI (and many other packages). 
-
-We will begin by installing devtools from the Comprehensive R Archive Network (CRAN). Please follow the instructions bellow:
-
- - Open the R console by clicking on the R icon in your desktop or in Applications (depending on the operating system)
-
- - Make sure that you have an internet connection and type in the code bellow:
-
-```
-install.packages("devtools")
-```
-
-Follow the instructions in the prompt. 
-
- - Load devtools with the following code:
-
-```
-library(devtools)
-```
-
- - The devtools package has a function to download packages from github repositories. To download and install NELSI type the following at the prompt:
-
-```
-install_github(rep = "NELSI", username = "sebastianduchene")
-```
-
- - NELSI is now installed. To make all the functions available, load the package by typing:
+- Type the following code to read the tree (remember to set the working directory to the example_data folder):
 
 ```{r}
-library(NELSI)
+hivTree <- read.annotated.nexus("hiv_A_env.tree")
 ```
 
- - This is all for the installation of NELSI. Please contact the authors to report any bugs.
-
-
-2. Loading phylogenetic trees
------------------------------
-
-To simulate rates of evolution we need a phylogenetic tree in which the branch lengths repesetn units of time, known as a chronogram. We can simulate a tree in R, but for this tutorial we will load the tree in the example_data folder in [github](github.com/sebastianduchene/nelsi). 
-
-- Set the R working directory to the example_data folder. Load the example tree with the following code:
+- Plot the tree with the function plot:
 
 ```{r}
-myTree <- read.tree("tr_example.tree")
+plot(hivTree)
 ```
 
-- To 
+The tree is a chronogram, so that the branch lengths represent units of time. The ages of the nodes can be obtained with the function branching.times, but this only works for ultrametric trees, which is not the case for these data because the samples were obtained at different points in time (heterochronous). The function allnode.times in NELSI can obtain the ages of the nodes and tips for heterochronous trees. The first items of the function are the ages of the tips, and the remaining are the ages of internal nodes.
+
+- Type the following code to plot the tree with out taxon names. Instead add the ages of the tips and internal nodes with tiplabel and nodelabel functions. 
+
+```{r}
+plot(hivTree, show.tip.label = F)
+tip.ages <- round(allnode.times(hivTree), 2) # Round to two decimal places for a clearer plot
+# See the tip ages. The first 19 elements are the ages of the tips (the tree has 19 tips), while the remaining are the ages of internal nodes
+tiplabels(tip.ages[1:19])
+nodelabels(tip.ages[20:37])
+```
+
+The age of the youngest tip is always assigned an age of 0, and the age of the root is taken with reference to the youngest tip.
+
+
+8. Obtaining the tree data matrix for a tree estimated in BEAST
+---------------------------------------------------------------
+
+We will use the tree in 7. to obtain the tree data matrix and plot the rates through time.
+
+- Use the function tann2trdat to convert the HIV tree in 7. to an object of class ratesim:
+
+```{r}
+hivRatesim <- trann2trdat(hivTree)
+```
