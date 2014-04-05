@@ -21,6 +21,4 @@ List of topics for NELSI tutorial
 
 8- Get the tree data matrix
 
-  9.1- Plot rates with plot.ratesim
-
-10- Get root-to-tip regression data and plot
+9- Get root-to-tip regression data and plot
