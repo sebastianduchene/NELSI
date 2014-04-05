@@ -83,17 +83,17 @@ nodelabels(node.ages, bg = "white")
 
 The simplest rate simulation model in NELSI is a strict clock, where every node is given the same rate, with a user-specified noise level. To simulate rates under this model for our chronogram we use the function simulate.cock, which receives as arguments the chronogram, and two parameters: the mean rate and the amount of noise. 
 
- - As an example, we will simulate a high rate of substitutions and a high level of noise. Remember that because this is a simulations context, the results will vary every time the function is run.
+ - As an example, we will simulate a high rate of substitutions and a high level of noise. Remember that because this is a simulations context, the results will vary every time the function is run. Note that the range of the rates along the y axis is very low.
 
 
 ```r
-clock.sim <- simulate.clock(myTree, params = list(rate = 0.03, noise = 0.001))
+clock.sim <- simulate.clock(myTree, params = list(rate = 0.03, noise = 1e-04))
 ```
 
 
 The output is an object of class ratesim, which is the output of all the rate simulation functions in NELSI. ratesim objects have two elements. The first is a phylogram (our input topology but with branch lengths in terms of substitutions). The second element in an object of class ratesim is a tree.data.matrix, which is a matrix with all the data about a phylogeny, includng the simulated data. The columns of a tree.data.matrix are the following: (1) is the index of each branch; (2) and (3) are the edge attribute of the class phylo, showing the parent and daughter nodes for each branchrespectively; (4) is the mid age of each branch; (5) is the simulated molecular rate for every branch; (6) is the branch lengths in substitutions per site; and (7) is branch lengths in time units.
 
- - To observe how the rate changes through time in each lineage, you can plot the output of your simulation function directly using the ratesim object. The fist plot will show the rate through time for each lineage, while the second shows the chronogram with the tips coloured proportional to the rate. Therefore, colours of lines in the first plot correspond to the colours of tips in the second plot.
+ - To observe how the rate changes through time in each lineage, you can plot the output of your simulation function directly using the ratesim object. The fist plot will show the rate through time for each lineage, while the second shows the chronogram with the tips coloured proportional to the rate. Therefore, colours of lines in the first plot correspond to the colours of tips in the second plot. The width of the branches is proportional to the rate.
 
 
 ```r
@@ -113,18 +113,20 @@ One way to relax the assumption of having a single rate throughout is to propose
 
 ```r
 sim.low.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, 
-    v = 0.3))
-sim.high.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, 
     v = 0.1))
+sim.high.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, 
+    v = 0.003))
 plot(sim.low.autocor, col.lineages = rainbow(20), type = "s")
 ```
 
 ![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
+
 ```r
-dev.new()
 plot(sim.high.autocor, col.lineages = rainbow(20), type = "s")
 ```
+
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
 
 
 5. Simulate uncorrelated lognormal rates
@@ -132,15 +134,15 @@ plot(sim.high.autocor, col.lineages = rainbow(20), type = "s")
 
 To simulate rates that are uncorrelated among branches, but are independently and identically drawn from a parent distribution, we have implemented three different models for rate simulation. Each function requires different input parameters. 
 
- - Using the following you can simulate rates under an uncorrelated lognormal rates model, which requires the log mean and the standard deviation of the parent distribution.
+ - Using the following you can simulate rates under an uncorrelated lognormal rates model, which requires the log mean and the standard deviation of the parent distribution. Note that the width of the branches varies, representing rate variation among the branches.
  
 
 ```r
-sim.uncor <- simulate.uncor.lnorm(myTree, params = list(mean.log = -3.9, sd.log = 0.2))
+sim.uncor <- simulate.uncor.lnorm(myTree, params = list(mean.log = -3.9, sd.log = 0.7))
 plot(sim.uncor, col.lineages = rainbow(20), type = "s")
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 
 There are other methods for rate simulation in NELSI, but this tutorial covers the most well-known models. Please refer to the package doccumentation and help files for a full list of functions.
@@ -191,7 +193,7 @@ hivTree <- read.annotated.nexus("hiv_A_env.tree")
 plot(hivTree)
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
 
 The tree is a chronogram, so that the branch lengths represent units of time. The ages of the nodes can be obtained with the function branching.times, but this only works for ultrametric trees, which is not the case for these data because the samples were obtained at different points in time (heterochronous). The function allnode.times in NELSI can obtain the ages of the nodes and tips for heterochronous trees. The first items of the function are the ages of the tips, and the remaining are the ages of internal nodes.
@@ -208,7 +210,7 @@ tiplabels(tip.ages[1:19])
 nodelabels(tip.ages[20:37])
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
 
 
 The age of the youngest tip is always assigned an age of 0. The age of the root is calculated with reference to the youngest tip.
@@ -280,7 +282,7 @@ hivRegression <- lm(tipsSubstitutions ~ tipsTimes)
 abline(hivRegression)
 ```
 
-![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
+![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
 
 ```r
 summary(hivRegression)
