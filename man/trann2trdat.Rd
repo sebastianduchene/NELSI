@@ -50,15 +50,7 @@ function (tree)
     rates <- unlist(sapply(tree$annotations, function(x) {
         x$rate_median
     }))
-    if (is.ultrametric(tree) == TRUE) {
         midages <- mid.edge.ages(tree)
-    }
-    else {
-        midages <- mid.edge.ages(tree, max(unlist(sapply(tree$annotations, 
-            function(x) {
-                x$height_median
-            }))))
-    }
     timelen <- tree$edge.length
     subslen <- tree$edge.length * rates
     return(data.frame(branch = rownames(as.data.frame(tree$edge)), 
