@@ -8,27 +8,38 @@ The examples_data folder contains a tree from *ENV* sequences from HIV-1 sub-typ
 
  - Type the following code to read the tree (remember to set the working directory to the example_data folder):
 
-```{r}
+
+```r
 hivTree <- read.annotated.nexus("hiv_A_env.tree")
 ```
 
+
  - Plot the tree with the function plot:
 
-```{r}
+
+```r
 plot(hivTree)
 ```
+
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
+
 
 The tree is a chronogram, so that the branch lengths represent units of time. The ages of the nodes can be obtained with the function branching.times, but this only works for ultrametric trees, which is not the case for these data because the samples were obtained at different points in time (heterochronous). The function allnode.times in NELSI can obtain the ages of the nodes and tips for heterochronous trees. The first items of the function are the ages of the tips, and the remaining are the ages of internal nodes.
 
  - Type the following code to plot the tree with out taxon names. Instead add the ages of the tips and internal nodes with tiplabel and nodelabel functions. 
 
-```{r}
+
+```r
 plot(hivTree, show.tip.label = F)
-tip.ages <- round(allnode.times(hivTree), 2) # Round to two decimal places for a clearer plot
-# See the tip ages. The first 19 elements are the ages of the tips (the tree has 19 tips), while the remaining are the ages of internal nodes
+tip.ages <- round(allnode.times(hivTree), 2)  # Round to two decimal places for a clearer plot
+# See the tip ages. The first 19 elements are the ages of the tips (the tree
+# has 19 tips), while the remaining are the ages of internal nodes
 tiplabels(tip.ages[1:19])
 nodelabels(tip.ages[20:37])
 ```
+
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+
 
 The age of the youngest tip is always assigned an age of 0, and the age of the root is taken with reference to the youngest tip.
 
@@ -40,11 +51,23 @@ We will use the tree in 7. to obtain the tree data matrix and plot the rates thr
 
  - Use the function get.tree.data.matrix for the HIV tree in 7 and inspect the tree data matrix:
 
-```{r}
+
+```r
 hivDataMatrix <- trann2trdat(hivTree)
 
 head(hivDataMatrix)
 ```
+
+```
+##   branch parent daughter midage     rate blensubs blentime
+## 1      1     20       21 154.55 0.001301  0.02622   20.159
+## 2      2     21       22  99.35 0.001314  0.12836   97.721
+## 3      3     22        1  32.00 0.001286  0.05929   46.113
+## 4      4     22       23  49.50 0.001274  0.01112    8.730
+## 5      5     23        2  31.84 0.001332  0.03859   28.980
+## 6      6     23       24  41.23 0.001291  0.01154    8.936
+```
+
 
 
 9. Root-to-tip regressions for trees estimated in BEAST
@@ -54,30 +77,65 @@ For heterochronous data one can test the molecular clock by conducting a regress
 
  - Obtain the ages of the tips with the function allnode.times using the HIV chronogram, specifying the argument tipsonly = T. This will only return the ages of the tips, and not those of internal nodes.
 
-```{r}
+
+```r
 tipsTimes <- allnode.times(hivTree, tipsonly = T)
 ```
 
+
  - We can use the tree data matrix from 8. to obtan the HIV phylogram (with branch lengths in substitutions). To do this, create a copy of the chronogram and set the branch lengths to the number of substitutions from the tree data matrix:
 
-```{r}
+
+```r
 hivPhylogram <- hivTree
 hivPhylogram$edge.length <- hivDataMatrix$blensubs
 ```
 
+
  - The root-to-tip distances in the phylogram are the number of substutions from the root to the tips. Save this in an other variable:
 
-```{r}
+
+```r
 tipsSubstitutions <- allnode.times(hivPhylogram, tipsonly = T)
 ```
 
+
  - The variables tipsTimes and tipsSubstitutions can be used to plot the data and test the linear regression with basic linear models:
 
-```{r}
-plot(tipsTimes, tipsSubstitutions, pch = 20, ylab = "Substitutions from the root to tips (substitutions)", xlab = "Time from the root to the tip (years)")
+
+```r
+plot(tipsTimes, tipsSubstitutions, pch = 20, ylab = "Substitutions from the root to tips (substitutions)", 
+    xlab = "Time from the root to the tip (years)")
+```
+
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+
+```r
 hivRegression <- lm(tipsSubstitutions ~ tipsTimes)
 summary(hivRegression)
 ```
+
+```
+## 
+## Call:
+## lm(formula = tipsSubstitutions ~ tipsTimes)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.007700 -0.000927  0.000179  0.002335  0.006609 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 0.000912   0.002026    0.45     0.66    
+## tipsTimes   0.001233   0.000189    6.52  5.3e-06 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00386 on 17 degrees of freedom
+## Multiple R-squared:  0.714,	Adjusted R-squared:  0.697 
+## F-statistic: 42.5 on 1 and 17 DF,  p-value: 5.25e-06
+```
+
 
 In this case it the data appear to have clock-like behaviour.
 

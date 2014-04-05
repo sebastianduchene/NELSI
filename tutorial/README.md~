@@ -3,9 +3,9 @@ List of topics for NELSI tutorial
 
 1- Installation and set up
 
-2- Simulate a phylogenetic tree under a Yule speciation process
+2- Load a phylogenetic tree
 
-   2.1- Plot tree with intenral node ages with branching times
+   2.1- Plot tree with internal node ages with branching times
 
 3- Simulate constant rate and explain tree.data.matrix
 
@@ -21,6 +21,4 @@ List of topics for NELSI tutorial
 
 8- Get the tree data matrix
 
-  9.1- Plot rates with plot.ratesim
-
-10- Get root-to-tip regression data and plot
+  9.1- Get root-to-tip regression data and plot
