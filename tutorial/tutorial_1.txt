@@ -50,12 +50,92 @@ library(NELSI)
 2. Loading phylogenetic trees
 -----------------------------
 
-To simulate rates of evolution we need a phylogenetic tree in which the branch lengths repesetn units of time, known as a chronogram. We can simulate a tree in R, but for this tutorial we will load the tree in the example_data folder in [github](github.com/sebastianduchene/nelsi). 
+To simulate rates of evolution we need a phylogenetic tree in which the branch lengths repesetn units of time, known as a chronogram. We can simulate this kind of tree in R, but for this tutorial we will load the tree in the example_data folder in [github](github.com/sebastianduchene/nelsi). 
 
-- Set the R working directory to the example_data folder. Load the example tree with the following code:
+ - Set the R working directory to the example_data folder. Load the example tree with the following code:
 
 ```{r}
 myTree <- read.tree("tr_example.tree")
 ```
 
-- To 
+ - To get more insight into the chronogram that we have loaded, we can plot it and annotate each node with its age.
+
+```{r}
+plot(myTree)
+node.ages <- round(branching.times(myTree), 2)
+nodelabels(node.ages, bg = "white")
+```
+
+3. Simulate constant rates through time
+---------------------------------------
+
+The simplest rate simulation model in NELSI is a strict clock, where every node is given the same rate, with a user-specified noise level. To simulate rates under this model for our chronogram we use the function simulate.cock, which receives as arguments the chronogram, and two parameters: the mean rate and the amount of noise. 
+
+ - As an example, we will simulate a high rate of substitutions and a high level of noise. Remember that because this is a simulations context, the results will vary every time the function is run.
+
+```{r}
+clock.sim <- simulate.clock(myTree, params = list(rate = 0.03, noise = 0.001))
+```
+
+The output is an object of class ratesim, which is the output of all the rate simulation functions in NELSI. ratesim objects have two elements. The first is a phylogram (our input topology but with branch lengths in terms of substitutions). The second element in an object of class ratesim is a tree.data.matrix, which is a matrix with all the data about a phylogeny, includng the simulated data. The columns of a tree.data.matrix are the following: (1) is the index of each branch; (2) and (3) are the edge attribute of the class phylo, showing the parent and daughter nodes for each branchrespectively; (4) is the mid age of each branch; (5) is the simulated molecular rate for every branch; (6) is the branch lengths in substitutions per site; and (7) is branch lengths in time units.
+
+ - To observe how the rate changes through time in each lineage, you can plot the output of your simulation function directly using the ratesim object. The fist plot will show the rate through time for each lineage, while the second shows the chronogram with the tips coloured proportional to the rate. Therefore, colours of lines in the first plot correspond to the colours of tips in the second plot.
+
+```{r}
+plot(clock.sim)
+```
+
+4. Simulate autocorrelated rates
+--------------------------------
+
+One way to relax the assumption of having a single rate throughout is to propose small changes in rate from one branch to the next. The functions simulate.autocor.kishino and simulate.autocor.thorne use different methods to simulate this kind of rate pattern. In both functions the user only needs to provide the rate at the root of the phylogeny and the amount of autocorrelation, given by the parameter v. 
+
+ - Using the following code simulate and plot autocorrelated rates using simulate.autocor.kishino; first with low autocorrelation, and then with high autocorrelation.
+
+```{r}
+sim.low.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, v = 0.3))
+sim.high.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, v = 0.1))
+plot(sim.low.autocor)
+dev.new()
+plot(sim.high.autocor)
+```
+
+5. Simulate uncorrelated lognormal rates
+----------------------------------------
+
+To simulate rates that are uncorrelated among branches, but are independently and identically drawn from a parent distribution, we have implemented three different models for rate simulation. Each function requires different input parameters. 
+
+ - Using the following you can simulate rates under an uncorrelated lognormal rates model, which requires the log mean and the standard deviation of the parent distribution.
+ 
+```{r}
+sim.uncor <- simulate.uncor.lnorm(myTree, params = list(mean.log = -3.9, sd.log = 0.2))
+plot(sim.uncor)
+```
+
+There are other methods for rate simulation in NELSI, but this tutorial covers the most well-known models. Please refer to the package doccumentation and help files for a full list of functions.
+
+6. Simulate nucleotide sequences using phangorn and export 
+----------------------------------------------------------
+
+We can use the package phangorn to evolve a nucleotide or amino-acid sequence alignment along the phylogram (the first element of the ratesim object), and save it in an external file in a format like FASTA for future use.
+
+ - Simulate a DNA alignment 2000 base-pairs long, and save it in a file.
+ 
+```{r}
+sim.dna.data <- simSeq(sim.uncor[[1]], l = 2000, type = "DNA")
+write.phyDat(sim.dna.data, file = "nelsi_tutorial_dna.fasta", format = "fasta")
+```
+
+- Now save the phylogram in newick format for future reference or comparison, using the ape package.
+
+```{r}
+write.tree(sim.uncor[[1]], file = "nelsi_tutorial_pylogram.tree")
+```
+
+
+
+
+
+
+
+
