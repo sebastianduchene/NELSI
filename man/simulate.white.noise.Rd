@@ -7,7 +7,7 @@ simulate.white.noise
 simulate.white.noise simulates the rate along a phylogeneti tree according to a white noise process. In particular, it samples from a lognormal distribution with a given mean and standard deviation. For each branch a rate is drawn from a distribution with the given mean. The standard deviation is divided by the branch length divided by the mean of the branch lengths. As a result, the rate of a long branch will be drawn from a distribution with a lower standard deviation than that for a short branch (i.e. the rate is more uncertain for shorter branches). 
 }
 \usage{
-simulate.white.noise(tree, params = list(mean.log = -3.9, sd.log = 0.1))
+simulate.white.noise(tree, params = NULL)
 }
 \arguments{
   \item{tree}{
@@ -49,7 +49,7 @@ set.seed(1234525)
 
 myTree <- rcoal(50)
 
-rateTree <- simulate.white.noise(tree = myTree, params = list(mean.log = -3.9, sd.log = 0.1))
+rateTree <- simulate.white.noise(tree = myTree, params = NULL)
 plot(rateTree, col.lineages = rainbow(50))
 
 #See the histogram of the branch-wise rates
@@ -60,7 +60,7 @@ function (tree, params = NULL)
 {
     data.matrix <- get.tree.data.matrix(tree)
     means.rates <- data.matrix[, 7] / sum(data.matrix[, 7])
-    branch.rates <- sapply(means.rates, function(x) log(rlnorm(1, x, x)))
+    branch.rates <- sapply(means.rates, function(x) rlnorm(1, x, x))
     data.matrix[, 5] <- branch.rates
     data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
     tree$edge.length <- data.matrix[, 6]
