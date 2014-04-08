@@ -50,8 +50,12 @@ function (tree)
     rates <- unlist(sapply(tree$annotations, function(x) {
         x$rate_median
     }))
+<<<<<<< HEAD:NELSI/man/trann2trdat.Rd
     midages <- mid.edge.ages(tree)
 
+=======
+        midages <- mid.edge.ages(tree)
+>>>>>>> master:man/trann2trdat.Rd
     timelen <- tree$edge.length
     subslen <- tree$edge.length * rates
     return(data.frame(branch = rownames(as.data.frame(tree$edge)), 
