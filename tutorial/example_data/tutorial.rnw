@@ -209,6 +209,7 @@ tip.ages <- round(allnode.times(hivTree), 2)  # Round to two decimal places for 
 # has 19 tips), while the remaining are the ages of internal nodes
 tiplabels(tip.ages[1:19])
 nodelabels(tip.ages[20:37])
+axisPhylo()
 ```
 
 ![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 

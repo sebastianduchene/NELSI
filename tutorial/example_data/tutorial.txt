@@ -169,6 +169,7 @@ tip.ages <- round(allnode.times(hivTree), 2) # Round to two decimal places for a
 # See the tip ages. The first 19 elements are the ages of the tips (the tree has 19 tips), while the remaining are the ages of internal nodes
 tiplabels(tip.ages[1:19])
 nodelabels(tip.ages[20:37])
+axisPhylo()
 ```
 
 The age of the youngest tip is always assigned an age of 0. The age of the root is calculated with reference to the youngest tip.
