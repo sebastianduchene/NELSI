@@ -49,6 +49,27 @@ install_github(rep = "NELSI", username = "sebastianduchene")
 library(NELSI)
 ```
 
+```
+## Loading required package: ape
+## Loading required package: epibase
+## Loading required package: ggplot2
+## Need help? Try the ggplot2 mailing list: http://groups.google.com/group/ggplot2.
+## Loading required package: network
+## network: Classes for Relational Data
+## Version 1.9.0 created on 2014-01-03.
+## copyright (c) 2005, Carter T. Butts, University of California-Irvine
+##                     Mark S. Handcock, University of California -- Los Angeles
+##                     David R. Hunter, Penn State University
+##                     Martina Morris, University of Washington
+##                     Skye Bender-deMoll, University of Washington
+##  For citation information, type citation("network").
+##  Type help("network-package") to get started.
+## 
+##  epibase 0.1-3 has been loaded
+## 
+## Loading required package: geiger
+```
+
 
 This is all for the installation of NELSI. Please contact the authors to report any bugs.
 
@@ -88,6 +109,10 @@ The simplest rate simulation model in NELSI is a strict clock, where every node 
 
 ```r
 clock.sim <- simulate.clock(myTree, params = list(rate = 0.03, noise = 1e-04))
+```
+
+```
+## Loading required package: phangorn
 ```
 
 
@@ -191,6 +216,7 @@ hivTree <- read.annotated.nexus("hiv_A_env.tree")
 
 ```r
 plot(hivTree)
+axisPhylo()
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
