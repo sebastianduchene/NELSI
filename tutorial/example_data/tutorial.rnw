@@ -191,6 +191,7 @@ hivTree <- read.annotated.nexus("hiv_A_env.tree")
 
 ```r
 plot(hivTree)
+axisPhylo()
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
