@@ -109,7 +109,7 @@ plot(clock.sim, col.lineages = rainbow(20), type = "s")
 4. Simulate autocorrelated rates
 --------------------------------
 
-One way to relax the assumption of having a single rate throughout is to propose small changes in rate from one branch to the next. The functions simulate.autocor.kishino and simulate.autocor.thorne use different methods to simulate this kind of rate pattern. In both functions the user only needs to provide the rate at the root of the phylogeny and the amount of autocorrelation, given by the parameter v. 
+One way to relax the assumption of having a single rate throughout is to propose small changes in rate from one branch to the next. The functions simulate.autocor.kishino and simulate.autocor.thorne use the method described in Kishino *et al*.(2001) and Thorne *et al.*(1998) methods to simulate this kind of rate pattern. In both functions the user only needs to provide the rate at the root of the phylogeny and the amount of autocorrelation, given by the parameter v. 
 
  - Using the following code simulate and plot autocorrelated rates using simulate.autocor.kishino; first with low autocorrelation, and then with high autocorrelation.
 
@@ -135,7 +135,7 @@ plot(sim.high.autocor, col.lineages = rainbow(20), type = "s")
 5. Simulate uncorrelated lognormal rates
 ----------------------------------------
 
-To simulate rates that are uncorrelated among branches, but are independently and identically drawn from a parent distribution, we have implemented three different models for rate simulation. Each function requires different input parameters. 
+To simulate rates that are uncorrelated among branches, but are independently and identically drawn from a parent distribution, we have implemented three different models for rate simulation. Each function requires different input parameters, as described in Drummond *et al.* (2006).
 
  - Using the following you can simulate rates under an uncorrelated lognormal rates model, which requires the log mean and the standard deviation of the parent distribution. Note that the width of the branches varies, representing rate variation among the branches.
  
@@ -321,5 +321,10 @@ In this case it the data appear to have clock-like behaviour.
 References
 ----------
 
-Rambaut, A. **Path-O-Gen: Temporal Signal Investigation Tool. Version 1.3.** (2010).
+Rambaut, A. (2009). **Path-O-Gen: temporal signal investigation tool.**
 
+Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence time estimation method under a probabilistic model of rate evolution. *Molecular Biology and Evolution*, 18(3), 352-361.
+
+Thorne, J.L., Kishino, H., and Painter, I.S., Estimating the rate of evolution of the rate of molecular evolution. *Molecular Biology and Evolution* 15.12 (1998): 1647-1657.
+
+Drummond, A. J., Ho, S. Y., Phillips, M. J., & Rambaut, A. (2006). Relaxed phylogenetics and dating with confidence. *PLOS biology*, 4(5), e88.
