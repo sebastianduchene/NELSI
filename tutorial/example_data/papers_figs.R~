@@ -1,0 +1,6 @@
+uncor <- simulate.uncor.lnorm(tr, params = list(mean.log = 0.03, sd.log = 0.7))
+
+kishino <- simulate.autocor.kishino(tr, params = list(initial.rate = 0.02, v = 0.5))
+
+clock <- simulate.clock(tree = tr)
+
