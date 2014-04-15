@@ -151,10 +151,10 @@ plot(sim.uncor, col.lineages = rainbow(20), type = "s")
 There are other methods for rate simulation in NELSI, but this tutorial covers the most well-known models. Please refer to the package doccumentation and help files for a full list of functions.
 
 
-6. Simulate nucleotide sequences using phangorn and export 
-----------------------------------------------------------
+6. Simulate nucleotide sequences using phangorn and export the data
+------------------------------------------------------------------
 
-We can use the package phangorn to evolve a nucleotide or amino-acid sequence alignment along the phylogram (the first element of the ratesim object), and save it in an external file in a format like FASTA for future use.
+We can use the package phangorn to simulate evolvution of nucleotide or amino-acid sequence alignments along a phylogram (the first element of the ratesim object), and save it in an external file in a any format, such as FASTA, for future use.
 
  - Simulate a DNA alignment 2000 base-pairs long, and save it in a file.
  
@@ -163,7 +163,7 @@ We can use the package phangorn to evolve a nucleotide or amino-acid sequence al
 sim.dna.data <- simSeq(sim.uncor[[1]], l = 2000, type = "DNA")
 write.phyDat(sim.dna.data, file = "nelsi_tutorial_dna.fasta", format = "fasta")
 ```
-
+Note that the function simSeq can simulate under different models of nucleotide substitution. Use ?simSeq to see details.
 
 - Now save the phylogram in newick format for future reference or comparison, using the ape package.
 
@@ -321,7 +321,7 @@ In this case it the data appear to have clock-like behaviour.
 References
 ----------
 
-Rambaut, A. (2009). **Path-O-Gen: temporal signal investigation tool.**
+Rambaut, A. (2009). Path-O-Gen: temporal signal investigation tool.
 
 Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence time estimation method under a probabilistic model of rate evolution. *Molecular Biology and Evolution*, 18(3), 352-361.
 
