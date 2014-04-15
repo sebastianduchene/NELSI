@@ -103,7 +103,7 @@ The output is an object of class ratesim, which is the output of all the rate si
 plot(clock.sim, col.lineages = rainbow(20), type = "s")
 ```
 
-[Figure 1](figure/unnamed-chunk-5.png) 
+![Figure 1](figure/unnamed-chunk-5.png) 
 
 
 4. Simulate autocorrelated rates
