@@ -4,7 +4,7 @@
 trann2trdat. extract annontations from a nexus tree.
 }
 \description{
-Convert a tree with annotations from BEAST to a data frame with the annotations for the rate, the branch lengths in substitions and the branch lengths in time. The tree should be read with funtion read.annotated.nexus from the epibase package.
+Convert a tree with annotations from BEAST to a data frame with the annotations for the rate, the branch lengths in substitions and the branch lengths in time. The tree should be read with funtion read.annotated.nexus from the defunct epibase package.
 }
 \usage{
 trann2trdat(tree)
@@ -27,12 +27,12 @@ None
 David Duchene
 }
 \note{
-see read.annotated.nexus
+see read.annotated.nexus from package epibase
 }
 
 
 \seealso{
-see read.annotated.nexus from package epibase (defunct)
+see read.annotated.nexus from package epibase
 }
 \examples{
 \dontrun{
@@ -42,17 +42,20 @@ head(annotationData)
 }
 ## The function is currently defined as
 function (tree) 
-{
-    
+{    require(epibase)
     tree$edge.length <- unlist(sapply(tree$annotations, function(x) {
         x$length
     }))[1:length(tree$edge.length)]
     rates <- unlist(sapply(tree$annotations, function(x) {
         x$rate_median
     }))
+<<<<<<< HEAD:NELSI/man/trann2trdat.Rd
     midages <- mid.edge.ages(tree)
 
-      timelen <- tree$edge.length
+=======
+        midages <- mid.edge.ages(tree)
+>>>>>>> master:man/trann2trdat.Rd
+    timelen <- tree$edge.length
     subslen <- tree$edge.length * rates
     return(data.frame(branch = rownames(as.data.frame(tree$edge)), 
         parent = tree$edge[, 1], daughter = tree$edge[, 2], midage = midages, 
