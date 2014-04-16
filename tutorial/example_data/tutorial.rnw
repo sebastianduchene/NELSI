@@ -53,7 +53,10 @@ library(NELSI)
 ## Loading required package: ape
 ## Loading required package: epibase
 ## Loading required package: ggplot2
+<<<<<<< HEAD
 ## Need help? Try the ggplot2 mailing list: http://groups.google.com/group/ggplot2.
+=======
+>>>>>>> testing
 ## Loading required package: network
 ## network: Classes for Relational Data
 ## Version 1.9.0 created on 2014-01-03.
@@ -234,6 +237,7 @@ tip.ages <- round(allnode.times(hivTree), 2)  # Round to two decimal places for 
 # has 19 tips), while the remaining are the ages of internal nodes
 tiplabels(tip.ages[1:19])
 nodelabels(tip.ages[20:37])
+axisPhylo()
 ```
 
 ![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 

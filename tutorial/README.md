@@ -49,6 +49,7 @@ install_github(rep = "NELSI", username = "sebastianduchene")
 library(NELSI)
 ```
 
+<<<<<<< HEAD
 ```
 ## Loading required package: ape
 ## Loading required package: epibase
@@ -71,6 +72,8 @@ library(NELSI)
 ```
 
 
+=======
+>>>>>>> testing
 This is all for the installation of NELSI. Please contact the authors to report any bugs.
 
 
@@ -102,7 +105,7 @@ nodelabels(node.ages, bg = "white")
 3. Simulate constant rates through time
 ---------------------------------------
 
-The simplest rate simulation model in NELSI is a strict clock, where every node is given the same rate, with a user-specified noise level. To simulate rates under this model for our chronogram we use the function simulate.cock, which receives as arguments the chronogram, and two parameters: the mean rate and the amount of noise. 
+The simplest rate simulation model in NELSI is a strict clock, where every branch is given the same rate, with a user-specified noise level. To simulate rates under this model for our chronogram we use the function simulate.cock, which receives as arguments the chronogram, and two parameters: the mean rate and the amount of noise. 
 
  - As an example, we will simulate a high rate of substitutions and a high level of noise. Remember that because this is a simulations context, the results will vary every time the function is run. Note that the range of the rates along the y axis is very low.
 
@@ -125,13 +128,13 @@ The output is an object of class ratesim, which is the output of all the rate si
 plot(clock.sim, col.lineages = rainbow(20), type = "s")
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![Figure 1](figure/unnamed-chunk-5.png) 
 
 
 4. Simulate autocorrelated rates
 --------------------------------
 
-One way to relax the assumption of having a single rate throughout is to propose small changes in rate from one branch to the next. The functions simulate.autocor.kishino and simulate.autocor.thorne use different methods to simulate this kind of rate pattern. In both functions the user only needs to provide the rate at the root of the phylogeny and the amount of autocorrelation, given by the parameter v. 
+One way to relax the assumption of having a single rate throughout is to propose small changes in rate from one branch to the next. The functions simulate.autocor.kishino and simulate.autocor.thorne use the method described in Kishino *et al*.(2001) and Thorne *et al.*(1998) methods to simulate this kind of rate pattern. In both functions the user only needs to provide the rate at the root of the phylogeny and the amount of autocorrelation, given by the parameter v. 
 
  - Using the following code simulate and plot autocorrelated rates using simulate.autocor.kishino; first with low autocorrelation, and then with high autocorrelation.
 
@@ -157,7 +160,7 @@ plot(sim.high.autocor, col.lineages = rainbow(20), type = "s")
 5. Simulate uncorrelated lognormal rates
 ----------------------------------------
 
-To simulate rates that are uncorrelated among branches, but are independently and identically drawn from a parent distribution, we have implemented three different models for rate simulation. Each function requires different input parameters. 
+To simulate rates that are uncorrelated among branches, but are independently and identically drawn from a parent distribution, we have implemented three different models for rate simulation. Each function requires different input parameters, as described in Drummond *et al.* (2006).
 
  - Using the following you can simulate rates under an uncorrelated lognormal rates model, which requires the log mean and the standard deviation of the parent distribution. Note that the width of the branches varies, representing rate variation among the branches.
  
@@ -173,10 +176,10 @@ plot(sim.uncor, col.lineages = rainbow(20), type = "s")
 There are other methods for rate simulation in NELSI, but this tutorial covers the most well-known models. Please refer to the package doccumentation and help files for a full list of functions.
 
 
-6. Simulate nucleotide sequences using phangorn and export 
-----------------------------------------------------------
+6. Simulate nucleotide sequences using phangorn and export the data
+------------------------------------------------------------------
 
-We can use the package phangorn to evolve a nucleotide or amino-acid sequence alignment along the phylogram (the first element of the ratesim object), and save it in an external file in a format like FASTA for future use.
+We can use the package phangorn to simulate evolvution of nucleotide or amino-acid sequence alignments along a phylogram (the first element of the ratesim object), and save it in an external file in a any format, such as FASTA, for future use.
 
  - Simulate a DNA alignment 2000 base-pairs long, and save it in a file.
  
@@ -185,7 +188,7 @@ We can use the package phangorn to evolve a nucleotide or amino-acid sequence al
 sim.dna.data <- simSeq(sim.uncor[[1]], l = 2000, type = "DNA")
 write.phyDat(sim.dna.data, file = "nelsi_tutorial_dna.fasta", format = "fasta")
 ```
-
+Note that the function simSeq can simulate under different models of nucleotide substitution. Use ?simSeq to see details.
 
 - Now save the phylogram in newick format for future reference or comparison, using the ape package.
 
@@ -234,6 +237,7 @@ tip.ages <- round(allnode.times(hivTree), 2)  # Round to two decimal places for 
 # has 19 tips), while the remaining are the ages of internal nodes
 tiplabels(tip.ages[1:19])
 nodelabels(tip.ages[20:37])
+axisPhylo()
 ```
 
 ![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
@@ -342,5 +346,10 @@ In this case it the data appear to have clock-like behaviour.
 References
 ----------
 
-Rambaut, A. **Path-O-Gen: Temporal Signal Investigation Tool. Version 1.3.** (2010).
+Rambaut, A. (2009). Path-O-Gen: temporal signal investigation tool.
 
+Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence time estimation method under a probabilistic model of rate evolution. *Molecular Biology and Evolution*, 18(3), 352-361.
+
+Thorne, J.L., Kishino, H., and Painter, I.S., Estimating the rate of evolution of the rate of molecular evolution. *Molecular Biology and Evolution* 15.12 (1998): 1647-1657.
+
+Drummond, A. J., Ho, S. Y., Phillips, M. J., & Rambaut, A. (2006). Relaxed phylogenetics and dating with confidence. *PLOS biology*, 4(5), e88.
