@@ -27,12 +27,12 @@ None
 David Duchene
 }
 \note{
-see read.annotated.nexus from package epibase
+see read.annotated.nexus
 }
 
 
 \seealso{
-see read.annotated.nexus from package epibase
+see read.annotated.nexus from package epibase (defunct)
 }
 \examples{
 \dontrun{
@@ -43,20 +43,16 @@ head(annotationData)
 ## The function is currently defined as
 function (tree) 
 {
-    require(epibase)
+    
     tree$edge.length <- unlist(sapply(tree$annotations, function(x) {
         x$length
     }))[1:length(tree$edge.length)]
     rates <- unlist(sapply(tree$annotations, function(x) {
         x$rate_median
     }))
-<<<<<<< HEAD:NELSI/man/trann2trdat.Rd
     midages <- mid.edge.ages(tree)
 
-=======
-        midages <- mid.edge.ages(tree)
->>>>>>> master:man/trann2trdat.Rd
-    timelen <- tree$edge.length
+      timelen <- tree$edge.length
     subslen <- tree$edge.length * rates
     return(data.frame(branch = rownames(as.data.frame(tree$edge)), 
         parent = tree$edge[, 1], daughter = tree$edge[, 2], midage = midages, 

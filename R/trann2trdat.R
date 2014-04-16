@@ -1,6 +1,5 @@
 trann2trdat <-
 function(tree){
-    require(epibase)
 	tree$edge.length <- unlist(sapply(tree$annotations, function(x){ x$length }))[1:length(tree$edge.length)]
 	rates <- unlist(sapply(tree$annotations, function(x){ x$rate_median }))
 	midages <- mid.edge.ages(tree)
