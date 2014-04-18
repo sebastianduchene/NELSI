@@ -4,7 +4,8 @@ This is the home of NELSI: Nucleotide Evolutionary rate Simulator
 
 This is the list of potential functions:
 
-- Added a function to read beast trees directly and plot them as a ratesim object. Note that in this case we have the chronogram and not the phylogram. plot.beast.tree and read.beast.tree need to be added to the R and man folders.
+- Added a function to read beast trees directly and plot them as a ratesim object. Note that in this case we have the chronogram and not the phylogram.
+
 
 - simulate.rate
   - ~~strict clock~~
