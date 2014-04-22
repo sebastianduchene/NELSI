@@ -10,10 +10,23 @@ sebastian.duchene[at]sydney.edu.au
 X April 2014
 
 
+Introduction
+------------
+
+Models for molecular rate variation play a key role in molecular phylogenetics. Due to their importance in evolutionary biology, several of these models have been proposed, falling into three broad categories: the strict clock, where a single rate is assumed for all the branches of a phylogeny; autocorrelated models, where rates along a lineage have a degree of correlation; and uncorrelated models, where the rate at each branch is independently and identically drawn from a specified distribution. In addition, models have been used for statistical purposes, like the white noise model (Lepage *et al*. 2007), or for correction of patterns in molecular sequences that might cause bias to molecular rate estimates, like the selection-correction model (ADD CITATION).
+
+With the increasing development of clock models, it is necessary to assess their performance with simulations and analyses of empirical data. In this note, we present a package that builds on existing phylogenetic applications to simulate molecular rates in phylogenies using a broad set of existing models for molecular evolution and the graphical flexibility of R.
+
+
 Description
 -----------
 
-NELSI is implemented in the R programming language (r core team), and it is available as a package in github (website). It is compatible with some popular phylogenetic packages in R, such as ape () and phangorn () making it accessible to users familiar with phylogenetic data in R. The main functions use phylogenetic trees of class phylo, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Some R packages that simulate phylogenetic trees, such as geiger and TreeSim, also produce trees of class phylo, which can be used directly with NELSI. An important aspect of simulating rates of evolution along phylogenetic trees is that the trees should correspond to chronograms, with branch lengths in units of time.
+NELSI is implemented in the R programming language (r core team), and it is available as a package in [github](https://github.com/sebastianduchene/NELSI/). It is compatible with some popular phylogenetic packages in R, such as ape (Paradis *et al*. 2004) and phangorn (Schliep 2011) making it accessible to users familiar with phylogenetic data in R. The main functions use phylogenetic trees of class phylo, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Some R packages that simulate phylogenetic trees, such as geiger and TreeSim, also produce trees of class phylo, which can be used directly with NELSI. An important aspect of simulating rates of evolution along phylogenetic trees is that the trees should correspond to chronograms, with branch lengths in units of time. 
+
+
+
+Tutorial
+========
 
 1. Installation and setup
 -------------------------
@@ -53,7 +66,13 @@ install_github(rep = "NELSI", username = "sebastianduchene")
 library(NELSI)
 ```
 
-This is all for the installation of NELSI. Please contact the authors to report any bugs.
+This is all for the installation of NELSI. Please contact the authors to report any bugs. 
+
+In the next sections of this tutorial we show an overview of some of the functions available. For a more comprehensive list, please see the manual by typing the following code in the R console:
+
+```
+help(package = NELSI)
+```
 
 
 2. Loading phylogenetic trees
@@ -155,8 +174,8 @@ plot(sim.uncor, col.lineages = rainbow(20), type = "s")
 There are other methods for rate simulation in NELSI, but this tutorial covers the most well-known models. Please refer to the package doccumentation and help files for a full list of functions.
 
 
-6. Simulate nucleotide sequences using phangorn and export the data
-------------------------------------------------------------------
+6. Simulate nucleotide sequences using phangorn and exporting the data
+----------------------------------------------------------------------
 
 We can use the package phangorn to simulate evolvution of nucleotide or amino-acid sequence alignments along a phylogram (the first element of the ratesim object), and save it in an external file in a any format, such as FASTA, for future use.
 
@@ -325,10 +344,17 @@ In this case it the data appear to have clock-like behaviour.
 References
 ----------
 
-Rambaut, A. (2009). Path-O-Gen: temporal signal investigation tool.
+Drummond, A. J., Ho, S. Y., Phillips, M. J., & Rambaut, A. (2006). Relaxed phylogenetics and dating with confidence. *PLOS biology*, 4(5), e88.
 
 Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence time estimation method under a probabilistic model of rate evolution. *Molecular Biology and Evolution*, 18(3), 352-361.
 
+Lepage, T., Bryant, D., Philippe, H., & Lartillot, N. (2007). A general comparison of relaxed molecular clock models. Molecular biology and evolution, 24(12), 2669-2680.
+
+Paradis, E., Claude, J., & Strimmer, K. (2004). APE: analyses of phylogenetics and evolution in R language. Bioinformatics, 20(2), 289-290.
+
+Rambaut, A. (2009). Path-O-Gen: temporal signal investigation tool.
+
+Schliep, K. P. (2011). phangorn: Phylogenetic analysis in R. *Bioinformatics*, 27(4), 592-593.
+
 Thorne, J.L., Kishino, H., and Painter, I.S., Estimating the rate of evolution of the rate of molecular evolution. *Molecular Biology and Evolution* 15.12 (1998): 1647-1657.
 
-Drummond, A. J., Ho, S. Y., Phillips, M. J., & Rambaut, A. (2006). Relaxed phylogenetics and dating with confidence. *PLOS biology*, 4(5), e88.
