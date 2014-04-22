@@ -1,7 +1,6 @@
 NELSI: Nucleotide EvoLutionary Rate Simulator
 =============================================
 
-
 David Duchene and Sebastian Duchene
 
 david.duchene[at]anu.edu.au
@@ -10,6 +9,24 @@ sebastian.duchene[at]sydney.edu.au
 
 X April 2014
 
+
+Introduction
+------------
+
+Models for molecular rate variation play a key role in molecular phylogenetics. Due to their importance in evolutionary biology, several of these models have been proposed, falling into three broad categories: the strict clock, where a single rate is assumed for all the branches of a phylogeny; autocorrelated models, where rates along a lineage have a degree of correlation; and uncorrelated models, where the rate at each branch is independently and identically drawn from a specified distribution. In addition, models have been used for statistical purposes, like the white noise model (Lepage *et al*. 2007), or for correction of patterns in molecular sequences that might cause bias to molecular rate estimates, like the selection-correction model (ADD CITATION).
+
+With the increasing development of clock models, it is necessary to assess their performance with simulations and analyses of empirical data. In this note, we present a package that builds on existing phylogenetic applications to simulate molecular rates in phylogenies using a broad set of existing models for molecular evolution and the graphical flexibility of R.
+
+
+Description
+-----------
+
+NELSI is implemented in the R programming language, and it is available as a package in [github](https://github.com/sebastianduchene/NELSI/). It is compatible with some popular phylogenetic packages in R, such as ape (Paradis *et al*. 2004) and phangorn (Schliep 2011) making it accessible to users familiar with phylogenetic data in R. The main functions use phylogenetic trees of class phylo, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Some R packages that simulate phylogenetic trees, such as geiger and TreeSim, also produce trees of class phylo, which can be used directly with NELSI. An important aspect of simulating rates of evolution along phylogenetic trees is that the trees should correspond to chronograms, with branch lengths in units of time. 
+
+
+
+Tutorial
+========
 
 1. Installation and setup
 -------------------------
@@ -45,32 +62,17 @@ install_github(rep = "NELSI", username = "sebastianduchene")
  - NELSI is now installed. To make all the functions available, load the package by typing:
 
 
-```r
+```
 library(NELSI)
 ```
 
-```
-## Loading required package: ape
-## Loading required package: epibase
-## Loading required package: ggplot2
-## Loading required package: network
-## network: Classes for Relational Data
-## Version 1.9.0 created on 2014-01-03.
-## copyright (c) 2005, Carter T. Butts, University of California-Irvine
-##                     Mark S. Handcock, University of California -- Los Angeles
-##                     David R. Hunter, Penn State University
-##                     Martina Morris, University of Washington
-##                     Skye Bender-deMoll, University of Washington
-##  For citation information, type citation("network").
-##  Type help("network-package") to get started.
-## 
-##  epibase 0.1-3 has been loaded
-## 
-## Loading required package: geiger
-```
+This is all for the installation of NELSI. Please contact the authors to report any bugs. 
 
+In the next sections of this tutorial we show an overview of some of the functions available. For a more comprehensive list, please see the manual by typing the following code in the R console:
 
-This is all for the installation of NELSI. Please contact the authors to report any bugs.
+```
+help(package = NELSI)
+```
 
 
 2. Loading phylogenetic trees
@@ -81,7 +83,7 @@ To simulate rates of evolution we need a phylogenetic tree in which the branch l
  - Set the R [working directory](http://www.statmethods.net/interface/workspace.html) to the example_data folder. Load the example tree with the following code:
 
 
-```r
+```
 myTree <- read.tree("tr_example.tree")
 ```
 
@@ -89,7 +91,7 @@ myTree <- read.tree("tr_example.tree")
  - To get more insight into the chronogram that we have loaded, we can plot it and annotate each node with its age.
 
 
-```r
+```
 plot(myTree)
 node.ages <- round(branching.times(myTree), 2)
 nodelabels(node.ages, bg = "white")
@@ -101,12 +103,12 @@ nodelabels(node.ages, bg = "white")
 3. Simulate constant rates through time
 ---------------------------------------
 
-The simplest rate simulation model in NELSI is a strict clock, where every node is given the same rate, with a user-specified noise level. To simulate rates under this model for our chronogram we use the function simulate.cock, which receives as arguments the chronogram, and two parameters: the mean rate and the amount of noise. 
+The simplest rate simulation model in NELSI is a strict clock, where every branch is given the same rate, with a user-specified noise level. To simulate rates under this model for our chronogram we use the function simulate.cock, which receives as arguments the chronogram, and two parameters: the mean rate and the amount of noise. 
 
  - As an example, we will simulate a high rate of substitutions and a high level of noise. Remember that because this is a simulations context, the results will vary every time the function is run. Note that the range of the rates along the y axis is very low.
 
 
-```r
+```
 clock.sim <- simulate.clock(myTree, params = list(rate = 0.03, noise = 1e-04))
 ```
 
@@ -120,22 +122,22 @@ The output is an object of class ratesim, which is the output of all the rate si
  - To observe how the rate changes through time in each lineage, you can plot the output of your simulation function directly using the ratesim object. The fist plot will show the rate through time for each lineage, while the second shows the chronogram with the tips coloured proportional to the rate. Therefore, colours of lines in the first plot correspond to the colours of tips in the second plot. The width of the branches is proportional to the rate.
 
 
-```r
+```
 plot(clock.sim, col.lineages = rainbow(20), type = "s")
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![Figure 1](figure/unnamed-chunk-5.png) 
 
 
 4. Simulate autocorrelated rates
 --------------------------------
 
-One way to relax the assumption of having a single rate throughout is to propose small changes in rate from one branch to the next. The functions simulate.autocor.kishino and simulate.autocor.thorne use different methods to simulate this kind of rate pattern. In both functions the user only needs to provide the rate at the root of the phylogeny and the amount of autocorrelation, given by the parameter v. 
+One way to relax the assumption of having a single rate throughout is to propose small changes in rate from one branch to the next. The functions simulate.autocor.kishino and simulate.autocor.thorne use the method described in Kishino *et al*.(2001) and Thorne *et al.*(1998) methods to simulate this kind of rate pattern. In both functions the user only needs to provide the rate at the root of the phylogeny and the amount of autocorrelation, given by the parameter v. 
 
  - Using the following code simulate and plot autocorrelated rates using simulate.autocor.kishino; first with low autocorrelation, and then with high autocorrelation.
 
 
-```r
+```
 sim.low.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, 
     v = 0.1))
 sim.high.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, 
@@ -146,7 +148,7 @@ plot(sim.low.autocor, col.lineages = rainbow(20), type = "s")
 ![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
 
-```r
+```
 plot(sim.high.autocor, col.lineages = rainbow(20), type = "s")
 ```
 
@@ -156,12 +158,12 @@ plot(sim.high.autocor, col.lineages = rainbow(20), type = "s")
 5. Simulate uncorrelated lognormal rates
 ----------------------------------------
 
-To simulate rates that are uncorrelated among branches, but are independently and identically drawn from a parent distribution, we have implemented three different models for rate simulation. Each function requires different input parameters. 
+To simulate rates that are uncorrelated among branches, but are independently and identically drawn from a parent distribution, we have implemented three different models for rate simulation. Each function requires different input parameters, as described in Drummond *et al.* (2006).
 
  - Using the following you can simulate rates under an uncorrelated lognormal rates model, which requires the log mean and the standard deviation of the parent distribution. Note that the width of the branches varies, representing rate variation among the branches.
  
 
-```r
+```
 sim.uncor <- simulate.uncor.lnorm(myTree, params = list(mean.log = -3.9, sd.log = 0.7))
 plot(sim.uncor, col.lineages = rainbow(20), type = "s")
 ```
@@ -172,24 +174,24 @@ plot(sim.uncor, col.lineages = rainbow(20), type = "s")
 There are other methods for rate simulation in NELSI, but this tutorial covers the most well-known models. Please refer to the package doccumentation and help files for a full list of functions.
 
 
-6. Simulate nucleotide sequences using phangorn and export 
-----------------------------------------------------------
+6. Simulate nucleotide sequences using phangorn and exporting the data
+----------------------------------------------------------------------
 
-We can use the package phangorn to evolve a nucleotide or amino-acid sequence alignment along the phylogram (the first element of the ratesim object), and save it in an external file in a format like FASTA for future use.
+We can use the package phangorn to simulate evolvution of nucleotide or amino-acid sequence alignments along a phylogram (the first element of the ratesim object), and save it in an external file in a any format, such as FASTA, for future use.
 
  - Simulate a DNA alignment 2000 base-pairs long, and save it in a file.
  
 
-```r
+```
 sim.dna.data <- simSeq(sim.uncor[[1]], l = 2000, type = "DNA")
 write.phyDat(sim.dna.data, file = "nelsi_tutorial_dna.fasta", format = "fasta")
 ```
-
+Note that the function simSeq can simulate under different models of nucleotide substitution. Use ?simSeq to see details.
 
 - Now save the phylogram in newick format for future reference or comparison, using the ape package.
 
 
-```r
+```
 write.tree(sim.uncor[[1]], file = "nelsi_tutorial_pylogram.tree")
 ```
 
@@ -198,14 +200,14 @@ write.tree(sim.uncor[[1]], file = "nelsi_tutorial_pylogram.tree")
 7. Loading a virus data set estimated in BEAST 
 -----------------------------------------------
 
-Phylogenetic trees in NEXUS format can have a large number of annotations, with information about rates, times, or other traits for every branch in the tree. These annotations can be read in R with the pacakge [epibase](http://www.inside-r.org/packages/cran/epibase) and then imported into a tree data matrix to be used with NELSI.
+Phylogenetic trees in NEXUS format can have a large number of annotations, with information about rates, times, or other traits for every branch in the tree. These annotations can be read in R with the function read.annotated.nexus, from pacakge [epibase](http://www.inside-r.org/packages/cran/epibase). Then the annotations cat be imported into a tree data matrix to be used with NELSI. Note that epibase is no longer supported, but we have made this function available here.
 
 The examples_data folder contains a tree from *ENV* sequences from HIV-1 sub-type A collected between 1991 and 2008. 
 
  - Type the following code to read the tree (remember to set the working directory to the example_data folder):
 
 
-```r
+```
 hivTree <- read.annotated.nexus("hiv_A_env.tree")
 ```
 
@@ -213,8 +215,9 @@ hivTree <- read.annotated.nexus("hiv_A_env.tree")
  - Plot the tree with the function plot:
 
 
-```r
+```
 plot(hivTree)
+axisPhylo()
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
@@ -225,13 +228,14 @@ The tree is a chronogram, so that the branch lengths represent units of time. Th
  - Type the following code to plot the tree with out taxon names. Instead add the ages of the tips and internal nodes with the tiplabel and nodelabel functions. 
 
 
-```r
+```
 plot(hivTree, show.tip.label = F)
 tip.ages <- round(allnode.times(hivTree), 2)  # Round to two decimal places for a clearer plot
 # See the tip ages. The first 19 elements are the ages of the tips (the tree
 # has 19 tips), while the remaining are the ages of internal nodes
 tiplabels(tip.ages[1:19])
 nodelabels(tip.ages[20:37])
+axisPhylo()
 ```
 
 ![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
@@ -248,7 +252,7 @@ We will use the tree in 7. to obtain the tree data matrix and plot the rates thr
  - Use the function get.tree.data.matrix for the HIV tree in 7 and inspect the tree data matrix:
 
 
-```r
+```
 hivDataMatrix <- trann2trdat(hivTree)
 
 head(hivDataMatrix)
@@ -274,7 +278,7 @@ For heterochronous data one can test the molecular clock by conducting a regress
  - Obtain the ages of the tips with the function allnode.times with the HIV chronogram. Specify the argument tipsonly = T, which will return the ages of the tips, and not those of internal nodes.
 
 
-```r
+```
 tipsTimes <- allnode.times(hivTree, tipsonly = T)
 ```
 
@@ -282,7 +286,7 @@ tipsTimes <- allnode.times(hivTree, tipsonly = T)
  - We can use the tree data matrix from 8. to obtan the HIV phylogram (with branch lengths in substitutions). To do this, create a copy of the chronogram in variable hivPhylogram and set the branch lengths to the number of substitutions from the tree data matrix:
 
 
-```r
+```
 hivPhylogram <- hivTree
 hivPhylogram$edge.length <- hivDataMatrix$blensubs
 ```
@@ -291,7 +295,7 @@ hivPhylogram$edge.length <- hivDataMatrix$blensubs
  - The root-to-tip distances in the phylogram are the number of substutions from the root to the tips. Save this in an other variable:
 
 
-```r
+```
 tipsSubstitutions <- allnode.times(hivPhylogram, tipsonly = T)
 ```
 
@@ -299,7 +303,7 @@ tipsSubstitutions <- allnode.times(hivPhylogram, tipsonly = T)
  - The variables tipsTimes and tipsSubstitutions can be used to plot the data and test the linear regression with basic linear models:
 
 
-```r
+```
 plot(tipsTimes, tipsSubstitutions, pch = 20, ylab = "Substitutions from the root to tips (substitutions)", 
     xlab = "Time from the root to the tip (years)")
 hivRegression <- lm(tipsSubstitutions ~ tipsTimes)
@@ -308,7 +312,7 @@ abline(hivRegression)
 
 ![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
 
-```r
+```
 summary(hivRegression)
 ```
 
@@ -340,5 +344,17 @@ In this case it the data appear to have clock-like behaviour.
 References
 ----------
 
-Rambaut, A. **Path-O-Gen: Temporal Signal Investigation Tool. Version 1.3.** (2010).
+Drummond, A. J., Ho, S. Y., Phillips, M. J., & Rambaut, A. (2006). Relaxed phylogenetics and dating with confidence. *PLOS biology*, 4(5), e88.
+
+Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence time estimation method under a probabilistic model of rate evolution. *Molecular Biology and Evolution*, 18(3), 352-361.
+
+Lepage, T., Bryant, D., Philippe, H., & Lartillot, N. (2007). A general comparison of relaxed molecular clock models. *Molecular Biology and Evolution*, 24(12), 2669-2680.
+
+Paradis, E., Claude, J., & Strimmer, K. (2004). APE: analyses of phylogenetics and evolution in R language. *Bioinformatics*, 20(2), 289-290.
+
+Rambaut, A. (2009). Path-O-Gen: temporal signal investigation tool.
+
+Schliep, K. P. (2011). phangorn: Phylogenetic analysis in R. *Bioinformatics*, 27(4), 592-593.
+
+Thorne, J.L., Kishino, H., and Painter, I.S., Estimating the rate of evolution of the rate of molecular evolution. *Molecular Biology and Evolution* 15.12 (1998): 1647-1657.
 

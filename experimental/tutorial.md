@@ -23,6 +23,8 @@ Description
 
 NELSI is implemented in the R programming language, and it is available as a package in [github](https://github.com/sebastianduchene/NELSI/). It is compatible with some popular phylogenetic packages in R, such as ape (Paradis *et al*. 2004) and phangorn (Schliep 2011) making it accessible to users familiar with phylogenetic data in R. The main functions use phylogenetic trees of class phylo, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Some R packages that simulate phylogenetic trees, such as geiger and TreeSim, also produce trees of class phylo, which can be used directly with NELSI. An important aspect of simulating rates of evolution along phylogenetic trees is that the trees should correspond to chronograms, with branch lengths in units of time. 
 
+
+
 Tutorial
 ========
 
@@ -47,24 +49,22 @@ Follow the instructions in the prompt.
 
  - Load devtools with the following code:
 
-
 ```
 library(devtools)
 ```
-
 
  - The devtools package has a function to download packages from github repositories. To download and install NELSI type the following at the prompt:
 
 ```
 install_github(rep = "NELSI", username = "sebastianduchene")
 ```
+
  - NELSI is now installed. To make all the functions available, load the package by typing:
 
 
 ```
 library(NELSI)
 ```
-
 
 This is all for the installation of NELSI. Please contact the authors to report any bugs. 
 
@@ -73,6 +73,7 @@ In the next sections of this tutorial we show an overview of some of the functio
 ```
 help(package = NELSI)
 ```
+
 
 2. Loading phylogenetic trees
 -----------------------------
@@ -96,32 +97,36 @@ node.ages <- round(branching.times(myTree), 2)
 nodelabels(node.ages, bg = "white")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
 
-3. Simulate constant rates through time (strict clock)
-------------------------------------------------------
+3. Simulate constant rates through time
+---------------------------------------
 
 The simplest rate simulation model in NELSI is a strict clock, where every branch is given the same rate, with a user-specified noise level. To simulate rates under this model for our chronogram we use the function simulate.cock, which receives as arguments the chronogram, and two parameters: the mean rate and the amount of noise. 
 
- - As an example, we will simulate a high rate of substitutions and a high level of noise.
+ - As an example, we will simulate a high rate of substitutions and a high level of noise. Remember that because this is a simulations context, the results will vary every time the function is run. Note that the range of the rates along the y axis is very low.
 
 
 ```
-clock.sim <- simulate.clock(myTree, params = list(rate = 0.03, noise = 0))
+clock.sim <- simulate.clock(myTree, params = list(rate = 0.03, noise = 1e-04))
+```
+
+```
+## Loading required package: phangorn
 ```
 
 
 The output is an object of class ratesim, which is the output of all the rate simulation functions in NELSI. ratesim objects have two elements. The first is a phylogram (our input topology but with branch lengths in terms of substitutions). The second element in an object of class ratesim is a tree.data.matrix, which is a matrix with all the data about a phylogeny, includng the simulated data. The columns of a tree.data.matrix are the following: (1) is the index of each branch; (2) and (3) are the edge attribute of the class phylo, showing the parent and daughter nodes for each branchrespectively; (4) is the mid age of each branch; (5) is the simulated molecular rate for every branch; (6) is the branch lengths in substitutions per site; and (7) is branch lengths in time units.
 
- - To observe how the rate changes through time in each lineage, you can plot the output of your simulation function directly using the ratesim object. The fist plot will show the rate through time for each lineage, while the second shows the chronogram with the tips coloured proportional to the rate. Therefore, colours of lines in the first plot correspond to the colours of tips in the second plot. The width of the branches is proportional to the rate. With the strict clock there is no rate variation among lineages.
+ - To observe how the rate changes through time in each lineage, you can plot the output of your simulation function directly using the ratesim object. The fist plot will show the rate through time for each lineage, while the second shows the chronogram with the tips coloured proportional to the rate. Therefore, colours of lines in the first plot correspond to the colours of tips in the second plot. The width of the branches is proportional to the rate.
 
 
 ```
 plot(clock.sim, col.lineages = rainbow(20), type = "s")
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![Figure 1](figure/unnamed-chunk-5.png) 
 
 
 4. Simulate autocorrelated rates
@@ -136,20 +141,18 @@ One way to relax the assumption of having a single rate throughout is to propose
 sim.low.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, 
     v = 0.1))
 sim.high.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, 
-    v = 0.006))
+    v = 0.003))
 plot(sim.low.autocor, col.lineages = rainbow(20), type = "s")
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
-
-
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
 
 ```
 plot(sim.high.autocor, col.lineages = rainbow(20), type = "s")
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
 
 
 5. Simulate uncorrelated lognormal rates
@@ -165,7 +168,7 @@ sim.uncor <- simulate.uncor.lnorm(myTree, params = list(mean.log = -3.9, sd.log 
 plot(sim.uncor, col.lineages = rainbow(20), type = "s")
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 
 There are other methods for rate simulation in NELSI, but this tutorial covers the most well-known models. Please refer to the package doccumentation and help files for a full list of functions.
@@ -217,13 +220,12 @@ plot(hivTree)
 axisPhylo()
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
 
 The tree is a chronogram, so that the branch lengths represent units of time. The ages of the nodes can be obtained with the function branching.times, but this only works for ultrametric trees, which is not the case for these data because the samples were obtained at different points in time (heterochronous). The function allnode.times in NELSI can obtain the ages of the nodes and tips for heterochronous trees. The first items of the function are the ages of the tips, and the remaining are the ages of internal nodes.
 
  - Type the following code to plot the tree with out taxon names. Instead add the ages of the tips and internal nodes with the tiplabel and nodelabel functions. 
-
 
 
 ```
@@ -236,7 +238,7 @@ nodelabels(tip.ages[20:37])
 axisPhylo()
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
 
 
 The age of the youngest tip is always assigned an age of 0. The age of the root is calculated with reference to the youngest tip.
@@ -250,9 +252,9 @@ We will use the tree in 7. to obtain the tree data matrix and plot the rates thr
  - Use the function get.tree.data.matrix for the HIV tree in 7 and inspect the tree data matrix:
 
 
-
 ```
-hivDataMatrix <- as.data.frame(trann2trdat(hivTree))
+hivDataMatrix <- trann2trdat(hivTree)
+
 head(hivDataMatrix)
 ```
 
@@ -265,6 +267,7 @@ head(hivDataMatrix)
 ## 5      5     23        2  31.84 0.001332  0.03859   28.980
 ## 6      6     23       24  41.23 0.001291  0.01154    8.936
 ```
+
 
 
 9. Root-to-tip regressions for trees estimated in BEAST
@@ -292,7 +295,6 @@ hivPhylogram$edge.length <- hivDataMatrix$blensubs
  - The root-to-tip distances in the phylogram are the number of substutions from the root to the tips. Save this in an other variable:
 
 
-
 ```
 tipsSubstitutions <- allnode.times(hivPhylogram, tipsonly = T)
 ```
@@ -308,9 +310,7 @@ hivRegression <- lm(tipsSubstitutions ~ tipsTimes)
 abline(hivRegression)
 ```
 
-![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
-
-
+![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
 
 ```
 summary(hivRegression)
