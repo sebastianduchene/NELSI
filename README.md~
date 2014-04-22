@@ -1,6 +1,7 @@
 NELSI: Nucleotide EvoLutionary Rate Simulator
 =============================================
 
+
 David Duchene and Sebastian Duchene
 
 david.duchene[at]anu.edu.au
@@ -9,11 +10,6 @@ sebastian.duchene[at]sydney.edu.au
 
 X April 2014
 
-
-Description
------------
-
-NELSI is implemented in the R programming language (r core team), and it is available as a package in github (website). It is compatible with some popular phylogenetic packages in R, such as ape () and phangorn () making it accessible to users familiar with phylogenetic data in R. The main functions use phylogenetic trees of class phylo, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Some R packages that simulate phylogenetic trees, such as geiger and TreeSim, also produce trees of class phylo, which can be used directly with NELSI. An important aspect of simulating rates of evolution along phylogenetic trees is that the trees should correspond to chronograms, with branch lengths in units of time.
 
 1. Installation and setup
 -------------------------
@@ -49,7 +45,7 @@ install_github(rep = "NELSI", username = "sebastianduchene")
  - NELSI is now installed. To make all the functions available, load the package by typing:
 
 
-```
+```r
 library(NELSI)
 ```
 
@@ -64,7 +60,7 @@ To simulate rates of evolution we need a phylogenetic tree in which the branch l
  - Set the R [working directory](http://www.statmethods.net/interface/workspace.html) to the example_data folder. Load the example tree with the following code:
 
 
-```
+```r
 myTree <- read.tree("tr_example.tree")
 ```
 
@@ -72,7 +68,7 @@ myTree <- read.tree("tr_example.tree")
  - To get more insight into the chronogram that we have loaded, we can plot it and annotate each node with its age.
 
 
-```
+```r
 plot(myTree)
 node.ages <- round(branching.times(myTree), 2)
 nodelabels(node.ages, bg = "white")
@@ -89,7 +85,7 @@ The simplest rate simulation model in NELSI is a strict clock, where every branc
  - As an example, we will simulate a high rate of substitutions and a high level of noise. Remember that because this is a simulations context, the results will vary every time the function is run. Note that the range of the rates along the y axis is very low.
 
 
-```
+```r
 clock.sim <- simulate.clock(myTree, params = list(rate = 0.03, noise = 1e-04))
 ```
 
@@ -103,7 +99,7 @@ The output is an object of class ratesim, which is the output of all the rate si
  - To observe how the rate changes through time in each lineage, you can plot the output of your simulation function directly using the ratesim object. The fist plot will show the rate through time for each lineage, while the second shows the chronogram with the tips coloured proportional to the rate. Therefore, colours of lines in the first plot correspond to the colours of tips in the second plot. The width of the branches is proportional to the rate.
 
 
-```
+```r
 plot(clock.sim, col.lineages = rainbow(20), type = "s")
 ```
 
@@ -118,7 +114,7 @@ One way to relax the assumption of having a single rate throughout is to propose
  - Using the following code simulate and plot autocorrelated rates using simulate.autocor.kishino; first with low autocorrelation, and then with high autocorrelation.
 
 
-```
+```r
 sim.low.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, 
     v = 0.1))
 sim.high.autocor <- simulate.autocor.kishino(myTree, params = list(initial.rate = 0.01, 
@@ -129,7 +125,7 @@ plot(sim.low.autocor, col.lineages = rainbow(20), type = "s")
 ![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
 
-```
+```r
 plot(sim.high.autocor, col.lineages = rainbow(20), type = "s")
 ```
 
@@ -144,7 +140,7 @@ To simulate rates that are uncorrelated among branches, but are independently an
  - Using the following you can simulate rates under an uncorrelated lognormal rates model, which requires the log mean and the standard deviation of the parent distribution. Note that the width of the branches varies, representing rate variation among the branches.
  
 
-```
+```r
 sim.uncor <- simulate.uncor.lnorm(myTree, params = list(mean.log = -3.9, sd.log = 0.7))
 plot(sim.uncor, col.lineages = rainbow(20), type = "s")
 ```
@@ -163,7 +159,7 @@ We can use the package phangorn to simulate evolvution of nucleotide or amino-ac
  - Simulate a DNA alignment 2000 base-pairs long, and save it in a file.
  
 
-```
+```r
 sim.dna.data <- simSeq(sim.uncor[[1]], l = 2000, type = "DNA")
 write.phyDat(sim.dna.data, file = "nelsi_tutorial_dna.fasta", format = "fasta")
 ```
@@ -172,7 +168,7 @@ Note that the function simSeq can simulate under different models of nucleotide 
 - Now save the phylogram in newick format for future reference or comparison, using the ape package.
 
 
-```
+```r
 write.tree(sim.uncor[[1]], file = "nelsi_tutorial_pylogram.tree")
 ```
 
@@ -188,7 +184,7 @@ The examples_data folder contains a tree from *ENV* sequences from HIV-1 sub-typ
  - Type the following code to read the tree (remember to set the working directory to the example_data folder):
 
 
-```
+```r
 hivTree <- read.annotated.nexus("hiv_A_env.tree")
 ```
 
@@ -196,7 +192,7 @@ hivTree <- read.annotated.nexus("hiv_A_env.tree")
  - Plot the tree with the function plot:
 
 
-```
+```r
 plot(hivTree)
 axisPhylo()
 ```
@@ -209,7 +205,7 @@ The tree is a chronogram, so that the branch lengths represent units of time. Th
  - Type the following code to plot the tree with out taxon names. Instead add the ages of the tips and internal nodes with the tiplabel and nodelabel functions. 
 
 
-```
+```r
 plot(hivTree, show.tip.label = F)
 tip.ages <- round(allnode.times(hivTree), 2)  # Round to two decimal places for a clearer plot
 # See the tip ages. The first 19 elements are the ages of the tips (the tree
@@ -233,7 +229,7 @@ We will use the tree in 7. to obtain the tree data matrix and plot the rates thr
  - Use the function get.tree.data.matrix for the HIV tree in 7 and inspect the tree data matrix:
 
 
-```
+```r
 hivDataMatrix <- trann2trdat(hivTree)
 
 head(hivDataMatrix)
@@ -259,7 +255,7 @@ For heterochronous data one can test the molecular clock by conducting a regress
  - Obtain the ages of the tips with the function allnode.times with the HIV chronogram. Specify the argument tipsonly = T, which will return the ages of the tips, and not those of internal nodes.
 
 
-```
+```r
 tipsTimes <- allnode.times(hivTree, tipsonly = T)
 ```
 
@@ -267,7 +263,7 @@ tipsTimes <- allnode.times(hivTree, tipsonly = T)
  - We can use the tree data matrix from 8. to obtan the HIV phylogram (with branch lengths in substitutions). To do this, create a copy of the chronogram in variable hivPhylogram and set the branch lengths to the number of substitutions from the tree data matrix:
 
 
-```
+```r
 hivPhylogram <- hivTree
 hivPhylogram$edge.length <- hivDataMatrix$blensubs
 ```
@@ -276,7 +272,7 @@ hivPhylogram$edge.length <- hivDataMatrix$blensubs
  - The root-to-tip distances in the phylogram are the number of substutions from the root to the tips. Save this in an other variable:
 
 
-```
+```r
 tipsSubstitutions <- allnode.times(hivPhylogram, tipsonly = T)
 ```
 
@@ -284,7 +280,7 @@ tipsSubstitutions <- allnode.times(hivPhylogram, tipsonly = T)
  - The variables tipsTimes and tipsSubstitutions can be used to plot the data and test the linear regression with basic linear models:
 
 
-```
+```r
 plot(tipsTimes, tipsSubstitutions, pch = 20, ylab = "Substitutions from the root to tips (substitutions)", 
     xlab = "Time from the root to the tip (years)")
 hivRegression <- lm(tipsSubstitutions ~ tipsTimes)
@@ -293,7 +289,7 @@ abline(hivRegression)
 
 ![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
 
-```
+```r
 summary(hivRegression)
 ```
 
