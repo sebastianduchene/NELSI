@@ -1,11 +1,12 @@
 NELSI: Nucleotide EvoLutionary Rate Simulator
 =============================================
 
-David Duchene and Sebastian Duchene
 
-david.duchene[at]anu.edu.au
+Simon Y.W. Ho, David Duchene^1, and Sebastian Duchene^2
 
-sebastian.duchene[at]sydney.edu.au
+^1david.duchene[at]anu.edu.au
+
+^2sebastian.duchene[at]sydney.edu.au
 
 X April 2014
 
@@ -13,15 +14,25 @@ X April 2014
 Introduction
 ------------
 
-Models for molecular rate variation play a key role in molecular phylogenetics. Due to their importance in evolutionary biology, several of these models have been proposed, falling into three broad categories: the strict clock, where a single rate is assumed for all the branches of a phylogeny; autocorrelated models, where rates along a lineage have a degree of correlation; and uncorrelated models, where the rate at each branch is independently and identically drawn from a specified distribution. In addition, models have been used for statistical purposes, like the white noise model (Lepage *et al*. 2007), or for correction of patterns in molecular sequences that might cause bias to molecular rate estimates, like the selection-correction model (ADD CITATION).
+Models for molecular rate variation play a key role in molecular phylogenetics. Due to their importance in evolutionary biology, there is a wide variety of models, which can be classified into five broad categories: 
 
-With the increasing development of clock models, it is necessary to assess their performance with simulations and analyses of empirical data. In this note, we present a package that builds on existing phylogenetic applications to simulate molecular rates in phylogenies using a broad set of existing models for molecular evolution and the graphical flexibility of R.
+- Strict clock, where a single rate is assumed for all the branches of a phylogeny, as described by Zuckerkandl,E. and Pauling,L. (1962). 
+
+- Local clock, in which there is a fixed number of strict clocks in a phylogenetic tree, so that the rate is constant for some lineages (Hasegawa *et al*. 1989, Yoder and Yang. 2000).
+
+- Autocorrelated models, where rates along a lineage evolve gradually, and therefore display a degree of correlation, such as that described by Thorne *et al*. (1998). 
+
+- Uncorrelated models, where the rates for each of the branches are independently and identically distributed variables, drawn from a specified probability function, sucha as the uncorrelated lognormal clock (Drummond *et al*. 2006).
+
+- Unconstrained models, where the rates for all branches are independent and drawn from different distributions (Lepage *et al* 2007). 
+
+With the increasing development of clock models, it is necessary to assess their performance with simulations and analyses of empirical data. We present NELSI, an R package to simulate rates of evolution along phylogenetic trees. The principle is similar to the program RateEvolver (Ho *et al*. 2005), but it allows more flexibility and it can be easily combined with popular programs to simulate phylogenetic trees. In the current version we have implemented some of the most popular methods, but the pacakage is under constant development and we will include more models, as they become available. For requests and reporting bugs please contact sebastian.duchene[at]sydney.edu.au
 
 
 Description
 -----------
 
-NELSI is implemented in the R programming language, and it is available as a package in [github](https://github.com/sebastianduchene/NELSI/). It is compatible with some popular phylogenetic packages in R, such as ape (Paradis *et al*. 2004) and phangorn (Schliep 2011) making it accessible to users familiar with phylogenetic data in R. The main functions use phylogenetic trees of class phylo, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Some R packages that simulate phylogenetic trees, such as geiger and TreeSim, also produce trees of class phylo, which can be used directly with NELSI. An important aspect of simulating rates of evolution along phylogenetic trees is that the trees should correspond to chronograms, with branch lengths in units of time. 
+NELSI is implemented in the R programming language, and it is available as a package in [github](https://github.com/sebastianduchene/NELSI/). It is compatible with some popular phylogenetic packages in R, such as ape (Paradis *et al*. 2004) and phangorn (Schliep 2011) making it accessible to users familiar with phylogenetic data in R. The main functions use phylogenetic trees of class phylo, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Some R packages that simulate phylogenetic trees, such as geiger and TreeSim, also produce trees of class phylo, which can be used directly with NELSI. An important requirement of simulating rates of evolution along phylogenetic trees is that the trees should correspond to chronograms, with branch lengths in units of time. 
 
 Tutorial
 ========
@@ -344,9 +355,13 @@ In this case it the data appear to have clock-like behaviour.
 References
 ----------
 
-Drummond, A. J., Ho, S. Y., Phillips, M. J., & Rambaut, A. (2006). Relaxed phylogenetics and dating with confidence. *PLOS biology*, 4(5), e88.
+Drummond, A. J., Ho, S. Y., Phillips, M. J., & Rambaut, A. (2006). Relaxed phylogenetics and dating with confidence. *PLOS Biology*, 4(5), e88.
 
 Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence time estimation method under a probabilistic model of rate evolution. *Molecular Biology and Evolution*, 18(3), 352-361.
+
+Hasegawa, M., Kishino, H., & Yano, T. A. (1989). Estimation of branching dates among primates by molecular clocks of nuclear DNA which slowed down in Hominoidea. *Journal of Human Evolution*, 18(5), 461-476.
+
+Ho, S. Y., Phillips, M. J., Cooper, A., & Drummond, A. J. (2005). Time dependency of molecular rate estimates and systematic overestimation of recent divergence times. *Molecular Biology and Evolution*, 22(7), 1561-1568.
 
 Lepage, T., Bryant, D., Philippe, H., & Lartillot, N. (2007). A general comparison of relaxed molecular clock models. *Molecular Biology and Evolution*, 24(12), 2669-2680.
 
@@ -357,4 +372,8 @@ Rambaut, A. (2009). Path-O-Gen: temporal signal investigation tool.
 Schliep, K. P. (2011). phangorn: Phylogenetic analysis in R. *Bioinformatics*, 27(4), 592-593.
 
 Thorne, J.L., Kishino, H., and Painter, I.S., Estimating the rate of evolution of the rate of molecular evolution. *Molecular Biology and Evolution* 15.12 (1998): 1647-1657.
+
+Yoder, A. D., & Yang, Z. (2000). Estimation of primate speciation dates using local molecular clocks. *Molecular Biology and Evolution*, 17(7), 1081-1090.
+
+Zuckerkandl,E. and Pauling,L. (1962) Molecular disease, evolution, and genetic heterogeneity. In: Kasha,M. and Pullman,B. (eds) Horizons in Biochemistry. Academic Press, New York, pp. 189–225.
 
