@@ -16,7 +16,7 @@ Introduction
 
 Models for molecular rate variation play a key role in molecular phylogenetics. Due to their importance in evolutionary biology, there is a wide variety of models, which can be classified into five broad categories: 
 
-- Strict clock, where a single rate is assumed for all the branches of a phylogeny, as described by [Zuckerkandl, E. and Pauling, L. (1962)](/#References/). 
+- Strict clock, where a single rate is assumed for all the branches of a phylogeny, as described by [Zuckerkandl, E. and Pauling, L. (1962)](/#references). 
 
 - Local clock, in which there is a fixed number of strict clocks in a phylogenetic tree, so that the rate is constant for some lineages (Hasegawa *et al*. 1989, Yoder and Yang. 2000).
 
