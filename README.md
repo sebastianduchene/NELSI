@@ -18,21 +18,21 @@ Models for molecular rate variation play a key role in molecular phylogenetics. 
 
 - Strict clock, where a single rate is assumed for all the branches of a phylogeny, as described by [Zuckerkandl, E. and Pauling, L. (1962)](#references). 
 
-- Local clock, in which there is a fixed number of strict clocks in a phylogenetic tree, so that the rate is constant for some lineages (Hasegawa *et al*. 1989, Yoder and Yang. 2000).
+- Local clock, in which there is a fixed number of strict clocks in a phylogenetic tree, so that the rate is constant for some lineages ([Hasegawa *et al*. 1989](#references), [Yoder and Yang. 2000](#references)).
 
-- Autocorrelated models, where rates along a lineage evolve gradually, and therefore display a degree of correlation, such as that described by Thorne *et al*. (1998). 
+- Autocorrelated models, where rates along a lineage evolve gradually, and therefore display a degree of correlation, such as that described by [Thorne *et al*. (1998)](#references). 
 
-- Uncorrelated models, where the rates for each of the branches are independently and identically distributed variables, drawn from a specified probability function, sucha as the uncorrelated lognormal clock (Drummond *et al*. 2006).
+- Uncorrelated models, where the rates for each of the branches are independently and identically distributed variables, drawn from a specified probability function, sucha as the uncorrelated lognormal clock ([Drummond *et al*. 2006](#references)).
 
-- Unconstrained models, where the rates for all branches are independent and drawn from different distributions (Lepage *et al* 2007). 
+- Unconstrained models, where the rates for all branches are independent and drawn from different distributions ([Lepage *et al* 2007](#references)). 
 
-With the increasing development of clock models, it is necessary to assess their performance with simulations and analyses of empirical data. We present NELSI, an R package to simulate rates of evolution along phylogenetic trees. The principle is similar to the program RateEvolver (Ho *et al*. 2005), but it allows more flexibility and it can be easily combined with popular programs to simulate phylogenetic trees. In the current version we have implemented some of the most popular methods, but the pacakage is under constant development and we will include more models, as they become available. For requests and reporting bugs please contact sebastian.duchene[at]sydney.edu.au
+With the increasing development of clock models, it is necessary to assess their performance with simulations and analyses of empirical data. We present NELSI, an R package to simulate rates of evolution along phylogenetic trees. The principle is similar to the program RateEvolver ([Ho *et al*. 2005](#references)), but it allows more flexibility and it can be easily combined with popular programs to simulate phylogenetic trees. In the current version we have implemented some of the most popular methods, but the pacakage is under constant development and we will include more models, as they become available. For requests and reporting bugs please contact sebastian.duchene[at]sydney.edu.au.
 
 
 Description
 -----------
 
-NELSI is implemented in the R programming language, and it is available as a package in [github](https://github.com/sebastianduchene/NELSI/). It is compatible with some popular phylogenetic packages in R, such as ape (Paradis *et al*. 2004) and phangorn (Schliep 2011) making it accessible to users familiar with phylogenetic data in R. The main functions use phylogenetic trees of class phylo, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Some R packages that simulate phylogenetic trees, such as geiger and TreeSim, also produce trees of class phylo, which can be used directly with NELSI. An important requirement of simulating rates of evolution along phylogenetic trees is that the trees should correspond to chronograms, with branch lengths in units of time. 
+NELSI is implemented in the R programming language, and it is available as a package in [github](https://github.com/sebastianduchene/NELSI/). It is compatible with some popular phylogenetic packages in R, such as ape ([Paradis *et al*. 2004](#references)) and phangorn ([Schliep 2011](#references)) making it accessible to users familiar with phylogenetic data in R. The main functions use phylogenetic trees of class phylo, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Some R packages that simulate phylogenetic trees, such as geiger and TreeSim, also produce trees of class phylo, which can be used directly with NELSI. An important requirement of simulating rates of evolution along phylogenetic trees is that the trees should correspond to chronograms, with branch lengths in units of time. 
 
 Tutorial
 ========
@@ -115,15 +115,29 @@ nodelabels(node.ages, bg = "white")
 
 The simplest rate simulation model in NELSI is a strict clock, where every branch is given the same rate, with a user-specified noise level. To simulate rates under this model for our chronogram we use the function simulate.cock, which receives as arguments the chronogram, and two parameters: the mean rate and the amount of noise. 
 
- - As an example, we will simulate a high rate of substitutions and a high level of noise.
+ - As an example, we will simulate a high rate of substitutions with no noise.
 
 
 ```
 clock.sim <- simulate.clock(myTree, params = list(rate = 0.03, noise = 0))
+
 ```
 
+The variable clock.sim is an object of class ratesim, which is the output of all the rate simulation functions in NELSI. ratesim objects have two elements. The first is a phylogram (our input topology but with branch lengths in terms of substitutions). The second element in an object of class ratesim is a tree.data.matrix, which is a matrix with all the data about a phylogeny, includng the simulated data. The columns of a tree.data.matrix are the following: (1) is the index of each branch; (2) and (3) are the edge attribute of the class phylo, showing the parent and daughter nodes for each branchrespectively; (4) is the mid age of each branch; (5) is the simulated molecular rate for every branch; (6) is the branch lengths in substitutions per site; and (7) is branch lengths in time units.
 
-The output is an object of class ratesim, which is the output of all the rate simulation functions in NELSI. ratesim objects have two elements. The first is a phylogram (our input topology but with branch lengths in terms of substitutions). The second element in an object of class ratesim is a tree.data.matrix, which is a matrix with all the data about a phylogeny, includng the simulated data. The columns of a tree.data.matrix are the following: (1) is the index of each branch; (2) and (3) are the edge attribute of the class phylo, showing the parent and daughter nodes for each branchrespectively; (4) is the mid age of each branch; (5) is the simulated molecular rate for every branch; (6) is the branch lengths in substitutions per site; and (7) is branch lengths in time units.
+- Inspect the tree data matrix as shown bellow:
+
+```
+clock.sim$tree.data.matrix
+
+#      branch.index parent.node daughter.node branch.midage branch.rate
+# [1,]            1          11            12   0.325090501        0.03
+# [2,]            2          12            13   0.080306199        0.03
+# [3,]            3          13             1   0.009929729        0.03
+# [4,]            4          13             2   0.009929729        0.03
+# [5,]            5          12             3   0.070376470        0.03
+# [6,]            6          11            14   0.440591467        0.03
+```
 
  - To observe how the rate changes through time in each lineage, you can plot the output of your simulation function directly using the ratesim object. The fist plot will show the rate through time for each lineage, while the second shows the chronogram with the tips coloured proportional to the rate. Therefore, colours of lines in the first plot correspond to the colours of tips in the second plot. The width of the branches is proportional to the rate. With the strict clock there is no rate variation among lineages.
 
@@ -138,7 +152,7 @@ plot(clock.sim, col.lineages = rainbow(20), type = "s")
 4. Simulate autocorrelated rates
 --------------------------------
 
-One way to relax the assumption of having a single rate throughout is to propose small changes in rate from one branch to the next. The functions simulate.autocor.kishino and simulate.autocor.thorne use the method described in Kishino *et al*.(2001) and Thorne *et al.*(1998) methods to simulate this kind of rate pattern. In both functions the user only needs to provide the rate at the root of the phylogeny and the amount of autocorrelation, given by the parameter v. 
+One way to relax the assumption of having a single rate throughout is to propose small changes in rate from one branch to the next. The functions simulate.autocor.kishino and simulate.autocor.thorne use the method described in [Kishino *et al*.(2001)](#references) and [Thorne *et al.*(1998)](#references) methods to simulate this kind of rate pattern. In both functions the user only needs to provide the rate at the root of the phylogeny and the amount of autocorrelation, given by the parameter v. 
 
  - Using the following code simulate and plot autocorrelated rates using simulate.autocor.kishino; first with low autocorrelation, and then with high autocorrelation.
 
@@ -166,7 +180,7 @@ plot(sim.high.autocor, col.lineages = rainbow(20), type = "s")
 5. Simulate uncorrelated lognormal rates
 ----------------------------------------
 
-To simulate rates that are uncorrelated among branches, but are independently and identically drawn from a parent distribution, we have implemented three different models for rate simulation. Each function requires different input parameters, as described in Drummond *et al.* (2006).
+To simulate rates that are uncorrelated among branches, but are independently and identically drawn from a parent distribution, we have implemented three different models for rate simulation. Each function requires different input parameters, as described in [Drummond *et al.* (2006)](#references).
 
  - Using the following you can simulate rates under an uncorrelated lognormal rates model, which requires the log mean and the standard deviation of the parent distribution. Note that the width of the branches varies, representing rate variation among the branches.
  
