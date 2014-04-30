@@ -1,5 +1,5 @@
-NELSI: Nucleotide EvoLutionary Rate Simulator
-=============================================
+NELSI: Nucleotide EvoLutionary Simulator
+=========================================
 
 
 David Duchene, and Sebastian Duchene
@@ -375,7 +375,7 @@ Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence t
 
 Hasegawa, M., Kishino, H., & Yano, T. A. (1989). Estimation of branching dates among primates by molecular clocks of nuclear DNA which slowed down in Hominoidea. *Journal of Human Evolution*, 18(5), 461-476.
 
-Ho, S. Y., Phillips, M. J., Cooper, A., & Drummond, A. J. (2005). Time dependency of molecular rate estimates and systematic overestimation of recent divergence times. *Molecular Biology and Evolution*, 22(7), 1561-1568.
+Ho, S. Y., Phillips, M. J., Drummond, A. J., & Cooper, A. (2005). Accuracy of rate estimation using relaxed-clock models with a critical focus on the early metazoan radiation. Molecular Biology and Evolution, 22(5), 1355-1363.
 
 Lepage, T., Bryant, D., Philippe, H., & Lartillot, N. (2007). A general comparison of relaxed molecular clock models. *Molecular Biology and Evolution*, 24(12), 2669-2680.
 
