@@ -50,7 +50,7 @@ We will begin by installing devtools from the Comprehensive R Archive Network (C
 
  - Make sure that you have an internet connection and type in the code bellow:
 
-```coffee
+```
 install.packages("devtools")
 ```
 
