@@ -10,48 +10,37 @@ In this example I use an uncorrelated lognormal clock model (UCLN)  to simulate 
 
 Load the necessary pacakges:
 
-
-```r
+```{r}
 library(NELSI)
 library(phangorn)
 ```
 
 
-
 Load a one of the trees from the simulation study (Ho *et al*. )
 
-
-```r
+```{r}
 example_tree <- read.tree("yuletr9.tre")
 ```
 
 
-
 Scale the tree to 10 time units
 
-
-```r
+```{r}
 example_tree$edge.length <- example_tree$edge.length/(max(branching.times(example_tree))/10)
 ```
 
-
 Plot the tree with the ages in the nodes. This corresponds to the chronogram:
 
-
-```r
+```{r}
 plot(example_tree, show.tip.label = F, edge.width = 2)
 nodelabels(round(branching.times(example_tree), 2), bg = "white")
 ```
-
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
-
 
 
 Run a maximum of ten simulations to obtain the specified number of variable sites. Specifying a maximum number of simulations is convenient to avoid infinite loops with data sets where the specified number of variable sites are very unlikely. 
 
 
-
-```r
+```{r}
 variable_sites <- 0  # Initiate with a dummy number to start the while loop
 i <- 1  # define a variable to count the number of iterations
 
@@ -70,25 +59,10 @@ while (variable_sites >= 5200 | variable_sites <= 4700) {
 }
 ```
 
-```
-## [1] "This is iteration number 2 The number of variable sites is 4574"
-## [1] "This is iteration number 3 The number of variable sites is 4520"
-## [1] "This is iteration number 4 The number of variable sites is 4494"
-## [1] "This is iteration number 5 The number of variable sites is 4381"
-## [1] "This is iteration number 6 The number of variable sites is 4426"
-## [1] "This is iteration number 7 The number of variable sites is 4692"
-## [1] "This is iteration number 8 The number of variable sites is 4712"
-```
-
-
 Plot the data with NELSI standard plots:
-
-```r
+```{r}
 plot(sim_UCLN)
 ```
-
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
-
 
 
 Write the data to an external file:
