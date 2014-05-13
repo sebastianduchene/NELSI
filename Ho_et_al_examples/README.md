@@ -11,7 +11,7 @@ In this example I use an uncorrelated lognormal clock model (UCLN)  to simulate 
 Load the necessary pacakges:
 
 
-```r
+```coffee
 library(NELSI)
 library(phangorn)
 ```
@@ -21,7 +21,7 @@ library(phangorn)
 Load a one of the trees from the simulation study (Ho *et al*. )
 
 
-```r
+```coffee
 example_tree <- read.tree("yuletr9.tre")
 ```
 
@@ -30,7 +30,7 @@ example_tree <- read.tree("yuletr9.tre")
 Scale the tree to 10 time units
 
 
-```r
+```coffee
 example_tree$edge.length <- example_tree$edge.length/(max(branching.times(example_tree))/10)
 ```
 
@@ -38,7 +38,7 @@ example_tree$edge.length <- example_tree$edge.length/(max(branching.times(exampl
 Plot the tree with the ages in the nodes. This corresponds to the chronogram:
 
 
-```r
+```coffee
 plot(example_tree, show.tip.label = F, edge.width = 2)
 nodelabels(round(branching.times(example_tree), 2), bg = "white")
 ```
@@ -51,7 +51,7 @@ Run a maximum of ten simulations to obtain the specified number of variable site
 
 
 
-```r
+```coffee
 variable_sites <- 0  # Initiate with a dummy number to start the while loop
 i <- 1  # define a variable to count the number of iterations
 
@@ -83,7 +83,7 @@ while (variable_sites >= 5200 | variable_sites <= 4700) {
 
 Plot the data with NELSI standard plots:
 
-```r
+```coffee
 plot(sim_UCLN)
 ```
 
@@ -92,6 +92,6 @@ plot(sim_UCLN)
 
 
 Write the data to an external file:
-```
+```coffee
 write.dna(alignment_UCLN, file = "simulation_yule9.fasta", format = "fasta")
 ```
