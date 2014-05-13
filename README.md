@@ -2,13 +2,13 @@ NELSI: Nucleotide EvoLutionary Simulator
 =========================================
 
 
-David Duchene, and Sebastian Duchene
+David Duchene and Sebastian Duchene
 
 david.duchene[at]anu.edu.au
 
 sebastian.duchene[at]sydney.edu.au
 
-X April 2014
+X May 2014
 
 
 Introduction
@@ -84,6 +84,8 @@ In the next sections of this tutorial we show an overview of some of the functio
 ```
 help(package = NELSI)
 ```
+
+Some examples used to generate the data for the study by  Ho. *et al* (*In Prep*) are available [here](https://github.com/sebastianduchene/NELSI/tree/master/Ho_et_al_examples).
 
 2. Loading phylogenetic trees
 -----------------------------
