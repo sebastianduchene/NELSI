@@ -5,7 +5,7 @@ Simulating alignments under models of rate of evolution with a specific number o
 May 13 2014
 
 
-In this example I use an uncorrelated lognormal clock model (UCLN)  to simulate a data set with 10,000 nucleotides and between 4700 and 5200 variable sites. The mean rate will be 0.005, with a standard deviation of 0.3 (30% of the mean). Note that the rate is specified in log scale, so it should be specified as $\log(0.005)$. The actual number of variable sites depends on the stochasticity of the simulations, so it may be necessary to simulate several data sets, until the data set has the desired number of variable sites (between 4700 and 5200 for this example). For this simulaton I use the default substitution model in the simSeq function (type ?simSeq for more details)
+In this example I use an uncorrelated lognormal clock model (UCLN)  to simulate a data set with 10,000 nucleotides and between 4700 and 5200 variable sites. The mean rate will be 0.005, with a standard deviation of 0.3 (30% of the mean). Note that the rate is specified in log scale, so it should be specified as $log(0.005)$. The actual number of variable sites depends on the stochasticity of the simulations, so it may be necessary to simulate several data sets, until the data set has the desired number of variable sites (between 4700 and 5200 for this example). For this simulaton I use the default substitution model in the simSeq function (type ?simSeq for more details)
 
 
 Load the necessary pacakges:
