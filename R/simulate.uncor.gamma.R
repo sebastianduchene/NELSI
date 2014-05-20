@@ -1,7 +1,7 @@
 simulate.uncor.gamma <-
 function(tree, params = list(shape = 10, rate = 0.0001)){
     shape.gamma <- params$shape
-    rate.gamma <- 1 / params$rate
+    rate.gamma <- params$rate
     data.matrix <- get.tree.data.matrix(tree)
     branch.rates <- rgamma(n = length(tree$edge.length), shape = shape.gamma, rate = rate.gamma)
     data.matrix[, 5] <- branch.rates

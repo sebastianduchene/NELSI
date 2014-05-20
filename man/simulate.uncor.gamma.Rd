@@ -56,7 +56,7 @@ hist(rateTree$tree.data.matrix[, 5])
 function (tree, params = list(shape = 98, rate = 4361)) 
 {
     shape.gamma <- params$shape
-    rate.gamma <- 1 / params$rate
+    rate.gamma <- params$rate
     data.matrix <- get.tree.data.matrix(tree)
     branch.rates <- rgamma(n = length(tree$edge.length), shape = shape.gamma, 
         rate = rate.gamma)
