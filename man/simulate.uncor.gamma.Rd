@@ -7,7 +7,7 @@ simulate.uncor.gamma
 Simulate the rate of evolution along a phylogenetic tree using the gamma distributed rates model described in Drummond et al. (2006)
 }
 \usage{
-simulate.uncor.gamma(tree, params = list(shape = 98, rate = 4361))
+simulate.uncor.gamma(tree, params = list(shape = 10, rate = 0.0001))
 }
 \arguments{
 
@@ -46,7 +46,7 @@ set.seed(1234525)
 
 myTree <- rcoal(50)
 
-rateTree <- simulate.uncor.gamma(tree = myTree, params = list(shape = 98, rate = 4361))
+rateTree <- simulate.uncor.gamma(tree = myTree, params = list(shape = 10, rate = 0.0001))
 plot(rateTree, col.lineages = rainbow(50))
 
 #See the histogram of the branch-wise rates
