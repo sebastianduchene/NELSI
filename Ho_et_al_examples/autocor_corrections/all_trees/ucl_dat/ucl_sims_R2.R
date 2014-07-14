@@ -41,24 +41,17 @@ ucl_rate <- 0.001
 ucl_sd <- 0.1
 
 
-tree_name <- 'yule1.tre'
+tree_name <- 'yule10.tre'
 tree_temp <- read.tree(tree_name)
 tree_temp$edge.length <- tree_temp$edge.length * (10 / max(branching.times(tree_temp)))
 
 phylogram_temp <- tree_temp
-sim_ucl <- simulate.uncor.lnorm(tree_temp, params = list(mean.log = ucl_rate, sd.log = 0.1))
-
-
-
-
-stop('wow')
-
  
-
 var_sites <- 0
 i <- 1
 while(var_sites > 1200 || var_sites < 850 ){
-  phylogram_temp$edge.length <- abs((tree_temp$edge.length * sc_rate) + rnorm(length(phylogram_temp$edge.length), 0, 0.00001))
+  sim_ucl <- simulate.uncor.lnorm(tree_temp, params = list(mean.log = log(ucl_rate), sd.log = 0.1))
+  phylogram_temp <- sim_ucl$phylogram
   seq_data <- as.DNAbin(simSeq(phylogram_temp, l = 10000))
   var_sites <- length(seg.sites(seq_data))
   print(paste("The number of variable sites is", var_sites))
@@ -70,6 +63,8 @@ while(var_sites > 1200 || var_sites < 850 ){
   }
 }
 
+
+
 if(var_sites < 1200 || var_sites > 850){
-  write.dna(seq_data, file = gsub('tre', 'fasta', paste0('sc_', tree_name)), format = 'fasta', nbcol = -1, colsep = '')
+  write.dna(seq_data, file = gsub('tre', 'fasta', paste0('ucl_', tree_name)), format = 'fasta', nbcol = -1, colsep = '')
 }
