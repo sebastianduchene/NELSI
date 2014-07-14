@@ -39,24 +39,30 @@ print("Running strict clock simulations")
 
 sc_rate <- 0.001
 
-tree_temp <- read.tree('yule1.tre')
+
+tree_name <- 'yule10.tre'
+tree_temp <- read.tree(tree_name)
 tree_temp$edge.length <- tree_temp$edge.length * (10 / max(branching.times(tree_temp)))
 
 phylogram_temp <- tree_temp
-phylogram_temp$edge.length <- abs((phylogram_temp$edge.length * sc_rate) + rnorm(length(phylogram_temp$edge.length), 0, 0.0001))
 
+ 
 
 var_sites <- 0
 i <- 1
-while(var_sites > 1300 || var_sites < 850 ){
+while(var_sites > 1200 || var_sites < 850 ){
+  phylogram_temp$edge.length <- abs((tree_temp$edge.length * sc_rate) + rnorm(length(phylogram_temp$edge.length), 0, 0.00001))
   seq_data <- as.DNAbin(simSeq(phylogram_temp, l = 10000))
   var_sites <- length(seg.sites(seq_data))
   print(paste("The number of variable sites is", var_sites))
   print(paste("Generating data with specified variables sites. Replicate ", i))
   i <- i + 1
-  if(i > 20){
+  if(i > 50){
     print("reached maximum replicates")
     break
   }
 }
 
+if(var_sites < 1200 || var_sites > 850){
+  write.dna(seq_data, file = gsub('tre', 'fasta', paste0('sc_', tree_name)), format = 'fasta', nbcol = -1, colsep = '')
+}

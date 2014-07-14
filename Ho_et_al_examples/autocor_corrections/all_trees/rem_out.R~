@@ -1,2 +1,0 @@
-library(phangorn)
-sim_trees <- grep('yule*', dir(), value = T)
