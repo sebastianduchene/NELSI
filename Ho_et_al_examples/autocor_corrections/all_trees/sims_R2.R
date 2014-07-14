@@ -21,17 +21,23 @@ The original simulations are:
 
 Ten data sets per simulation settings, with a root age of 10 time units. In all cases, the number of variable sites is between 5300 and 4800 in alignments of 10000 variable sites
 
-Use rates that are 1 order of magnitude lower, as Reviewer 1 suggests.
+Use rates that are 1/5 of magnitude lower, as Reviewer 1 suggests.
 #    TODO   
-    - Check sequence variation. It should be around 500 variables sites
+    - Check sequence variation. It should be around 1000 variables sites
+    - Simulate yule trees with 100 tips, and 10 time units. 
 ")
 
 #eval(parse(text = "print(tr1)")
 
 
+#################
+#################
+library(phangorn)
+
+
 print("Running strict clock simulations")
 
-sc_rate <- 0.0005
+sc_rate <- 0.001
 
 tree_temp <- read.tree('yule1.tre')
 tree_temp$edge.length <- tree_temp$edge.length * (10 / max(branching.times(tree_temp)))
@@ -41,9 +47,16 @@ phylogram_temp$edge.length <- abs((phylogram_temp$edge.length * sc_rate) + rnorm
 
 
 var_sites <- 0
-while(var_sites < 5300 || var_sites 
-seq_data <- as.DNAbin(simSeq(phylogram_temp, l = 10000))
-
-
-print(length(seg.sites(seq_data)))
+i <- 1
+while(var_sites > 1300 || var_sites < 850 ){
+  seq_data <- as.DNAbin(simSeq(phylogram_temp, l = 10000))
+  var_sites <- length(seg.sites(seq_data))
+  print(paste("The number of variable sites is", var_sites))
+  print(paste("Generating data with specified variables sites. Replicate ", i))
+  i <- i + 1
+  if(i > 20){
+    print("reached maximum replicates")
+    break
+  }
+}
 
