@@ -1,0 +1,46 @@
+
+print("
+The original simulations are:
+
+    - SC
+      rate = 0.005, noise = rnorm(n, 0, 0.0001)
+    - UCLN-L
+      mean.rate = 0.005, sd = 0.1
+    - UCLN-H
+      mean.rate = 0.005, sd = 0.3
+    - UCG-L # shape = alpha, rate = beta
+      alpha = 10, beta = 10^5 (10^4)
+    - UCG-H
+      alpha = 1, beta = 10^4 (10^3)
+    - ACLN-L
+      rate = 0.005, v = 0.3
+    - ACLN-M
+      rate = 0.005, v = 0.2
+    - ACLN-H
+      rate = 0.005, v = 0.1
+
+Ten data sets per simulation settings, with a root age of 10 time units. In all cases, the number of variable sites is between 5300 and 4800 in alignments of 10000 variable sites
+
+Use rates that are 1 order of magnitude lower, as Reviewer 1 suggests.
+#    TODO   
+    - Check sequence variation. It should be around 500 variables sites
+")
+
+#eval(parse(text = "print(tr1)")
+
+
+print("Running strict clock simulations")
+
+sc_rate <- 0.0005
+
+tree_temp <- read.tree('yule1.tre')
+tree_temp$edge.length <- tree_temp$edge.length * (10 / max(branching.times(tree_temp)))
+
+phylogram_temp <- tree_temp
+phylogram_temp$edge.length <- phylogram_temp$edge.length * sc_rate
+
+seq_dat <- as.DNAbin(simSeq(phylogram_temp, l = 10000))
+
+
+print(length(seg.sites(seq_data)))
+
