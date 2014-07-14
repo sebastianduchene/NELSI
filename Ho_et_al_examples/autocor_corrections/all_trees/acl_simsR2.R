@@ -37,10 +37,10 @@ Use rates that are 1/5 of magnitude lower, as Reviewer 1 suggests.
 library(phangorn)
 library(NELSI)
 
-print("Running ucgh simulations")
+print("Running ACM simulations")
 
-ucgh_alpha <- 1
-ucgh_beta <- 1000
+acl.rate <- 0.001
+acl.v <- 0.3
 
 tree_name <- 'yule10.tre'
 tree_temp <- read.tree(tree_name)
@@ -51,8 +51,8 @@ phylogram_temp <- tree_temp
 var_sites <- 0
 i <- 1
 while(var_sites > 1200 || var_sites < 850 ){
-  sim_ucgh <- simulate.uncor.gamma(tree_temp, params = list(shape = ucgh_alpha, rate = ucgh_beta))
-  phylogram_temp <- sim_ucgh$phylogram
+  sim_acl <- simulate.autocor.kishino(tree_temp, params = list(initial.rate = acl.rate, v = acl.v))
+  phylogram_temp <- sim_acl$phylogram
   seq_data <- as.DNAbin(simSeq(phylogram_temp, l = 10000))
   var_sites <- length(seg.sites(seq_data))
   print(paste("The number of variable sites is", var_sites))
@@ -67,5 +67,5 @@ while(var_sites > 1200 || var_sites < 850 ){
 #stop('wow')
 
 if(var_sites < 1200 || var_sites > 850){
-  write.dna(seq_data, file = gsub('tre', 'fasta', paste0('ucgh_', tree_name)), format = 'fasta', nbcol = -1, colsep = '')
+  write.dna(seq_data, file = gsub('tre', 'fasta', paste0('acl_', tree_name)), format = 'fasta', nbcol = -1, colsep = '')
 }
