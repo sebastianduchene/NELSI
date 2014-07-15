@@ -32,6 +32,8 @@ prune_tree_random <- function(tr, n){
 
 
 #################################
+# Testing the functions
+#################################
 tr_test <- sim.bdtree(b = 1, d = 0, stop = 'taxa', n = 10, extinct = FALSE)
 
 tr_test$edge.length <- tr_test$edge.length * (10 / max(allnode.times(tr_test)))
@@ -53,5 +55,14 @@ print("Example pruning 5 tips from the tree")
 print(tr_test)
 print(prune_tree_random(tr_test, 5))
 
+##################################
+# Simulate ten trees with 100 taxa and remove 50
+##################################
 
-
+for(i in 1:10){
+      tr_temp_comp <- sim.bdtree(b = 1, d = 0, stop = "taxa", n = 100, extinct = F)
+      tr_temp_comp$edge.length <- tr_temp_comp$edge.length * ( 10 / max(allnode.times(tr_temp_comp)))
+      tr_temp_prune <- prune_tree_random(tr_temp_comp, 50)
+      write.tree(tr_temp_comp, file = paste0("comp_yule_", i, ".tre"))
+      write.tree(tr_temp_prune, file = paste0("pruned_yule_", i, ".tre"))
+}
