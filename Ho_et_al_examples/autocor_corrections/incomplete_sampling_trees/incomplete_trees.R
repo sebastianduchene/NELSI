@@ -1,5 +1,4 @@
 library(phangorn)
-library(phangorn)
 library(geiger)
 library(NELSI)
 

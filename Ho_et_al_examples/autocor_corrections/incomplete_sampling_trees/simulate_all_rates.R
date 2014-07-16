@@ -50,15 +50,24 @@ names(taxa_remove) <- names(trees_phy)
 
 
 
+# Write pruned trees
+
+for(i in 1:length(trees_phy)){
+      tree_temp_pruned <- ape::drop.tip(trees_phy[[i]], taxa_remove[[i]])
+      write.tree(tree_temp_pruned, file = gsub('comp', 'pruned', names(trees_phy)[[i]]))
+}
+
+
+
 for(i in 1:length(trees_phy)){
   
-  # Start strict clock
+  # START STRICT CLOCK
   print(paste("simulating strict clock on", names(trees_phy)[i]))
   var_sites <- 0
   counter_i <- 0
   counter_tot <- 0   
   while(var_sites > 5200 || var_sites < 4800){
-  break
+#break
     print(paste("rep", counter_i, "params are", sc_rate, var_sites))
     sim_tree <- simulate.clock(trees_phy[[i]] , params = list(rate = sc_rate, noise = sc_noise))$phylogram
     sim_prune <- ape::drop.tip(sim_tree, taxa_remove[[i]])
@@ -70,7 +79,7 @@ for(i in 1:length(trees_phy)){
       break
     }
     counter_i <- counter_i + 1
-    if(counter_i > 10){
+    if(counter_i > 5){
       if(var_sites > 5200){
         sc_rate <- sc_rate - (sc_rate*0.2)
         counter_i <- 0
@@ -84,15 +93,15 @@ for(i in 1:length(trees_phy)){
   if(var_sites < 5200 && var_sites > 4800){
     write.dna(sim_data, file= paste0('sc_', gsub('tre', 'fasta', names(trees_phy)[i])), format = "fasta", nbcol = -1, colsep = '')
   }
-  # End strict clock
+  # END STRICT CLOCK
 
-  # Start UCL
+  # START UCL
     print(paste("simulating UCL clock on", names(trees_phy)[i]))
     var_sites <- 0
     counter_i <- 0
     counter_tot <- 0
   while(var_sites > 5200 || var_sites < 4800){
-  break
+#break
     print(paste("rep", counter_i, "params are", ucl_mean, var_sites))
     sim_tree <- simulate.uncor.lnorm(trees_phy[[i]] , params = list(mean.log = ucl_mean, sd.log = ucl_sd))$phylogram
     sim_prune <- ape::drop.tip(sim_tree, taxa_remove[[i]])
@@ -118,15 +127,15 @@ for(i in 1:length(trees_phy)){
   if(var_sites < 5200 && var_sites > 4800){
     write.dna(sim_data, file= paste0('ucl_', gsub('tre', 'fasta', names(trees_phy)[i])), format = "fasta", nbcol = -1, colsep = '')
   }
-  #End UCL
+  #END UCL
 
-  # Start UCH
+  # START UCH
     print(paste("simulating UCH clock on", names(trees_phy)[i]))
     var_sites <- 0
     counter_i <- 0
     counter_tot <- 0
   while(var_sites > 5200 || var_sites < 4800){
-break  
+#break  
     print(paste("rep", counter_i, "params are", uch_mean, var_sites))
     sim_tree <- simulate.uncor.lnorm(trees_phy[[i]] , params = list(mean.log = uch_mean, sd.log = uch_sd))$phylogram
     sim_prune <- ape::drop.tip(sim_tree, taxa_remove[[i]])
@@ -152,16 +161,16 @@ break
   if(var_sites < 5200 && var_sites > 4800){
     write.dna(sim_data, file= paste0('uch_', gsub('tre', 'fasta', names(trees_phy)[i])), format = "fasta", nbcol = -1, colsep = '')
   }
-  #End UCH
+  #END UCH
 
 
-  # Start UCGL
+  # START UCGL
     print(paste("simulating UCGL clock on", names(trees_phy)[i]))
     var_sites <- 0
     counter_i <- 0
     counter_tot <- 0
   while(var_sites > 5200 || var_sites < 4800){
-break
+#break
     sim_tree <- simulate.uncor.gamma(trees_phy[[i]] , params = list(shape = ucgl_alpha, rate = ucgl_rate))$phylogram
     sim_prune <- ape::drop.tip(sim_tree, taxa_remove[[i]])
     sim_data <- as.DNAbin(simSeq(sim_prune, l = 10000))
@@ -187,17 +196,17 @@ break
   if(var_sites < 5200 && var_sites > 4800){
     write.dna(sim_data, file= paste0('ucgl_', gsub('tre', 'fasta', names(trees_phy)[i])), format = "fasta", nbcol = -1, colsep = '')
   }
-  #End UCGL
+  #END UCGL
 
 
 
-  # Start UCGH
+  # START UCGH
     print(paste("simulating UCGH clock on", names(trees_phy)[i]))
     var_sites <- 0
     counter_i <- 0
     counter_tot <- 0
   while(var_sites > 5200 || var_sites < 4800){
-break
+#break
     sim_tree <- simulate.uncor.gamma(trees_phy[[i]] , params = list(shape = ucgh_alpha, rate = ucgh_rate))$phylogram
     sim_prune <- ape::drop.tip(sim_tree, taxa_remove[[i]])
     sim_data <- as.DNAbin(simSeq(sim_prune, l = 10000))
@@ -223,17 +232,17 @@ break
   if(var_sites < 5200 && var_sites > 4800){
     write.dna(sim_data, file= paste0('ucgh_', gsub('tre', 'fasta', names(trees_phy)[i])), format = "fasta", nbcol = -1, colsep = '')
   }
-  #End UCGH
+  #END UCGH
 
 
 
-  # Start ACL
+  # START ACL
     print(paste("simulating ACL clock on", names(trees_phy)[i]))
     var_sites <- 0
     counter_i <- 0
     counter_tot <- 0
   while(var_sites > 5200 || var_sites < 4800){
-break
+#break
     sim_tree <- simulate.autocor.kishino(trees_phy[[i]] , params = list(initial.rate = acl_init, v = acl_v))$phylogram
     sim_prune <- ape::drop.tip(sim_tree, taxa_remove[[i]])
     sim_data <- as.DNAbin(simSeq(sim_prune, l = 10000))
@@ -259,16 +268,16 @@ break
   if(var_sites < 5200 && var_sites > 4800){
     write.dna(sim_data, file= paste0('acl_', gsub('tre', 'fasta', names(trees_phy)[i])), format = "fasta", nbcol = -1, colsep = '')
   }
-  #End ACL
+  #END ACL
 
 
-  # Start ACM
+  # START ACM
     print(paste("simulating ACM clock on", names(trees_phy)[i]))
     var_sites <- 0
     counter_i <- 0
     counter_tot <- 0
   while(var_sites > 5200 || var_sites < 4800){
-break
+#break
     sim_tree <- simulate.autocor.kishino(trees_phy[[i]] , params = list(initial.rate = acm_init, v = acm_v))$phylogram
     sim_prune <- ape::drop.tip(sim_tree, taxa_remove[[i]])
     sim_data <- as.DNAbin(simSeq(sim_prune, l = 10000))
@@ -294,11 +303,10 @@ break
   if(var_sites < 5200 && var_sites > 4800){
     write.dna(sim_data, file= paste0('acm_', gsub('tre', 'fasta', names(trees_phy)[i])), format = "fasta", nbcol = -1, colsep = '')
   }
-  #End ACM
+  #END ACM
 
 
-# TESTED UP TO HERE
-  # Start ACH
+  # START ACH
     print(paste("simulating ACH clock on", names(trees_phy)[i]))
     var_sites <- 0
     counter_i <- 0
@@ -330,7 +338,7 @@ break
   if(var_sites < 5200 && var_sites > 4800){
     write.dna(sim_data, file= paste0('ach_', gsub('tre', 'fasta', names(trees_phy)[i])), format = "fasta", nbcol = -1, colsep = '')
   }
-  #End ACH
+  #END ACH
 
 
 

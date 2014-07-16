@@ -16,18 +16,21 @@ root_tips <- function(tr){
 }
 
 rem_tips <- function(tr){
-  tips_index <- (1:length(tr$tip.label))[!(1:length(tr$tip.label) %in% root_tips(tr))]
+  tips_index <- tr$tip.label[!(1:length(tr$tip.label) %in% root_tips(tr))]
 }
 
 
 prune_tree_random <- function(tr, n){
   tr_pruned <- tr
   if(n > (length(tr$tip.label) - 2)) stop("The number of tips should not be larger than the number of tips - 2")
+  all_rem_tips <- vector()
   for(i in 1:n){
     removable_tips <- rem_tips(tr_pruned)
-    tr_pruned <- ape::drop.tip(tr_pruned, sample(removable_tips, 1))    
+    tips_removed <- sample(removable_tips, 1)
+    tr_pruned <- ape::drop.tip(tr_pruned, tips_removed)
+    all_rem_tips <- c(all_rem_tips, tips_removed)
   }
-  return(tr_pruned)
+  return(all_rem_tips)
 }
 
 
