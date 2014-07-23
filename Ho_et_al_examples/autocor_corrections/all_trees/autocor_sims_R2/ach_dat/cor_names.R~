@@ -1,4 +1,0 @@
-fils <- grep('acl', dir(), values = T)
-for(i in fils){
-      system(paste("mv", i ,gsub('acl', 'ach', i))
-}
