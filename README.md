@@ -8,7 +8,7 @@ david.duchene[at]anu.edu.au
 
 sebastian.duchene[at]sydney.edu.au
 
-X May 2014
+3 November 2014
 
 
 Introduction
@@ -392,4 +392,13 @@ Thorne, J.L., Kishino, H., and Painter, I.S., Estimating the rate of evolution o
 Yoder, A. D., & Yang, Z. (2000). Estimation of primate speciation dates using local molecular clocks. *Molecular Biology and Evolution*, 17(7), 1081-1090.
 
 Zuckerkandl,E. and Pauling,L. (1962) Molecular disease, evolution, and genetic heterogeneity. In: Kasha,M. and Pullman,B. (eds) Horizons in Biochemistry. Academic Press, New York, pp. 189–225.
+
+
+Bugs and version history
+------------------------
+
+6 November 2014
+
+- 0.21 - Removed phangorn dependency in allnode.times
+
 
