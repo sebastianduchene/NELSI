@@ -8,7 +8,14 @@ david.duchene[at]anu.edu.au
 
 sebastian.duchene[at]sydney.edu.au
 
-3 November 2014
+15 December 2014
+
+New features
+------------
+
+- New function to obtain node times for internal nodes only. Can be used for ultrametric and non-ultrametric trees.
+
+- Experimental function to get all the tips that descend from a node. Similar to function 'tips' from GEIGER.
 
 
 Introduction
