@@ -4,7 +4,7 @@ get.tips <- function(tr, node){
       return(child)
    }else{
       nodes <- child[which(child > length(tr$tip.label))]
-      children <- unlist(c(child[which(child <= length(tr$tip.label))], sapply(nodes, function(x) get_tips(tr, x))))
+      children <- unlist(c(child[which(child <= length(tr$tip.label))], sapply(nodes, function(x) get.tips(tr, x))))
       return(children)
    }
 }
