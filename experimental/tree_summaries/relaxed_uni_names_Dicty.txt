@@ -1,0 +1,420 @@
+142 :IXODES_S Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht Cypridin Sarsineb Celuca_p Litopena Glomeris Symphyle 
+143 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht Cypridin Sarsineb Celuca_p Litopena Glomeris Symphyle 
+144 :Glomeris Symphyle 
+145 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht Cypridin Sarsineb Celuca_p Litopena 
+146 :Cypridin Sarsineb Celuca_p Litopena 
+147 :Sarsineb Celuca_p Litopena 
+148 :Celuca_p Litopena 
+149 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht 
+150 :DAPHNIA_ Lepeopht 
+151 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+152 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+153 :Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+154 :Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+155 :Folsomia Pogonogn Anurida_ Tetrodon 
+156 :Folsomia Pogonogn 
+157 :Anurida_ Tetrodon 
+158 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea 
+159 :Occasjap Campodea 
+160 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte 
+161 :Machilis Meinerte 
+162 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi 
+163 :Trichole Atelura_ Thermobi 
+164 :Atelura_ Thermobi 
+165 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg 
+166 :Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg 
+167 :Calopter Epiophle Corduleg 
+168 :Epiophle Corduleg 
+169 :Baetis_p Isonychi Ephemera Euryloph 
+170 :Isonychi Ephemera Euryloph 
+171 :Ephemera Euryloph 
+172 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul 
+173 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul 
+174 :Zorotypu Apachyus Forficul 
+175 :Apachyus Forficul 
+176 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma 
+177 :Leuctra_ Cosmiope Perla_ma 
+178 :Cosmiope Perla_ma 
+179 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota 
+180 :Tetrix_s Stenobot Prosarth Ceuthoph Gryllota 
+181 :Ceuthoph Gryllota 
+182 :Tetrix_s Stenobot Prosarth 
+183 :Stenobot Prosarth 
+184 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi 
+185 :Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi 
+186 :Tanzanio Gryllobl Galloisi 
+187 :Gryllobl Galloisi 
+188 :Timema_c Aretaon_ Peruphas Aposthon Haploemb 
+189 :Aposthon Haploemb 
+190 :Timema_c Aretaon_ Peruphas 
+191 :Aretaon_ Peruphas 
+192 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p 
+193 :Metallyt Mantis_r Empusa_p 
+194 :Mantis_r Empusa_p 
+195 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino 
+196 :Periplan Cryptoce Mastoter ZOOTERMO Prorhino 
+197 :Cryptoce Mastoter ZOOTERMO Prorhino 
+198 :Mastoter ZOOTERMO Prorhino 
+199 :ZOOTERMO Prorhino 
+200 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin 
+201 :Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin 
+202 :Gynaikot Thrips_p Franklin 
+203 :Thrips_p Franklin 
+204 :Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur 
+205 :Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur 
+206 :Bemisia_ Trialeur 
+207 :Acanthoc Planococ Essigell Aphis_go ACYRTOSI 
+208 :Planococ Essigell Aphis_go ACYRTOSI 
+209 :Essigell Aphis_go ACYRTOSI 
+210 :Aphis_go ACYRTOSI 
+211 :Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos 
+212 :Xenophys Nilaparv Okanagan Cercopis 
+213 :Nilaparv Okanagan Cercopis 
+214 :Okanagan Cercopis 
+215 :Velia_ca Ranatra_ Notostir Acanthos 
+216 :Velia_ca Ranatra_ 
+217 :Notostir Acanthos 
+218 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ 
+219 :Ectopsoc Liposcel PEDICULU Menopon_ 
+220 :Liposcel PEDICULU Menopon_ 
+221 :PEDICULU Menopon_ 
+222 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+223 :Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+224 :Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+225 :Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+226 :Cotesia_ Leptopil NASONIA_ 
+227 :Leptopil NASONIA_ 
+228 :Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna 
+229 :Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna 
+230 :ACROMYRM Harpegna 
+231 :Exoneura APIS_MEL Bombus_t 
+232 :APIS_MEL Bombus_t 
+233 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost 
+234 :Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost 
+235 :Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost 
+236 :Inocelli Xanthost 
+237 :Conwentz Osmylus_ Euroleon Corydalu Sialis_l 
+238 :Corydalu Sialis_l 
+239 :Conwentz Osmylus_ Euroleon 
+240 :Osmylus_ Euroleon 
+241 :Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ 
+242 :Mengenil Stylops_ 
+243 :Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ 
+244 :Aleochar Dendroct Meloe_vi TRIBOLIU 
+245 :Dendroct Meloe_vi TRIBOLIU 
+246 :Meloe_vi TRIBOLIU 
+247 :Lepiceru Priacma_ Carabus_ Gyrinus_ 
+248 :Priacma_ Carabus_ Gyrinus_ 
+249 :Carabus_ Gyrinus_ 
+250 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot 
+251 :Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot 
+252 :Rhyacoph Platycen Hydropti Philopot 
+253 :Rhyacoph Platycen 
+254 :Hydropti Philopot 
+255 :Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+256 :Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+257 :Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+258 :Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+259 :Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+260 :Parides_ Polyomma Manduca_ BOMBYX_M 
+261 :Parides_ Polyomma 
+262 :Manduca_ BOMBYX_M 
+263 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep 
+264 :Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep 
+265 :Ceratoph Archaeop Ctenocep 
+266 :Archaeop Ctenocep 
+267 :Boreus_h Nannocho Bittacus Panorpa_ 
+268 :Nannocho Bittacus Panorpa_ 
+269 :Bittacus Panorpa_ 
+270 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE 
+271 :ANOPHELE Aedes_AE 
+272 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce 
+273 :Phleboto Tipula_m Trichoce 
+274 :Tipula_m Trichoce 
+275 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+276 :Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+277 :DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+278 :Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+279 :Rhagolet Glossina Sarcopha Triarthr 
+280 :Glossina Sarcopha Triarthr 
+281 :Sarcopha Triarthr 
+142 :IXODES_S Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht Cypridin Sarsineb Celuca_p Litopena Glomeris Symphyle 
+143 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht Cypridin Sarsineb Celuca_p Litopena Glomeris Symphyle 
+144 :Glomeris Symphyle 
+145 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht Cypridin Sarsineb Celuca_p Litopena 
+146 :Cypridin Sarsineb Celuca_p Litopena 
+147 :Sarsineb Celuca_p Litopena 
+148 :Celuca_p Litopena 
+149 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht 
+150 :DAPHNIA_ Lepeopht 
+151 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+152 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+153 :Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+154 :Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+155 :Folsomia Pogonogn Anurida_ Tetrodon 
+156 :Folsomia Pogonogn 
+157 :Anurida_ Tetrodon 
+158 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea 
+159 :Occasjap Campodea 
+160 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte 
+161 :Machilis Meinerte 
+162 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi 
+163 :Trichole Atelura_ Thermobi 
+164 :Atelura_ Thermobi 
+165 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg 
+166 :Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg 
+167 :Calopter Epiophle Corduleg 
+168 :Epiophle Corduleg 
+169 :Baetis_p Isonychi Ephemera Euryloph 
+170 :Isonychi Ephemera Euryloph 
+171 :Ephemera Euryloph 
+172 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul 
+173 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul 
+174 :Zorotypu Apachyus Forficul 
+175 :Apachyus Forficul 
+176 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma 
+177 :Leuctra_ Cosmiope Perla_ma 
+178 :Cosmiope Perla_ma 
+179 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota 
+180 :Tetrix_s Stenobot Prosarth Ceuthoph Gryllota 
+181 :Ceuthoph Gryllota 
+182 :Tetrix_s Stenobot Prosarth 
+183 :Stenobot Prosarth 
+184 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi 
+185 :Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi 
+186 :Tanzanio Gryllobl Galloisi 
+187 :Gryllobl Galloisi 
+188 :Timema_c Aretaon_ Peruphas Aposthon Haploemb 
+189 :Aposthon Haploemb 
+190 :Timema_c Aretaon_ Peruphas 
+191 :Aretaon_ Peruphas 
+192 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p 
+193 :Metallyt Mantis_r Empusa_p 
+194 :Mantis_r Empusa_p 
+195 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino 
+196 :Periplan Cryptoce Mastoter ZOOTERMO Prorhino 
+197 :Cryptoce Mastoter ZOOTERMO Prorhino 
+198 :Mastoter ZOOTERMO Prorhino 
+199 :ZOOTERMO Prorhino 
+200 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin 
+201 :Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin 
+202 :Gynaikot Thrips_p Franklin 
+203 :Thrips_p Franklin 
+204 :Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur 
+205 :Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur 
+206 :Bemisia_ Trialeur 
+207 :Acanthoc Planococ Essigell Aphis_go ACYRTOSI 
+208 :Planococ Essigell Aphis_go ACYRTOSI 
+209 :Essigell Aphis_go ACYRTOSI 
+210 :Aphis_go ACYRTOSI 
+211 :Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos 
+212 :Xenophys Nilaparv Okanagan Cercopis 
+213 :Nilaparv Okanagan Cercopis 
+214 :Okanagan Cercopis 
+215 :Velia_ca Ranatra_ Notostir Acanthos 
+216 :Velia_ca Ranatra_ 
+217 :Notostir Acanthos 
+218 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ 
+219 :Ectopsoc Liposcel PEDICULU Menopon_ 
+220 :Liposcel PEDICULU Menopon_ 
+221 :PEDICULU Menopon_ 
+222 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+223 :Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+224 :Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+225 :Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+226 :Cotesia_ Leptopil NASONIA_ 
+227 :Leptopil NASONIA_ 
+228 :Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna 
+229 :Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna 
+230 :ACROMYRM Harpegna 
+231 :Exoneura APIS_MEL Bombus_t 
+232 :APIS_MEL Bombus_t 
+233 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost 
+234 :Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost 
+235 :Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost 
+236 :Inocelli Xanthost 
+237 :Conwentz Osmylus_ Euroleon Corydalu Sialis_l 
+238 :Corydalu Sialis_l 
+239 :Conwentz Osmylus_ Euroleon 
+240 :Osmylus_ Euroleon 
+241 :Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ 
+242 :Mengenil Stylops_ 
+243 :Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ 
+244 :Aleochar Dendroct Meloe_vi TRIBOLIU 
+245 :Dendroct Meloe_vi TRIBOLIU 
+246 :Meloe_vi TRIBOLIU 
+247 :Lepiceru Priacma_ Carabus_ Gyrinus_ 
+248 :Priacma_ Carabus_ Gyrinus_ 
+249 :Carabus_ Gyrinus_ 
+250 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot 
+251 :Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot 
+252 :Rhyacoph Platycen Hydropti Philopot 
+253 :Rhyacoph Platycen 
+254 :Hydropti Philopot 
+255 :Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+256 :Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+257 :Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+258 :Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+259 :Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+260 :Parides_ Polyomma Manduca_ BOMBYX_M 
+261 :Parides_ Polyomma 
+262 :Manduca_ BOMBYX_M 
+263 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep 
+264 :Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep 
+265 :Ceratoph Archaeop Ctenocep 
+266 :Archaeop Ctenocep 
+267 :Boreus_h Nannocho Bittacus Panorpa_ 
+268 :Nannocho Bittacus Panorpa_ 
+269 :Bittacus Panorpa_ 
+270 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE 
+271 :ANOPHELE Aedes_AE 
+272 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce 
+273 :Phleboto Tipula_m Trichoce 
+274 :Tipula_m Trichoce 
+275 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+276 :Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+277 :DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+278 :Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+279 :Rhagolet Glossina Sarcopha Triarthr 
+280 :Glossina Sarcopha Triarthr 
+281 :Sarcopha Triarthr 
+142 :IXODES_S Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht Cypridin Sarsineb Celuca_p Litopena Glomeris Symphyle 
+143 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht Cypridin Sarsineb Celuca_p Litopena Glomeris Symphyle 
+144 :Glomeris Symphyle 
+145 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht Cypridin Sarsineb Celuca_p Litopena 
+146 :Cypridin Sarsineb Celuca_p Litopena 
+147 :Sarsineb Celuca_p Litopena 
+148 :Celuca_p Litopena 
+149 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon DAPHNIA_ Lepeopht 
+150 :DAPHNIA_ Lepeopht 
+151 :Speleone Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+152 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+153 :Acerento Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+154 :Sminthur Folsomia Pogonogn Anurida_ Tetrodon 
+155 :Folsomia Pogonogn Anurida_ Tetrodon 
+156 :Folsomia Pogonogn 
+157 :Anurida_ Tetrodon 
+158 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte Occasjap Campodea 
+159 :Occasjap Campodea 
+160 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi Machilis Meinerte 
+161 :Machilis Meinerte 
+162 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg Trichole Atelura_ Thermobi 
+163 :Trichole Atelura_ Thermobi 
+164 :Atelura_ Thermobi 
+165 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg 
+166 :Baetis_p Isonychi Ephemera Euryloph Calopter Epiophle Corduleg 
+167 :Calopter Epiophle Corduleg 
+168 :Epiophle Corduleg 
+169 :Baetis_p Isonychi Ephemera Euryloph 
+170 :Isonychi Ephemera Euryloph 
+171 :Ephemera Euryloph 
+172 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul 
+173 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma Zorotypu Apachyus Forficul 
+174 :Zorotypu Apachyus Forficul 
+175 :Apachyus Forficul 
+176 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota Leuctra_ Cosmiope Perla_ma 
+177 :Leuctra_ Cosmiope Perla_ma 
+178 :Cosmiope Perla_ma 
+179 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi Tetrix_s Stenobot Prosarth Ceuthoph Gryllota 
+180 :Tetrix_s Stenobot Prosarth Ceuthoph Gryllota 
+181 :Ceuthoph Gryllota 
+182 :Tetrix_s Stenobot Prosarth 
+183 :Stenobot Prosarth 
+184 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi 
+185 :Timema_c Aretaon_ Peruphas Aposthon Haploemb Tanzanio Gryllobl Galloisi 
+186 :Tanzanio Gryllobl Galloisi 
+187 :Gryllobl Galloisi 
+188 :Timema_c Aretaon_ Peruphas Aposthon Haploemb 
+189 :Aposthon Haploemb 
+190 :Timema_c Aretaon_ Peruphas 
+191 :Aretaon_ Peruphas 
+192 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino Metallyt Mantis_r Empusa_p 
+193 :Metallyt Mantis_r Empusa_p 
+194 :Mantis_r Empusa_p 
+195 :Blaberus Periplan Cryptoce Mastoter ZOOTERMO Prorhino 
+196 :Periplan Cryptoce Mastoter ZOOTERMO Prorhino 
+197 :Cryptoce Mastoter ZOOTERMO Prorhino 
+198 :Mastoter ZOOTERMO Prorhino 
+199 :ZOOTERMO Prorhino 
+200 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin 
+201 :Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur Gynaikot Thrips_p Franklin 
+202 :Gynaikot Thrips_p Franklin 
+203 :Thrips_p Franklin 
+204 :Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur 
+205 :Acanthoc Planococ Essigell Aphis_go ACYRTOSI Bemisia_ Trialeur 
+206 :Bemisia_ Trialeur 
+207 :Acanthoc Planococ Essigell Aphis_go ACYRTOSI 
+208 :Planococ Essigell Aphis_go ACYRTOSI 
+209 :Essigell Aphis_go ACYRTOSI 
+210 :Aphis_go ACYRTOSI 
+211 :Xenophys Nilaparv Okanagan Cercopis Velia_ca Ranatra_ Notostir Acanthos 
+212 :Xenophys Nilaparv Okanagan Cercopis 
+213 :Nilaparv Okanagan Cercopis 
+214 :Okanagan Cercopis 
+215 :Velia_ca Ranatra_ Notostir Acanthos 
+216 :Velia_ca Ranatra_ 
+217 :Notostir Acanthos 
+218 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ Ectopsoc Liposcel PEDICULU Menopon_ 
+219 :Ectopsoc Liposcel PEDICULU Menopon_ 
+220 :Liposcel PEDICULU Menopon_ 
+221 :PEDICULU Menopon_ 
+222 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+223 :Tenthred Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+224 :Orussus_ Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+225 :Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna Cotesia_ Leptopil NASONIA_ 
+226 :Cotesia_ Leptopil NASONIA_ 
+227 :Leptopil NASONIA_ 
+228 :Chrysis_ Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna 
+229 :Exoneura APIS_MEL Bombus_t ACROMYRM Harpegna 
+230 :ACROMYRM Harpegna 
+231 :Exoneura APIS_MEL Bombus_t 
+232 :APIS_MEL Bombus_t 
+233 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost 
+234 :Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost 
+235 :Conwentz Osmylus_ Euroleon Corydalu Sialis_l Inocelli Xanthost 
+236 :Inocelli Xanthost 
+237 :Conwentz Osmylus_ Euroleon Corydalu Sialis_l 
+238 :Corydalu Sialis_l 
+239 :Conwentz Osmylus_ Euroleon 
+240 :Osmylus_ Euroleon 
+241 :Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ Mengenil Stylops_ 
+242 :Mengenil Stylops_ 
+243 :Aleochar Dendroct Meloe_vi TRIBOLIU Lepiceru Priacma_ Carabus_ Gyrinus_ 
+244 :Aleochar Dendroct Meloe_vi TRIBOLIU 
+245 :Dendroct Meloe_vi TRIBOLIU 
+246 :Meloe_vi TRIBOLIU 
+247 :Lepiceru Priacma_ Carabus_ Gyrinus_ 
+248 :Priacma_ Carabus_ Gyrinus_ 
+249 :Carabus_ Gyrinus_ 
+250 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot 
+251 :Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M Rhyacoph Platycen Hydropti Philopot 
+252 :Rhyacoph Platycen Hydropti Philopot 
+253 :Rhyacoph Platycen 
+254 :Hydropti Philopot 
+255 :Micropte Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+256 :Triodia_ Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+257 :Nemophor Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+258 :Yponomeu Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+259 :Zygaena_ Parides_ Polyomma Manduca_ BOMBYX_M 
+260 :Parides_ Polyomma Manduca_ BOMBYX_M 
+261 :Parides_ Polyomma 
+262 :Manduca_ BOMBYX_M 
+263 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep 
+264 :Boreus_h Nannocho Bittacus Panorpa_ Ceratoph Archaeop Ctenocep 
+265 :Ceratoph Archaeop Ctenocep 
+266 :Archaeop Ctenocep 
+267 :Boreus_h Nannocho Bittacus Panorpa_ 
+268 :Nannocho Bittacus Panorpa_ 
+269 :Bittacus Panorpa_ 
+270 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce ANOPHELE Aedes_AE 
+271 :ANOPHELE Aedes_AE 
+272 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr Phleboto Tipula_m Trichoce 
+273 :Phleboto Tipula_m Trichoce 
+274 :Tipula_m Trichoce 
+275 :Bibio_ma Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+276 :Bombyliu DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+277 :DROSOPHI Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+278 :Lipara_l Rhagolet Glossina Sarcopha Triarthr 
+279 :Rhagolet Glossina Sarcopha Triarthr 
+280 :Glossina Sarcopha Triarthr 
+281 :Sarcopha Triarthr 
