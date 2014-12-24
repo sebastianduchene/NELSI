@@ -13,8 +13,6 @@ sebastian.duchene[at]sydney.edu.au
 New features
 ------------
 
-- New function to simulate rates under the dirichlet process, as described by [Heath *et al*. 2012](#references).
-
 - New function to obtain node times for internal nodes only. Can be used for ultrametric and non-ultrametric trees.
 
 - Experimental function to get all the tips that descend from a node. Similar to function 'tips' from GEIGER.
@@ -385,8 +383,6 @@ Drummond, A. J., Ho, S. Y., Phillips, M. J., & Rambaut, A. (2006). Relaxed phylo
 Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence time estimation method under a probabilistic model of rate evolution. *Molecular Biology and Evolution*, 18(3), 352-361.
 
 Hasegawa, M., Kishino, H., & Yano, T. A. (1989). Estimation of branching dates among primates by molecular clocks of nuclear DNA which slowed down in Hominoidea. *Journal of Human Evolution*, 18(5), 461-476.
-
-Heath, T. A., Holder, M. T., & Huelsenbeck, J. P. (2012). A dirichlet process prior for estimating lineage-specific substitution rates. *Molecular Biology and Evolution*, 29(3), 939-955.
 
 Ho, S. Y., Phillips, M. J., Drummond, A. J., & Cooper, A. (2005). Accuracy of rate estimation using relaxed-clock models with a critical focus on the early metazoan radiation. *Molecular Biology and Evolution*, 22(5), 1355-1363.
 
