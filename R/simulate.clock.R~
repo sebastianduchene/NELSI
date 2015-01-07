@@ -1,5 +1,5 @@
 simulate.clock <-
-function(tree, params = list(rate = 0.006, noise = 0.00001)){
+function(tree, params = list(rate = 0.02, noise = 0.0001)){
     rate <- params$rate
     noise <- params$noise
     data.matrix <- get.tree.data.matrix(tree)

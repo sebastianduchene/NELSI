@@ -7,7 +7,7 @@ simulate.dpp
 Simulate the rate of evolution along a phylogenetic tree using the dirichlet process described by Heath et al. (2012).
 }
 \usage{
-simulate.dpp(tree, params = list(alpha = 1, shape = 3.98, rate = 516.53))
+simulate.dpp(tree, params = list(alpha = 1, shape = 10, rate = 0.0001))
 }
 \arguments{
 
@@ -47,7 +47,7 @@ set.seed(1234525)
 
 myTree <- rcoal(50)
 
-rateTree <- simulate.dpp(tree = myTree, params = list(alpha = 1, shape = 3.98, rate = 516.53))
+rateTree <- simulate.dpp(tree = myTree, params = list(alpha = 1, shape = 10, rate = 0.0001))
 plot(rateTree, col.lineages = rainbow(50))
 
 #See the histogram of the branch-wise rates
@@ -56,7 +56,7 @@ hist(rateTree$tree.data.matrix[, 5])
 ## The function is currently defined as
 
 simulate.dpp <-
-function(tree, params = list(alpha = 1, shape = 3.98, rate = 516.53)){
+function(tree, params = list(alpha = 1, shape = 10, rate = 0.0001)){
     shape.gamma <- params$shape
     rate.gamma <- params$rate
     alpha <- params$alpha

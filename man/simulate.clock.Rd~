@@ -7,7 +7,7 @@ simulate.clock
 simulate.clock simulates a constant rate of evolution along a phylogenetic tree
 }
 \usage{
-simulate.clock(tree, params = list(rate = 0.006, noise = 0.00001))
+simulate.clock(tree, params = list(rate = 0.02, noise = 1e-04))
 }
 \arguments{
   \item{tree}{
@@ -48,14 +48,14 @@ set.seed(1234525)
 myTree <- rcoal(10)
 
 # A tree with low stochastic variation
-rateClock <- simulate.clock(tree = myTree, params = list(rate = 0.006, noise = 0.00001))
+rateClock <- simulate.clock(tree = myTree, params = list(rate = 0.01, noise = 0.00001))
 
 #Note the scale in the y axis. Rate variation is very low
 plot(rateClock, col.lineages = rainbow(10))
 
 
 ## The function is currently defined as
-function (tree, params = list(rate = 0.006, noise = 0.00001)) 
+function (tree, params = list(rate = 0.02, noise = 1e-04)) 
 {
     rate <- params$rate
     noise <- params$noise

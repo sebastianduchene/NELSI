@@ -1,5 +1,5 @@
 simulate.dpp <-
-function(tree, params = list(alpha = 1, shape = 3.98, rate = 516.53)){
+function(tree, params = list(alpha = 1, shape = 10, rate = 0.0001)){
     shape.gamma <- params$shape
     rate.gamma <- params$rate
     alpha <- params$alpha

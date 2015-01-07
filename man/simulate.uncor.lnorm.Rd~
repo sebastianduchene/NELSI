@@ -7,7 +7,7 @@ simulate.uncor.lnorm
 Simulate the rate of evolution along a phylogenetic tree using the lognormal model described in Drummond et al. (2006)
 }
 \usage{
-simulate.uncor.lnorm(tree, params = list(mean.log = -5, sd.log = 0.5))
+simulate.uncor.lnorm(tree, params = list(mean.log = -3.9, sd.log = 0.1))
 }
 \arguments{
   \item{tree}{A phylogenetic tree of class 'phylo'. The branch lengths should be in units of time (chronogram)}
@@ -45,7 +45,7 @@ set.seed(1234525)
 
 myTree <- rcoal(50)
 
-rateTree <- simulate.uncor.lnorm(tree = myTree, params = list(mean.log = -5, sd.log = 0.5))
+rateTree <- simulate.uncor.lnorm(tree = myTree, params = list(mean.log = -3.9, sd.log = 0.5))
 plot(rateTree, col.lineages = rainbow(50))
 
 #See the histogram of the branch-wise rates
@@ -53,7 +53,7 @@ hist(rateTree$tree.data.matrix[, 5])
 
 
 ## The function is currently defined as
-function (tree, params = list(mean.log = -5, sd.log = 0.5)) 
+function (tree, params = list(mean.log = -3.9, sd.log = 0.1)) 
 {
     mean.log <- params$mean.log
     sd.log <- params$sd.log
