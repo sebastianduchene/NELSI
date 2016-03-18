@@ -1,4 +1,4 @@
-get.descending.nodes.branches <- function(tr, target.node){
+get.descending.nodes.branches <- function(tr, target_node){
     root_node <- unique(tr$edge[!(tr$edge[, 1] %in% tr$edge[, 2]), 1])
     all_tips <- tr$edge[!(tr$edge[, 2] %in% tr$edge[, 1]), 2]
     descendant_nodes <- target_node 
