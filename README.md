@@ -8,10 +8,12 @@ david.duchene[at]anu.edu.au
 
 sebastian.duchene[at]sydney.edu.au
 
-15 December 2014
+18 March 2016
 
 New features
 ------------
+
+- New functions get.ancestor.nodes.branches and get.descending.nodes.branches to manipulate rooted phylogenetic trees.
 
 - New function to simulate rates under the dirichlet process, as described by [Heath *et al*. 2012](#references).
 
