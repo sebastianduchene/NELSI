@@ -1,5 +1,5 @@
 intnode.times <-
-function(phylo, tipsonly = FALSE){
+function(phylo){
     di.phylo <- dist.nodes(phylo)
     root.phylo <- phylo$edge[, 1][!(phylo$edge[, 1] %in% phylo$edge[, 2])][1]
     phylo.depth <- max(di.phylo[as.numeric(colnames(di.phylo)) == root.phylo, ])
