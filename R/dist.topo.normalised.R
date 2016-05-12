@@ -1,4 +1,4 @@
-topo_dist_standardised <- function(tr1, tr2, nrand=100){
+dist.topo.normalised <- function(tr1, tr2, nrand=100){
     dists_sim <- vector()
     for(i in 1:nrand){
         tr_temp <- tr2
