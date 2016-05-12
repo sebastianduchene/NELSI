@@ -8,10 +8,12 @@ david.duchene[at]anu.edu.au
 
 sebastian.duchene[at]sydney.edu.au
 
-18 March 2016
+12 May 2016
 
 New features
 ------------
+
+- New function dist.topo.normalised estimates PH85 tree topology distance divided by the maximum distance between two trees of the same size and structure. This is done by randomising the tip labels for one of the trees to generate a *null* distribution of the PH85 tree topology distance.
 
 - New functions get.ancestor.nodes.branches and get.descending.nodes.branches to manipulate rooted phylogenetic trees. Help for these funcitons pending.
 
