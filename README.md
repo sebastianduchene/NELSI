@@ -310,7 +310,7 @@ head(hivDataMatrix)
 9. Root-to-tip regressions for trees estimated in BEAST
 -------------------------------------------------------
 
-For heterochronous data one can test the molecular clock by conducting a regression of the number of substitutions from the root to the tips vs. the time from the root to the tip, like in the program [TempEst](http://tree.bio.ed.ac.uk/software/tempest/) [Rambaut *et al.* 2016](http://dx.doi.org/10.1093/ve/vew007). With the help of a few functions from NELSI, we can conduct these analyses in R.
+For heterochronous data one can test the molecular clock by conducting a regression of the number of substitutions from the root to the tips vs. the time from the root to the tip, like in the program [TempEst](http://tree.bio.ed.ac.uk/software/tempest/) [(Rambaut *et al.* 2016)](http://dx.doi.org/10.1093/ve/vew007). With the help of a few functions from NELSI, we can conduct these analyses in R.
 
  - Obtain the ages of the tips with the function allnode.times with the HIV chronogram. Specify the argument tipsonly = T, which will return the ages of the tips, and not those of internal nodes.
 
