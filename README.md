@@ -310,7 +310,7 @@ head(hivDataMatrix)
 9. Root-to-tip regressions for trees estimated in BEAST
 -------------------------------------------------------
 
-For heterochronous data one can test the molecular clock by conducting a regression of the number of substitutions from the root to the tips vs. the time from the root to the tip, like in the program [Path-o-Gen](http://tree.bio.ed.ac.uk/software/pathogen/) (Rambaut *et al.* 2009). With the help of a few functions from NELSI, we can conduct these analyses in R.
+For heterochronous data one can test the molecular clock by conducting a regression of the number of substitutions from the root to the tips vs. the time from the root to the tip, like in the program [TempEst](http://tree.bio.ed.ac.uk/software/tempest/) [(Rambaut *et al.* 2016)](http://dx.doi.org/10.1093/ve/vew007). With the help of a few functions from NELSI, we can conduct these analyses in R.
 
  - Obtain the ages of the tips with the function allnode.times with the HIV chronogram. Specify the argument tipsonly = T, which will return the ages of the tips, and not those of internal nodes.
 
@@ -398,7 +398,8 @@ Lepage, T., Bryant, D., Philippe, H., & Lartillot, N. (2007). A general comparis
 
 Popescu, A. A., Huber, K. T., & Paradis, E. (2012). Ape 3.0: New tools for distance-based phylogenetics and evolutionary analysis in R. *Bioinformatics*, 28(11), 1536-1537.
 
-Rambaut, A. (2009). Path-O-Gen: temporal signal investigation tool.
+
+Rambaut, A.,  Lam, T.,  Carvalho, L., Pybus, O. (2016) Exploring the temporal structure of heterochronous sequences using TempEst. *Virus Evolution* 2: vew007
 
 Schliep, K. P. (2011). phangorn: Phylogenetic analysis in R. *Bioinformatics*, 27(4), 592-593.
 
