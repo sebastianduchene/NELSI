@@ -1,12 +1,14 @@
-simulate.white.noise <-
-function(tree, params = NULL){
+simulate.white.noise <- 
+function(tree, params = list(rate = 0.006, var = 0.000001)){
     data.matrix <- get.tree.data.matrix(tree)
-    means.rates <- data.matrix[, 7] / sum(data.matrix[, 7])
-    branch.rates <- sapply(means.rates, function(x) rlnorm(1, log(x), x))
+    clocksubst <- tree$edge.length * params[[1]]
+    clocksubstscaled <- as.numeric(scale(clocksubst)) + 1
+    for(i in 1:length(clocksubst)) data.matrix[, 6][i] <- rlnorm(1, log(clocksubst[i]), abs(params[[2]] * clocksubstscaled[i]))
+    branch.rates <- data.matrix[, 6] / data.matrix[, 7]
     data.matrix[, 5] <- branch.rates
-    data.matrix[, 6] <- data.matrix[, 5] * data.matrix[, 7]
     tree$edge.length <- data.matrix[, 6]
     res <- list(tree, tree.data.matrix = data.matrix)
+    names(res) <- c("phylogram", "tree.data.matrix")
     class(res) <- "ratesim"
     return(res)
 }
