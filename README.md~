@@ -80,7 +80,7 @@ library(devtools)
  - The devtools package has a function to download packages from github repositories. To download and install NELSI type the following at the prompt:
 
 ```coffee
-install_github("sebastianduchene/NELSI")
+install_github(rep = "NELSI", username = "sebastianduchene")
 ```
  - NELSI is now installed. To make all the functions available, load the package by typing:
 
