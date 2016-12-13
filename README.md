@@ -10,6 +10,12 @@ Contributors:
 - Luiz Carvalho
 
 
+
+**If you use this package for your research, please cite:**
+
+   Ho, S. Y., Duchêne, S., Duchêne, D. (2015) Simulating and detecting autocorrelation of molecular evolutionary rates among lineages. 15(4) 689-696.
+
+
 13 December 2016
 
 New features
@@ -396,6 +402,8 @@ Heath, T. A., Holder, M. T., & Huelsenbeck, J. P. (2012). A dirichlet process pr
 
 Ho, S. Y., Phillips, M. J., Drummond, A. J., & Cooper, A. (2005). Accuracy of rate estimation using relaxed-clock models with a critical focus on the early metazoan radiation. *Molecular Biology and Evolution*, 22(5), 1355-1363.
 
+Ho, S. Y., Duchêne, S., Duchêne, D. (2015) Simulating and detecting autocorrelation of molecular evolutionary rates among lineages. 15(4) 689-696.
+
 Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence time estimation method under a probabilistic model of rate evolution. *Molecular Biology and Evolution*, 18(3), 352-361.
 
 Lepage, T., Bryant, D., Philippe, H., & Lartillot, N. (2007). A general comparison of relaxed molecular clock models. *Molecular Biology and Evolution*, 24(12), 2669-2680.
@@ -412,7 +420,7 @@ Thorne, J.L., Kishino, H., and Painter, I.S., Estimating the rate of evolution o
 
 Yoder, A. D., & Yang, Z. (2000). Estimation of primate speciation dates using local molecular clocks. *Molecular Biology and Evolution*, 17(7), 1081-1090.
 
-Zuckerkandl,E. and Pauling,L. (1962) Molecular disease, evolution, and genetic heterogeneity. In: Kasha,M. and Pullman,B. (eds) Horizons in Biochemistry. Academic Press, New York, pp. 189–225.
+Zuckerkandl,E. and Pauling,L. (1962) Molecular disease, evolution, and genic heterogeneity. In: Kasha,M. and Pullman,B. (eds) Horizons in Biochemistry. Academic Press, New York, pp. 189–225.
 
 
 Bugs and version history
