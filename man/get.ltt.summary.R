@@ -33,7 +33,7 @@ None
 }
 \examples{
 set.seed(12345)
-get_ltt_summary(rtree(100))
+get.ltt.summary(rtree(100))
 
 
 

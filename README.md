@@ -1,17 +1,21 @@
 NELSI: Nucleotide EvoLutionary Simulator
 =========================================
 
+Contributors:
 
-David Duchene and Sebastian Duchene
+- David Duchene david.duchene[at]anu.edu.au
 
-david.duchene[at]anu.edu.au
+- Sebastian Duchene sebastian.duchene[at]unimelb.edu.au
 
-sebastian.duchene[at]sydney.edu.au
+- Luiz Carvalho
 
-12 May 2016
+
+13 December 2016
 
 New features
 ------------
+
+- New function get.ltt.summary.R calculates some statistics for the lineages through time plots of non-ultrametric trees. Some of these statistics were first used by [Saulnier *et al.* 2016](#references).
 
 - New function dist.topo.normalised estimates PH85 tree topology distance divided by the maximum distance between two trees of the same size and structure. This is done by randomising the tip labels for one of the trees to generate a *null* distribution of the PH85 tree topology distance.
 
@@ -386,20 +390,21 @@ References
 
 Drummond, A. J., Ho, S. Y., Phillips, M. J., & Rambaut, A. (2006). Relaxed phylogenetics and dating with confidence. *PLOS Biology*, 4(5), e88.
 
-Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence time estimation method under a probabilistic model of rate evolution. *Molecular Biology and Evolution*, 18(3), 352-361.
-
 Hasegawa, M., Kishino, H., & Yano, T. A. (1989). Estimation of branching dates among primates by molecular clocks of nuclear DNA which slowed down in Hominoidea. *Journal of Human Evolution*, 18(5), 461-476.
 
 Heath, T. A., Holder, M. T., & Huelsenbeck, J. P. (2012). A dirichlet process prior for estimating lineage-specific substitution rates. *Molecular Biology and Evolution*, 29(3), 939-955.
 
 Ho, S. Y., Phillips, M. J., Drummond, A. J., & Cooper, A. (2005). Accuracy of rate estimation using relaxed-clock models with a critical focus on the early metazoan radiation. *Molecular Biology and Evolution*, 22(5), 1355-1363.
 
+Kishino, H., Thorne, J. L., & Bruno, W. J. (2001). Performance of a divergence time estimation method under a probabilistic model of rate evolution. *Molecular Biology and Evolution*, 18(3), 352-361.
+
 Lepage, T., Bryant, D., Philippe, H., & Lartillot, N. (2007). A general comparison of relaxed molecular clock models. *Molecular Biology and Evolution*, 24(12), 2669-2680.
 
 Popescu, A. A., Huber, K. T., & Paradis, E. (2012). Ape 3.0: New tools for distance-based phylogenetics and evolutionary analysis in R. *Bioinformatics*, 28(11), 1536-1537.
 
-
 Rambaut, A.,  Lam, T.,  Carvalho, L., Pybus, O. (2016) Exploring the temporal structure of heterochronous sequences using TempEst. *Virus Evolution* 2: vew007
+
+Saulnier, E., Gascuel, O., Alizon, S. (2016) Assessing the accuracy of Approximate Bayesian Computation approaches to infer epidemiological parameters from phylogenies. *bioRxiv* doi: http://dx.doi.org/10.1101/050211.
 
 Schliep, K. P. (2011). phangorn: Phylogenetic analysis in R. *Bioinformatics*, 27(4), 592-593.
 
