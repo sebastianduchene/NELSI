@@ -13,7 +13,7 @@ Contributors:
 
 **If you use this package for your research, please cite:**
 
-   Ho, S. Y., Duchêne, S., Duchêne, D. (2015) Simulating and detecting autocorrelation of molecular evolutionary rates among lineages. 15(4) 689-696.
+   Ho, S. Y. W., Duchêne, S., Duchêne, D. (2015) Simulating and detecting autocorrelation of molecular evolutionary rates among lineages. 15(4) 689-696.
 
 
 13 December 2016
