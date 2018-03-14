@@ -1,5 +1,9 @@
-make.lsd.dates <- function(tr, youngest_sample = 0, output_file){
-  tip_ages <- abs(allnode.times(tr, tipsonly = T) - youngest_sample)
-  ages_lines <- c(length(tip_ages), paste(tr$tip.label, tip_ages, sep = '\t'))
-  writeLines(ages_lines, con = output_file)
+make.lsd.dates <- function(tr, grep.sep = '.+_', outfile = 'out.date', random = F){
+  dates <- gsub(grep.sep, '', tr$tip.label)
+  if(random){
+    dates <- sample(dates)
+  }
+  dates.vector <- paste(tr$tip.label, dates, sep = '\t')
+  cat(length(tr$tip.label), '\n', file = outfile)
+  cat(dates.vector, sep = '\n', file = outfile, append = T)
 }
