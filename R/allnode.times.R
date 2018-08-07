@@ -6,7 +6,7 @@ function(phylo, tipsonly = FALSE, reverse = T, keeproot = F){
     node.times <- phylo.depth - di.phylo[as.numeric(rownames(di.phylo)) == root.phylo, ]
 #####
     if((!is.null(phylo$root.edge)) & keeproot){
-        node.times <- (max(node.times)+tr$root.edge) - node.times
+        node.times <- (max(node.times)+phylo$root.edge) - node.times
     }
 #####
     if(tipsonly){
