@@ -8,7 +8,7 @@ function(phylo, tipsonly = FALSE, reverse = T){
     	node.times <- phylo.depth - di.phylo[as.numeric(rownames(di.phylo)) == root.phylo, 1:length(phylo$tip.label)]
     }
     if(reverse){
-	node.times <- abs(node.times - max(node.times))
+        node.times <- abs(node.times - max(node.times))
     }
     return(node.times)
 }
