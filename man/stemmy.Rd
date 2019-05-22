@@ -28,7 +28,8 @@ David Duchene
 
 
 ## The function is currently defined as
-function(tre){
+function(tre)
+{
        if(is.ultrametric(tre)){
 	stemminess <- sum(tre$edge.length[which(tre$edge[,2] > Ntip(tre))]) / sum(tre$edge.length)
        } else {
