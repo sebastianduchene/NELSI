@@ -113,7 +113,7 @@ Some examples used to generate the data for the study by  Ho. *et al* (*In Prep*
 2. Loading phylogenetic trees
 -----------------------------
 
-To simulate rates of evolution we need a phylogenetic tree in which the branch lengths repesetn units of time, known as a chronogram. We can simulate this kind of tree in R, but for this tutorial we will load the tree in the example_data folder in [github](github.com/sebastianduchene/nelsi). 
+To simulate rates of evolution we need a phylogenetic tree in which the branch lengths represent units of time, known as a chronogram. We can simulate this kind of tree in R, but for this tutorial we will load the tree in the example_data folder in [github](github.com/sebastianduchene/nelsi). 
 
  - Set the R [working directory](http://www.statmethods.net/interface/workspace.html) to the example_data folder. Load the example tree with the following code:
 
@@ -138,7 +138,7 @@ nodelabels(node.ages, bg = "white")
 3. Simulate constant rates through time (strict clock)
 ------------------------------------------------------
 
-The simplest rate simulation model in NELSI is a strict clock, where every branch is given the same rate, with a user-specified noise level. To simulate rates under this model for our chronogram we use the function simulate.cock, which receives as arguments the chronogram, and two parameters: the mean rate and the amount of noise. 
+The simplest rate simulation model in NELSI is a strict clock, where every branch is given the same rate, with a user-specified noise level. To simulate rates under this model for our chronogram we use the function simulate.clock, which receives as arguments the chronogram, and two parameters: the mean rate and the amount of noise. 
 
  - As an example, we will simulate a high rate of substitutions with no noise.
 
