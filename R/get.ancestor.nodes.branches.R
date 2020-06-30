@@ -1,6 +1,9 @@
 get.ancestor.nodes.branches <- function(tr, target_node){
     root_node <- unique(tr$edge[!(tr$edge[, 1] %in% tr$edge[, 2]), 1])
     all_tips <- tr$edge[!(tr$edge[, 2] %in% tr$edge[, 1]), 2]
+    if(length(target_node) > 1){
+      target_node <- getMRCA(target_node)
+    }
     ancestors_nodes <- target_node
     ancestors_branches <- vector()
     while(!(root_node %in% ancestors_nodes)){
