@@ -15,26 +15,11 @@ Contributors:
 
    Ho, S. Y. W., Duchêne, S., Duchêne, D. (2015) Simulating and detecting autocorrelation of molecular evolutionary rates among lineages. 15(4) 689-696.
 
-## To be updated with lineage functions
+To do (12 April 2022)
+----
+- Lineage functions to obtain all monophyletic groups that match a regular expression.
 
-
-13 December 2016
-
-New features
-------------
-
-- New function get.ltt.summary.R calculates some statistics for the lineages through time plots of non-ultrametric trees. Some of these statistics were first used by [Saulnier *et al.* 2016](#references).
-
-- New function dist.topo.normalised estimates PH85 tree topology distance divided by the maximum distance between two trees of the same size and structure. This is done by randomising the tip labels for one of the trees to generate a *null* distribution of the PH85 tree topology distance.
-
-- New functions get.ancestor.nodes.branches and get.descending.nodes.branches to manipulate rooted phylogenetic trees. Help for these funcitons pending.
-
-- New function to simulate rates under the dirichlet process, as described by [Heath *et al*. 2012](#references).
-
-- New function to obtain node times for internal nodes only. Can be used for ultrametric and non-ultrametric trees.
-
-- Experimental function to get all the tips that descend from a node. Similar to function 'tips' from GEIGER.
-
+- Simulation tools for fixed local clocks.
 
 Introduction
 ------------
@@ -427,6 +412,31 @@ Zuckerkandl,E. and Pauling,L. (1962) Molecular disease, evolution, and genic het
 
 Bugs and version history
 ------------------------
+
+12 April 2022
+
+New features
+------------
+- Function is.polytomy to query whether a particular node is a polytomy. This function should then be used with extensions to travere trees and find monophyletic groups and their sister taxa.
+
+
+13 December 2016
+
+New features
+------------
+
+- New function get.ltt.summary.R calculates some statistics for the lineages through time plots of non-ultrametric trees. Some of these statistics were first used by [Saulnier *et al.* 2016](#references).
+
+- New function dist.topo.normalised estimates PH85 tree topology distance divided by the maximum distance between two trees of the same size and structure. This is done by randomising the tip labels for one of the trees to generate a *null* distribution of the PH85 tree topology distance.
+
+- New functions get.ancestor.nodes.branches and get.descending.nodes.branches to manipulate rooted phylogenetic trees. Help for these funcitons pending.
+
+- New function to simulate rates under the dirichlet process, as described by [Heath *et al*. 2012](#references).
+
+- New function to obtain node times for internal nodes only. Can be used for ultrametric and non-ultrametric trees.
+
+- Experimental function to get all the tips that descend from a node. Similar to function 'tips' from GEIGER.
+
 
 6 November 2014
 
