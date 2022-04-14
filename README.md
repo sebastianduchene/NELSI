@@ -15,11 +15,6 @@ Contributors:
 
    Ho, S. Y. W., Duchêne, S., Duchêne, D. (2015) Simulating and detecting autocorrelation of molecular evolutionary rates among lineages. 15(4) 689-696.
 
-To do (12 April 2022)
-----
-- Lineage functions to obtain all monophyletic groups that match a regular expression.
-
-- Simulation tools for fixed local clocks.
 
 Introduction
 ------------
@@ -412,6 +407,14 @@ Zuckerkandl,E. and Pauling,L. (1962) Molecular disease, evolution, and genic het
 
 Bugs and version history
 ------------------------
+
+
+New Features 14 April 2022
+----
+- Lineage functions to obtain all monophyletic groups that match a regular expression (find.monophyletic).
+
+- Simulation tools for fixed local clocks (simulate.FLC).
+
 
 12 April 2022
 
