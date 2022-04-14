@@ -405,9 +405,13 @@ Yoder, A. D., & Yang, Z. (2000). Estimation of primate speciation dates using lo
 Zuckerkandl,E. and Pauling,L. (1962) Molecular disease, evolution, and genic heterogeneity. In: Kasha,M. and Pullman,B. (eds) Horizons in Biochemistry. Academic Press, New York, pp. 189–225.
 
 
+To do's
+-------
+- Include example of Fixed local clock simulation and of finding monophyletic groups and pulling useful statistics (time of origin, detection lag, etc..).
+
+
 Bugs and version history
 ------------------------
-
 
 New Features 14 April 2022
 ----
@@ -416,16 +420,13 @@ New Features 14 April 2022
 - Simulation tools for fixed local clocks (simulate.FLC).
 
 
-12 April 2022
-
-New features
+New features 12 April 2022
 ------------
+
 - Function is.polytomy to query whether a particular node is a polytomy. This function should then be used with extensions to travere trees and find monophyletic groups and their sister taxa.
 
 
-13 December 2016
-
-New features
+New features 13 December 2016
 ------------
 
 - New function get.ltt.summary.R calculates some statistics for the lineages through time plots of non-ultrametric trees. Some of these statistics were first used by [Saulnier *et al.* 2016](#references).
