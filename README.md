@@ -10,7 +10,6 @@ Contributors:
 - Luiz Carvalho
 
 
-
 **If you use this package for your research, please cite:**
 
    Ho, S. Y. W., Duchêne, S., Duchêne, D. (2015) Simulating and detecting autocorrelation of molecular evolutionary rates among lineages. 15(4) 689-696.
