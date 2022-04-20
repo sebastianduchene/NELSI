@@ -1,4 +1,9 @@
 simulate.FLC <- function(tree, params = list(clade.list, stem.clade.indicator, background.rate, local.rates)){
+    clade.list = params$clade.list
+    stem.clade.indicator = params$stem.clade.indicator
+    background.rate = params$background.rate
+    local.rates = params$local.rates
+        
   check.tip.labels <- function(x){
     if(is.numeric(x)){
       return(x)
