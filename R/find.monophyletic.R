@@ -1,5 +1,23 @@
 find.monophyletic <- function(tr, tag, include.singletons = F){
     require(geiger)
+    get.descendants.of.node <-
+        function(phy, node, tips=FALSE){
+            n=Ntip(phy)
+            all=ifelse(tips, FALSE, TRUE)
+            out <- .Call("get_descendants", tree=list(
+                                                NODE = as.integer(node),
+                                                ROOT = as.integer(n+1),
+                                                ALL = as.integer(all),
+                                                ENDOFCLADE = as.integer(dim(phy$edge)[1]),
+                                                ANC = as.integer(phy$edge[,1]),
+                                                DES = as.integer(phy$edge[,2])),
+                         PACKAGE = "geiger")
+            res=out$TIPS
+            if(!length(res)) res=NULL
+            return(c(node, res))
+        }
+
+    
     if(!is.rooted(tr)) stop('tree is not rooted')
     tips <- 1:length(tr$tip.label)
     intnodes <- unique(tr$edge[, 1])
