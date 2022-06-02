@@ -412,6 +412,9 @@ To do's
 Bugs and version history
 ------------------------
 
+New Features 2 June 2022
+- Functions to simulate fixed local clocks. - TO DO: Document and add example
+
 New Features 14 April 2022
 ----
 - Lineage functions to obtain all monophyletic groups that match a regular expression (find.monophyletic).
