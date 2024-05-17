@@ -1,5 +1,6 @@
 plot.tree.lines <- function(tree, rotation.angle = 0, x.offset = 0, y.offset = 0, log.scale = F, 
-                            line.type = "s", plot.new = F, show.tip.labels = F, ...){
+                            line.type = "s", plot.new = F, show.tip.labels = F, lines.colour = "darkgrey",
+                            points.colour = "black", ...){
     rotate <- function(v, angle){
         tmatrix <- matrix(c(cos(angle), -sin(angle), sin(angle), cos(angle)), 2, 2, byrow=T)
         return(tmatrix %*% v)
@@ -31,10 +32,10 @@ plot.tree.lines <- function(tree, rotation.angle = 0, x.offset = 0, y.offset = 0
     ordinate_end <- ordinates_rotated$node.index == tree$edge[i, 2]
     lines(c(ordinates_rotated$x.coord[ordinate_start], ordinates_rotated$x.coord[ordinate_end]),
           c(ordinates_rotated$y.coord[ordinate_start], ordinates_rotated$y.coord[ordinate_end]),
-          col = "darkgrey", lwd = 2, type = line.type)
+          col = "darkgrey", lwd = 2, type = line.type, col = lines.colour)
   }
   tips <- ordinates_rotated$node.index %in% 1:length(tree$tip.label)
-  points(ordinates_rotated$x.coord[tips], ordinates_rotated$y.coord[tips], col = "darkgrey", pch = 20, cex = 0.4)
+  points(ordinates_rotated$x.coord[tips], ordinates_rotated$y.coord[tips], col = tips.colour, pch = 20, cex = 0.4)
   if(show.tip.labels){
     text(ordinates_rotated$x.coord[tips], ordinates_rotated$y.coord[tips], labels = tree$tip.label, pos = 3, cex = 0.6)
   }
