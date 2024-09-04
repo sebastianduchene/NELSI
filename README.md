@@ -1,7 +1,6 @@
 NELSI: Nucleotide EvoLutionary Simulator
 =========================================
 
-
 Contributors:
 
 - David Duchene david.duchene[at]sydney.edu.au
