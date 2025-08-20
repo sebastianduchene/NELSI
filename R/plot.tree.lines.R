@@ -27,12 +27,13 @@ plot.tree.lines <- function(tree, rotation.angle = 0, x.offset = 0, y.offset = 0
          c(min(ordinates_rotated$y.coord), max(ordinates_rotated$y.coord)), 
          type = "n", bty = "n", ...)
   }
+  if(length(lines.colour) != nrow(tree$edge)) lines.colour <- rep(lines.colour, length.out = nrow(tree$edge)) 
   for(i in 1:nrow(tree$edge)){
     ordinate_start <- ordinates_rotated$node.index == tree$edge[i, 1]
-    ordinate_end <- ordinates_rotated$node.index == tree$edge[i, 2]
+    ordinate_end <- ordinates_rotated$node.index == tree$edge[i, 2] 
     lines(c(ordinates_rotated$x.coord[ordinate_start], ordinates_rotated$x.coord[ordinate_end]),
           c(ordinates_rotated$y.coord[ordinate_start], ordinates_rotated$y.coord[ordinate_end]),
-          lwd = branch.width, type = line.type, col = lines.colour)
+          lwd = branch.width, type = line.type, col = lines.colour[i])
   }
   tips <- ordinates_rotated$node.index %in% 1:length(tree$tip.label)
   points(ordinates_rotated$x.coord[tips], ordinates_rotated$y.coord[tips], col = tips.colour, pch = 20, cex = 0.4)
