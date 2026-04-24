@@ -53,7 +53,7 @@ function(tree, params = list(mu = 0.035, srate = 0.015, lambda = 0.1, noise = 0.
     }
 
     data.matrix <- get.tree.data.matrix(tree)
-    node.ages <- allnode.times(tree)
+    node.ages <- all.node.times(tree)
     b.times <- c(rep(0, length(tree$tip.label)), node.ages[(length(tree$tip.label) + 1):length(node.ages)])
     names(b.times) <- 1:length(b.times)
 

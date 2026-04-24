@@ -37,5 +37,5 @@ dev.off()
 
 }
 \seealso{
-\code{\link{simulate.rate}}, \code{\link{allnode.times}}
+\code{\link{simulate.rate}}, \code{\link{all.node.times}}
 }

@@ -9,7 +9,7 @@
 #'
 #' @return A named numeric scalar: the age of the third-oldest internal node.
 #'
-#' @seealso \code{\link{intnode.times}}
+#' @seealso \code{\link{int.node.times}}
 #'
 #' @examples
 #' library(ape)
@@ -19,5 +19,5 @@
 #'
 #' @export
 get.first.node.height <- function(tr){
-   sort(intnode.times(tr), dec = T)[3]
+   sort(int.node.times(tr), dec = T)[3]
 }

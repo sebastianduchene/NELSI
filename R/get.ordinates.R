@@ -2,7 +2,7 @@
 #'
 #' Computes x and y plotting coordinates for every node (tips and internal
 #' nodes) of a phylogenetic tree. x coordinates are node ages (from
-#' \code{\link{allnode.times}}); y coordinates are based on the average
+#' \code{\link{all.node.times}}); y coordinates are based on the average
 #' ordinate of direct descendants, assigned from leaves upward. Used
 #' internally by \code{\link{plot.tree.lines}}.
 #'
@@ -12,7 +12,7 @@
 #'   \code{node.index} (ape node index), and \code{y.coord} (plotting
 #'   ordinate).
 #'
-#' @seealso \code{\link{plot.tree.lines}}, \code{\link{allnode.times}}
+#' @seealso \code{\link{plot.tree.lines}}, \code{\link{all.node.times}}
 #'
 #' @examples
 #' library(ape)
@@ -21,43 +21,24 @@
 #' head(get.ordinates(tr))
 #'
 #' @export
-get.ordinates <- function(tr){
-    nodeHeights <- allnode.times(tr, reverse = T)
-    nodeHeights <- nodeHeights[!names(nodeHeights) %in% 1:length(tr$tip.label)]
-    ordinates <- matrix(NA, tr$Nnode, 2)
-    ordinates[, 1] <- seq(from = (tr$Nnode+length(tr$tip.label)), by = -1, length.out = nrow(ordinates))
-    tips <- 1:length(tr$tip.label)
-    for(i in 1:nrow(ordinates)){
-        descendants <- get.descending.nodes.branches(tr, ordinates[i, 1])$descending.nodes[2:3]
-        areTips <- descendants %in% tips
-        if(all(areTips)){
-            ordinates[i, 2] <- mean(descendants)
-        }else if(sum(areTips) == 1){
-            ordNode <- ordinates[ordinates[, 1] == descendants[!areTips], 2]
-            ordinates[i, 2] <- mean(c(ordNode, descendants[areTips]))
-        }else if(any(!areTips)){
-            ordinates[i, 2] <- mean(c(ordinates[ordinates[, 1] == descendants[1], 2],
-                                      ordinates[ordinates[, 1] == descendants[2], 2]))
-        }
+get.ordinates <- function(tr) {
+    Ntips <- length(tr$tip.label)
+
+    # Post-order traversal: process internal nodes leaves-to-root so every
+    # node's y.coord is computed before its parent needs it.
+    trav       <- castor::get_tree_traversal_root_to_tips(tr, include_tips = FALSE)
+    post_order <- rev(trav$queue)   # queue already uses ape node indices
+
+    y_coord <- numeric(Ntips + tr$Nnode)
+    y_coord[seq_len(Ntips)] <- seq_len(Ntips)   # tips: y = tip index (1..Ntips)
+
+    for (node in post_order) {
+        children       <- tr$edge[tr$edge[, 1] == node, 2]
+        y_coord[node]  <- mean(y_coord[children])
     }
-    ordinates <- rbind(ordinates, cbind(length(tr$tip.label):1, length(tr$tip.label):1))
-    ordinates <- ordinates[nrow(ordinates):1, ]
-    ordinates <- cbind(allnode.times(tr), ordinates)
-    colnames(ordinates) <- c('x.coord', 'node.index', 'y.coord')
+
+    x_coord  <- all.node.times(tr)
+    node_idx <- seq_len(Ntips + tr$Nnode)
+    ordinates <- cbind(x.coord = x_coord, node.index = node_idx, y.coord = y_coord)
     return(ordinates)
-    #Example
-    #tr <- rtree(10)
-    #plot(tr, node.pos = 1, show.tip.label = F, edge.width = 4, edge.col = 'lightgrey')
-    #ordinates <- get.ordinates(tr)
-    #head(ordinates)
-    #for(i in 1:length(tr$tip.label)){
-    #    lines(rep(ordinates[i, 1], 2), c(0, ordinates[i, 3]),
-    #          col = 'red', lty = 2)
-    #}
-    #for(i in length(tr$tip.label):nrow(ordinates)){
-    #lines(rep(ordinates[i, 1], 2), c(11, ordinates[i, 3]),
-    #  col = 'blue', lty = 2)
-    #}
 }
-
-

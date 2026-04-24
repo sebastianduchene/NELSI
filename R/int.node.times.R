@@ -10,16 +10,16 @@
 #' @return A named numeric vector of length \code{Nnodes}. Names are the
 #'   integer internal-node indices (\code{Ntips+1..Ntips+Nnodes}).
 #'
-#' @seealso \code{\link{allnode.times}}
+#' @seealso \code{\link{all.node.times}}
 #'
 #' @examples
 #' library(ape)
 #' set.seed(1)
 #' tr <- rcoal(10)
-#' intnode.times(tr)
+#' int.node.times(tr)
 #'
 #' @export
-intnode.times <- function(phylo) {
+int.node.times <- function(phylo) {
     dists <- castor::get_all_distances_to_root(phylo)
     phylo.depth <- max(dists)
     int.idx <- seq(length(phylo$tip.label) + 1L, length(dists))

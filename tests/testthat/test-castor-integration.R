@@ -11,10 +11,11 @@ nelsi_r <- list.files(
 if (length(nelsi_r) == 0) {
     # Running from repo root during development
     nelsi_r <- list.files(
-        file.path(dirname(dirname(dirname(dirname(normalizePath(testthat::test_path()))))), "R"),
+        file.path(dirname(dirname(normalizePath(testthat::test_path()))), "R"),
         full.names = TRUE, pattern = "\\.R$"
     )
 }
+invisible(lapply(nelsi_r, source))
 
 # ---------------------------------------------------------------------------
 # Old (pre-castor) reference implementations defined inline
@@ -145,7 +146,7 @@ if (length(nelsi_r) == 0) {
     sum(branch_lengths)
 }
 
-.pathnode_old <- function(phylo, tipsonly = TRUE) {
+.path.node_old <- function(phylo, tipsonly = TRUE) {
     di.tr   <- dist.nodes(phylo)
     root.tr <- phylo$edge[, 1][!(phylo$edge[, 1] %in% phylo$edge[, 2])][1]
     if (tipsonly) {
@@ -178,58 +179,58 @@ tr_tagged <- rtree(14)
 tr_tagged$tip.label[c(1, 2, 4, 9, 11)] <- paste0("TAG_", tr_tagged$tip.label[c(1, 2, 4, 9, 11)])
 
 # ---------------------------------------------------------------------------
-# Step 2 — allnode.times
+# Step 2 — all.node.times
 # ---------------------------------------------------------------------------
 
-test_that("allnode.times matches old output on ultrametric tree", {
+test_that("all.node.times matches old output on ultrametric tree", {
     old <- .allnode_times_old(tr_ultra)
-    new <- allnode.times(tr_ultra)
+    new <- all.node.times(tr_ultra)
     expect_equal(as.numeric(old), as.numeric(new), tolerance = 1e-10)
 })
 
-test_that("allnode.times matches old output on non-ultrametric tree", {
+test_that("all.node.times matches old output on non-ultrametric tree", {
     old <- .allnode_times_old(tr_nonultra)
-    new <- allnode.times(tr_nonultra)
+    new <- all.node.times(tr_nonultra)
     expect_equal(as.numeric(old), as.numeric(new), tolerance = 1e-10)
 })
 
-test_that("allnode.times tipsonly=TRUE returns only tips", {
-    new <- allnode.times(tr_ultra, tipsonly = TRUE)
+test_that("all.node.times tipsonly=TRUE returns only tips", {
+    new <- all.node.times(tr_ultra, tipsonly = TRUE)
     expect_length(new, length(tr_ultra$tip.label))
     old <- .allnode_times_old(tr_ultra, tipsonly = TRUE)
     expect_equal(as.numeric(old), as.numeric(new), tolerance = 1e-10)
 })
 
-test_that("allnode.times reverse=FALSE matches old output", {
+test_that("all.node.times reverse=FALSE matches old output", {
     old <- .allnode_times_old(tr_nonultra, reverse = FALSE)
-    new <- allnode.times(tr_nonultra, reverse = FALSE)
+    new <- all.node.times(tr_nonultra, reverse = FALSE)
     expect_equal(as.numeric(old), as.numeric(new), tolerance = 1e-10)
 })
 
-test_that("allnode.times scales to large tree", {
+test_that("all.node.times scales to large tree", {
     old <- .allnode_times_old(tr_large)
-    new <- allnode.times(tr_large)
+    new <- all.node.times(tr_large)
     expect_equal(as.numeric(old), as.numeric(new), tolerance = 1e-10)
 })
 
 # ---------------------------------------------------------------------------
-# Step 4 — intnode.times
+# Step 4 — int.node.times
 # ---------------------------------------------------------------------------
 
-test_that("intnode.times matches old output on ultrametric tree", {
+test_that("int.node.times matches old output on ultrametric tree", {
     old <- .intnode_times_old(tr_ultra)
-    new <- intnode.times(tr_ultra)
+    new <- int.node.times(tr_ultra)
     expect_equal(as.numeric(old), as.numeric(new), tolerance = 1e-10)
 })
 
-test_that("intnode.times matches old output on non-ultrametric tree", {
+test_that("int.node.times matches old output on non-ultrametric tree", {
     old <- .intnode_times_old(tr_nonultra)
-    new <- intnode.times(tr_nonultra)
+    new <- int.node.times(tr_nonultra)
     expect_equal(as.numeric(old), as.numeric(new), tolerance = 1e-10)
 })
 
-test_that("intnode.times returns Nnodes values", {
-    new <- intnode.times(tr_ultra)
+test_that("int.node.times returns Nnodes values", {
+    new <- int.node.times(tr_ultra)
     expect_length(new, tr_ultra$Nnode)
 })
 
@@ -526,48 +527,48 @@ test_that("find.monophyletic: returns empty list when no tip matches tag", {
 })
 
 # ---------------------------------------------------------------------------
-# Step 10 — pathnode
+# Step 10 — path.node
 # ---------------------------------------------------------------------------
 
-test_that("pathnode tipsonly=TRUE: root-to-tip distances match old", {
-    old <- .pathnode_old(tr_ultra, tipsonly = TRUE)
+test_that("path.node tipsonly=TRUE: root-to-tip distances match old", {
+    old <- .path.node_old(tr_ultra, tipsonly = TRUE)
     pdf(NULL)
-    new <- pathnode(tr_ultra, tipsonly = TRUE)
+    new <- path.node(tr_ultra, tipsonly = TRUE)
     dev.off()
     expect_equal(as.numeric(old$roottotippath), as.numeric(new$roottotippath),
                  tolerance = 1e-10)
 })
 
-test_that("pathnode tipsonly=TRUE: ancestor counts match old", {
-    old <- .pathnode_old(tr_ultra, tipsonly = TRUE)
+test_that("path.node tipsonly=TRUE: ancestor counts match old", {
+    old <- .path.node_old(tr_ultra, tipsonly = TRUE)
     pdf(NULL)
-    new <- pathnode(tr_ultra, tipsonly = TRUE)
+    new <- path.node(tr_ultra, tipsonly = TRUE)
     dev.off()
     expect_equal(as.numeric(old$nodesinpath), as.numeric(new$nodesinpath))
 })
 
-test_that("pathnode tipsonly=FALSE: distances match old (all nodes)", {
-    old <- .pathnode_old(tr_ultra, tipsonly = FALSE)
+test_that("path.node tipsonly=FALSE: distances match old (all nodes)", {
+    old <- .path.node_old(tr_ultra, tipsonly = FALSE)
     pdf(NULL)
-    new <- pathnode(tr_ultra, tipsonly = FALSE)
+    new <- path.node(tr_ultra, tipsonly = FALSE)
     dev.off()
     expect_equal(as.numeric(old$roottotippath), as.numeric(new$roottotippath),
                  tolerance = 1e-10)
 })
 
-test_that("pathnode tipsonly=FALSE: ancestor counts match old (all nodes)", {
-    old <- .pathnode_old(tr_nonultra, tipsonly = FALSE)
+test_that("path.node tipsonly=FALSE: ancestor counts match old (all nodes)", {
+    old <- .path.node_old(tr_nonultra, tipsonly = FALSE)
     pdf(NULL)
-    new <- pathnode(tr_nonultra, tipsonly = FALSE)
+    new <- path.node(tr_nonultra, tipsonly = FALSE)
     dev.off()
     expect_equal(as.numeric(old$nodesinpath), as.numeric(new$nodesinpath))
 })
 
-test_that("pathnode: root has 0 ancestors", {
+test_that("path.node: root has 0 ancestors", {
     Ntips     <- length(tr_ultra$tip.label)
     root_node <- tr_ultra$edge[!(tr_ultra$edge[,1] %in% tr_ultra$edge[,2]), 1][1]
     pdf(NULL)
-    res <- pathnode(tr_ultra, tipsonly = FALSE)
+    res <- path.node(tr_ultra, tipsonly = FALSE)
     dev.off()
     expect_equal(res$nodesinpath[root_node], 0L)
 })

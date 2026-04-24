@@ -32,6 +32,11 @@
 #' @export simulate.dpp
 simulate.dpp <-
 function(tree, params = list(alpha = 1, shape = 3.98, rate = 516.53)){
+    rdirichlet <- function(n, alpha) {
+        x <- matrix(rgamma(n * length(alpha), shape = alpha, rate = 1),
+                    nrow = n, byrow = TRUE)
+        x / rowSums(x)
+    }
     shape.gamma <- params$shape
     rate.gamma <- params$rate
     alpha <- params$alpha

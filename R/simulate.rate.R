@@ -32,7 +32,7 @@
 #'   \code{\link{simulate.dpp}},
 #'   \code{\link{simulate.tdep.ho}},
 #'   \code{\link{simulate.white.noise}},
-#'   \code{\link{simulate.FLC}}
+#'   \code{\link{simulate.flc}}
 #'
 #' @examples
 #' library(ape)

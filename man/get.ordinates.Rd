@@ -17,7 +17,7 @@ A numeric matrix with columns \code{x.coord} (node age),
 \description{
 Computes x and y plotting coordinates for every node (tips and internal
 nodes) of a phylogenetic tree. x coordinates are node ages (from
-\code{\link{allnode.times}}); y coordinates are based on the average
+\code{\link{all.node.times}}); y coordinates are based on the average
 ordinate of direct descendants, assigned from leaves upward. Used
 internally by \code{\link{plot.tree.lines}}.
 }
@@ -29,5 +29,5 @@ head(get.ordinates(tr))
 
 }
 \seealso{
-\code{\link{plot.tree.lines}}, \code{\link{allnode.times}}
+\code{\link{plot.tree.lines}}, \code{\link{all.node.times}}
 }

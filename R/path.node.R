@@ -27,11 +27,11 @@
 #' set.seed(1)
 #' tr <- rcoal(10)
 #' pdf(NULL)
-#' pathnode(tr)
+#' path.node(tr)
 #' dev.off()
 #'
 #' @export
-pathnode <- function(phylo, tipsonly = TRUE) {
+path.node <- function(phylo, tipsonly = TRUE) {
     if (!inherits(phylo, "phylo"))
         stop("'phylo' must be an object of class \"phylo\"")
     if (!ape::is.rooted(phylo))

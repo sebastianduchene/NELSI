@@ -13,7 +13,7 @@
 #' @return A numeric scalar in \code{[0, 1]}: the normalised topological
 #'   distance between the two trees.
 #'
-#' @seealso \code{\link[ape]{dist.topo}}, \code{\link{distunlab}}
+#' @seealso \code{\link[ape]{dist.topo}}, \code{\link{dist.unlab}}
 #'
 #' @examples
 #' library(ape)

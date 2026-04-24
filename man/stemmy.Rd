@@ -27,5 +27,5 @@ stemmy(tr)
 
 }
 \seealso{
-\code{\link{allnode.times}}
+\code{\link{all.node.times}}
 }

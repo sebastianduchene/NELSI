@@ -51,7 +51,7 @@ function(taxon, sim.rate.object){
     	first.rate <- rate.time[length(rate.time)]
     	last.rate <- rate.time[1]
 	rate.time <- c(last.rate, rate.time, first.rate)
-	node.times <- allnode.times(chrono)
+	node.times <- all.node.times(chrono)
 	root.age <- max(node.times)
     	branch.times <- c(node.times[taxon.init], branch.times, root.age)	
 	return(data.frame(branch.times, rate.time))

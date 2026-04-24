@@ -2,7 +2,7 @@
 #'
 #' Returns branch lengths ordered from oldest to youngest terminal node. Each
 #' branch is matched to its daughter node by index, so the ordering reflects
-#' node age as computed by \code{\link{allnode.times}}.
+#' node age as computed by \code{\link{all.node.times}}.
 #'
 #' @param tr A rooted phylogenetic tree of class \code{"phylo"} with branch
 #'   lengths in units of time.
@@ -10,7 +10,7 @@
 #' @return A numeric vector of branch lengths sorted by terminal-node age
 #'   (oldest first).
 #'
-#' @seealso \code{\link{allnode.times}}
+#' @seealso \code{\link{all.node.times}}
 #'
 #' @examples
 #' library(ape)
@@ -21,6 +21,6 @@
 #' @export
 get.branches.age.sorted <- function(tr){
     # Return branches sorted by the height of their terminal nodes. 
-    sorted_node_heights <- sort(allnode.times(tr), dec = T)[-1]
+    sorted_node_heights <- sort(all.node.times(tr), dec = T)[-1]
     tr$edge.length[match(names(sorted_node_heights), tr$edge[, 2])]
 }

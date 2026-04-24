@@ -10,7 +10,7 @@
 #'
 #' @return A numeric scalar between 0 and 1.
 #'
-#' @seealso \code{\link{allnode.times}}
+#' @seealso \code{\link{all.node.times}}
 #'
 #' @examples
 #' library(ape)
@@ -23,7 +23,7 @@ stemmy <- function(tre){
        if(is.ultrametric(tre)){
 	stemminess <- sum(tre$edge.length[which(tre$edge[,2] > Ntip(tre))]) / sum(tre$edge.length)
        } else {
-       	 tiptimes <- allnode.times(tre, tipsonly = T)
+       	 tiptimes <- all.node.times(tre, tipsonly = T)
 	 	  tiptimes <- as.numeric(names(tiptimes))[which(tiptimes == 0)]
 		  	   stemminess <- sum(tre$edge.length[which(!tre$edge[,2] %in% tiptimes)]) / sum(tre$edge.length)
        }

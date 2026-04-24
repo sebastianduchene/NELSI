@@ -34,5 +34,5 @@ dist.topo.normalised(tr1, tr2, nrand = 20)
 
 }
 \seealso{
-\code{\link[ape]{dist.topo}}, \code{\link{distunlab}}
+\code{\link[ape]{dist.topo}}, \code{\link{dist.unlab}}
 }

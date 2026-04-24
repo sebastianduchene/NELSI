@@ -17,7 +17,7 @@ A numeric vector of branch lengths sorted by terminal-node age
 \description{
 Returns branch lengths ordered from oldest to youngest terminal node. Each
 branch is matched to its daughter node by index, so the ordering reflects
-node age as computed by \code{\link{allnode.times}}.
+node age as computed by \code{\link{all.node.times}}.
 }
 \examples{
 library(ape)
@@ -27,5 +27,5 @@ get.branches.age.sorted(tr)
 
 }
 \seealso{
-\code{\link{allnode.times}}
+\code{\link{all.node.times}}
 }

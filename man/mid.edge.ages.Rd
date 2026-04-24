@@ -18,7 +18,7 @@ A numeric vector of midpoint ages, one per branch, in the same
 Computes the age at the midpoint of each branch in a phylogenetic tree.
 For ultrametric trees the midpoint is the daughter-node age plus half the
 branch length. For non-ultrametric trees the ages are first rescaled so
-that the root age equals the maximum \code{allnode.times} value, then the
+that the root age equals the maximum \code{all.node.times} value, then the
 same formula is applied.
 }
 \examples{
@@ -29,5 +29,5 @@ mid.edge.ages(tr)
 
 }
 \seealso{
-\code{\link{get.tree.data.matrix}}, \code{\link{allnode.times}}
+\code{\link{get.tree.data.matrix}}, \code{\link{all.node.times}}
 }

@@ -38,7 +38,7 @@ function(rate.sim.object, col.lineages = colors(), type = "l"){
    ylims <- range(lapply(rates.time.list, function(y) range(y[,2])))
    chrono <- rate.sim.object[[1]]
    chrono$edge.length <- rate.sim.object[[2]][, 7]
-   node.ages <- allnode.times(chrono)
+   node.ages <- all.node.times(chrono)
    xlims <- sort(range(node.ages), decreasing = T)      
 
    par(mfrow = c(1, 2))

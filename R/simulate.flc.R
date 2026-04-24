@@ -28,7 +28,7 @@
 #' library(ape)
 #' set.seed(1800226)
 #' tr <- rcoal(10)
-#' sim <- simulate.FLC(tr, params = list(
+#' sim <- simulate.flc(tr, params = list(
 #'   clade.list            = list(c(7, 6), c(1, 2, 3)),
 #'   stem.clade.indicator  = list(c(TRUE, FALSE), c(FALSE, TRUE)),
 #'   background.rate       = 7e-4,
@@ -36,8 +36,8 @@
 #' ))
 #' plot(sim)
 #'
-#' @export simulate.FLC
-simulate.FLC <- function(tree, params = list(clade.list, stem.clade.indicator, background.rate, local.rates)){
+#' @export simulate.flc
+simulate.flc <- function(tree, params = list(clade.list, stem.clade.indicator, background.rate, local.rates)){
     clade.list = params$clade.list
     stem.clade.indicator = params$stem.clade.indicator
     background.rate = params$background.rate
@@ -80,26 +80,5 @@ simulate.FLC <- function(tree, params = list(clade.list, stem.clade.indicator, b
     return(res)
 }
   
-
-# To simulate local clock
-#library(NELSI)
-#set.seed(1800226)
-#tree <- rcoal(10)
-#par(mfrow = c(1, 1))
-#plot(tree, use.edge.length = F)
-#nodelabels()
-#tiplabels()
-
-#clade.list <- list(c(7, 6), c(1, 2, 3)) #"List of clades on which to set the FLCs. Can be taxon labels of indices"
-
-#stem.clade.indicator <- list(c(T, F), c(F, T)) #"List of indicators to flag whether rate changes should be Unique to a clade and whether they should apply to the stem c(T, F), clade c(F, T), or both c(T, T)."
-#background.rate <- 7e-4
-#local.rates <- list(28e-4, 14e-4) # Local clock rates
-
-#flcTest <- simulate.FLC(tree, params = list(clade.list = clade.list, 
-#                                            stem.clade.indicator = stem.clade.indicator, 
-#                                            background.rate = background.rate, 
-#                                           local.rates = local.rates))
-#plot.ratesim(flcTest, type = 's')
 
 

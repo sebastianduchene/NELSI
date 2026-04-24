@@ -9,7 +9,7 @@
 #' @return A named numeric vector of length \code{Ntips} with root-to-tip
 #'   distances. Names are the integer tip indices (\code{1..Ntips}).
 #'
-#' @seealso \code{\link{get.rtt.dist}}, \code{\link{allnode.times}}
+#' @seealso \code{\link{get.rtt.dist}}, \code{\link{all.node.times}}
 #'
 #' @examples
 #' library(ape)

@@ -3,9 +3,9 @@ NELSI: Nucleotide EvoLutionary Simulator
 
 Contributors:
 
-- David Duchene david.duchene[at]sydney.edu.au
+- David Duchene david.duchene[at]sund.ku.dk
 
-- Sebastian Duchene sebastian.duchene[at]unimelb.edu.au
+- Sebastian Duchene sduchene[at]pasteur.fr
 
 - Luiz Carvalho
 
@@ -18,7 +18,6 @@ Contributors:
 Introduction
 ------------
 
-To Edit:
 Models for molecular rate variation play a key role in molecular phylogenetics. Due to their importance in evolutionary biology, there is a wide variety of models, which can be classified into five broad categories: 
 
 - Strict clock, where a single rate is assumed for all the branches of a phylogeny, as described by [Zuckerkandl, E. and Pauling, L. (1962)](#references). 
@@ -31,13 +30,13 @@ Models for molecular rate variation play a key role in molecular phylogenetics. 
 
 - Unconstrained models, where the rates for all branches are independent and drawn from different distributions ([Lepage *et al* 2007](#references)). 
 
-With the increasing development of clock models, it is necessary to assess their performance with simulations and analyses of empirical data. We present NELSI, an R package to simulate rates of evolution along phylogenetic trees. The principle is similar to the program RateEvolver ([Ho *et al*. 2005](#references)), but it allows more flexibility and it can be easily combined with popular programs to simulate phylogenetic trees. In the current version we have implemented some of the most popular methods, but the pacakage is under constant development and we will include more models, as they become available. For requests and reporting bugs please contact sebastian.duchene[at]sydney.edu.au.
+With the increasing development of clock models, it is necessary to assess their performance with simulations and analyses of empirical data. We present NELSI, an R package to simulate rates of evolution along phylogenetic trees. The principle is similar to the program RateEvolver ([Ho *et al*. 2005](#references)), but it allows more flexibility and it can be easily combined with popular programs to simulate phylogenetic trees. In the current version we have implemented some of the most popular methods, but the pacakage is under constant development and we will include more models, as they become available. For requests and reporting bugs please contact sduchene[at]pasteur.fr.
 
 
 Description
 -----------
 
-NELSI is implemented in the R programming language, and it is available as a package in [github](https://github.com/sebastianduchene/NELSI/). It is compatible with some popular phylogenetic packages in R, such as Ape ([Popescu *et al*. 2012](#references)) and phangorn ([Schliep 2011](#references)) making it accessible to users familiar with phylogenetic data in R. The main functions use phylogenetic trees of class phylo, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Some R packages that simulate phylogenetic trees, such as geiger and TreeSim, also produce trees of class phylo, which can be used directly with NELSI. An important requirement of simulating rates of evolution along phylogenetic trees is that the trees should correspond to chronograms, with branch lengths in units of time. 
+NELSI is implemented in the R programming language, and it is available as a package on [GitHub](https://github.com/sebastianduchene/NELSI/). It depends on [ape](https://cran.r-project.org/package=ape) ([Popescu *et al*. 2012](#references)) for tree handling and [castor](https://cran.r-project.org/package=castor) for fast node-age calculations. The package [phangorn](https://cran.r-project.org/package=phangorn) ([Schliep 2011](#references)) is optional and can be used to simulate nucleotide sequences along the resulting phylograms (see section 6). The main functions use phylogenetic trees of class `phylo`, with branch lengths representing units of time. Trees estimated in other programs can be imported with ape in NEWICK or NEXUS format. Any R package that produces trees of class `phylo` with time-scaled branch lengths (e.g. TreeSim) can be used directly with NELSI. An important requirement is that the input trees must be chronograms, with branch lengths in units of time. 
 
 Tutorial
 ========
@@ -45,7 +44,7 @@ Tutorial
 1. Installation and setup
 -------------------------
 
-NELSI requires a recent version of R (>=2.5). If R is not installed in your machine, download and install the appropriate version [here](www.r-project.org). 
+NELSI requires R (>= 3.6.0). If R is not installed in your machine, download and install the appropriate version [here](www.r-project.org). 
 
 R packages can be downloaded and installed directly from [github](github.com/sebastianduchene/nelsi) with the package [devtools](https://github.com/hadley/devtools). This is the easiest way to install NELSI (and many other packages). 
 
@@ -144,6 +143,29 @@ clock.sim$tree.data.matrix
 # [4,]            4          13             2   0.009929729        0.03
 # [5,]            5          12             3   0.070376470        0.03
 # [6,]            6          11            14   0.440591467        0.03
+```
+
+ - You can print a concise summary of a ratesim object or inspect its rate statistics:
+
+```coffee
+print(clock.sim)
+# Rate simulation (ratesim)
+#   Tips:      10
+#   Branches:  18
+#   Rates:    min = 3e-02 | mean = 3e-02 | max = 3e-02
+
+summary(clock.sim)
+# Rate simulation summary
+#
+# Tree
+#   Tips:               10
+#   Branches:           18
+#   Total time length:  ...
+#   Total subst length: ...
+#
+# Branch rates
+#   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+#   0.03    0.03    0.03    0.03    0.03    0.03
 ```
 
  - To observe how the rate changes through time in each lineage, you can plot the output of your simulation function directly using the ratesim object. The fist plot will show the rate through time for each lineage, while the second shows the chronogram with the tips coloured proportional to the rate. Therefore, colours of lines in the first plot correspond to the colours of tips in the second plot. The width of the branches is proportional to the rate. With the strict clock there is no rate variation among lineages.
@@ -252,7 +274,7 @@ axisPhylo()
 ![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
 
-The tree is a chronogram, so that the branch lengths represent units of time. The ages of the nodes can be obtained with the function branching.times, but this only works for ultrametric trees, which is not the case for these data because the samples were obtained at different points in time (heterochronous). The function allnode.times in NELSI can obtain the ages of the nodes and tips for heterochronous trees. The first items of the function are the ages of the tips, and the remaining are the ages of internal nodes.
+The tree is a chronogram, so that the branch lengths represent units of time. The ages of the nodes can be obtained with the function branching.times, but this only works for ultrametric trees, which is not the case for these data because the samples were obtained at different points in time (heterochronous). The function all.node.times in NELSI can obtain the ages of the nodes and tips for heterochronous trees. The first items of the function are the ages of the tips, and the remaining are the ages of internal nodes.
 
  - Type the following code to plot the tree with out taxon names. Instead add the ages of the tips and internal nodes with the tiplabel and nodelabel functions. 
 
@@ -260,7 +282,7 @@ The tree is a chronogram, so that the branch lengths represent units of time. Th
 
 ```coffee
 plot(hivTree, show.tip.label = F)
-tip.ages <- round(allnode.times(hivTree), 2)  # Round to two decimal places for a clearer plot
+tip.ages <- round(all.node.times(hivTree), 2)  # Round to two decimal places for a clearer plot
 # See the tip ages. The first 19 elements are the ages of the tips (the tree
 # has 19 tips), while the remaining are the ages of internal nodes
 tiplabels(tip.ages[1:19])
@@ -304,11 +326,11 @@ head(hivDataMatrix)
 
 For heterochronous data one can test the molecular clock by conducting a regression of the number of substitutions from the root to the tips vs. the time from the root to the tip, like in the program [TempEst](http://tree.bio.ed.ac.uk/software/tempest/) [(Rambaut *et al.* 2016)](http://dx.doi.org/10.1093/ve/vew007). With the help of a few functions from NELSI, we can conduct these analyses in R.
 
- - Obtain the ages of the tips with the function allnode.times with the HIV chronogram. Specify the argument tipsonly = T, which will return the ages of the tips, and not those of internal nodes.
+ - Obtain the ages of the tips with the function all.node.times with the HIV chronogram. Specify the argument tipsonly = T, which will return the ages of the tips, and not those of internal nodes.
 
 
 ```coffee
-tipsTimes <- allnode.times(hivTree, tipsonly = T)
+tipsTimes <- all.node.times(hivTree, tipsonly = T)
 ```
 
 
@@ -326,7 +348,7 @@ hivPhylogram$edge.length <- hivDataMatrix$blensubs
 
 
 ```coffee
-tipsSubstitutions <- allnode.times(hivPhylogram, tipsonly = T)
+tipsSubstitutions <- all.node.times(hivPhylogram, tipsonly = T)
 ```
 
 
@@ -405,22 +427,23 @@ Yoder, A. D., & Yang, Z. (2000). Estimation of primate speciation dates using lo
 Zuckerkandl,E. and Pauling,L. (1962) Molecular disease, evolution, and genic heterogeneity. In: Kasha,M. and Pullman,B. (eds) Horizons in Biochemistry. Academic Press, New York, pp. 189–225.
 
 
-To do's
--------
-- Include example of Fixed local clock simulation and of finding monophyletic groups and pulling useful statistics (time of origin, detection lag, etc..).
-
-
 Bugs and version history
 ------------------------
 
+New features — April 2026 (v0.22)
+----
+- Replaced phangorn-based node-age calculation with [castor](https://cran.r-project.org/package=castor) (`get_all_distances_to_root`), giving substantially faster performance on large trees.
+- Removed geiger from dependencies; phangorn moved to Suggests (only needed if you use `simSeq` to simulate sequences).
+- All documentation regenerated with roxygen2; every exported function now has a `man/` page with examples.
+- Added `print.ratesim()` and `summary.ratesim()` S3 methods for quick inspection of simulation output.
+- Added input validation (`stop()` checks) to key user-facing functions: `all.node.times`, `simulate.rate`, `get.tree.data.matrix`, `get.lineage.time.rate`, `get.clock.data`, `get.rate.descendant.pairs`, `plot.ratesim`, `sum.descending.branches`, and `get.tree.data.matrix`.
+
 New Features 2 June 2022
-- Functions to simulate fixed local clocks. - TO DO: Document and add example
+- Functions to simulate fixed local clocks (simulate.flc).
 
 New Features 14 April 2022
 ----
 - Lineage functions to obtain all monophyletic groups that match a regular expression (find.monophyletic).
-
-- Simulation tools for fixed local clocks (simulate.FLC).
 
 
 New features 12 April 2022
@@ -447,6 +470,6 @@ New features 13 December 2016
 
 6 November 2014
 
-- 0.21 - Removed phangorn dependency in allnode.times
+- 0.21 - Removed phangorn dependency in all.node.times
 
 

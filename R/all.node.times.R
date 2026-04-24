@@ -18,17 +18,17 @@
 #'   indices following ape convention (tips \code{1..Ntips}, internal nodes
 #'   \code{Ntips+1..Ntips+Nnodes}).
 #'
-#' @seealso \code{\link{intnode.times}}, \code{\link{get.rtt.dist}}
+#' @seealso \code{\link{int.node.times}}, \code{\link{get.rtt.dist}}
 #'
 #' @examples
 #' library(ape)
 #' set.seed(1)
 #' tr <- rcoal(10)
-#' allnode.times(tr)
-#' allnode.times(tr, tipsonly = TRUE)
+#' all.node.times(tr)
+#' all.node.times(tr, tipsonly = TRUE)
 #'
-#' @export
-allnode.times <- function(phylo, tipsonly = FALSE, reverse = TRUE, keeproot = FALSE) {
+#' @export all.node.times
+all.node.times <- function(phylo, tipsonly = FALSE, reverse = TRUE, keeproot = FALSE) {
     if (!inherits(phylo, "phylo"))
         stop("'phylo' must be an object of class \"phylo\"")
     if (is.null(phylo$edge.length))

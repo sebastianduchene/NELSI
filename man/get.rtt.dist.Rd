@@ -27,5 +27,5 @@ get.rtt.dist(tr)
 
 }
 \seealso{
-\code{\link{node.to.tip.dist}}, \code{\link{allnode.times}}
+\code{\link{node.to.tip.dist}}, \code{\link{all.node.times}}
 }

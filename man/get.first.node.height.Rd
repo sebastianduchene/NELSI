@@ -26,5 +26,5 @@ get.first.node.height(tr)
 
 }
 \seealso{
-\code{\link{intnode.times}}
+\code{\link{int.node.times}}
 }

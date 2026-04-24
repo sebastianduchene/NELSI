@@ -14,7 +14,7 @@
 #'   distances in time units) and \code{substitutions} (root-to-tip distances
 #'   in substitution units). A scatter plot is produced as a side effect.
 #'
-#' @seealso \code{\link{simulate.rate}}, \code{\link{allnode.times}}
+#' @seealso \code{\link{simulate.rate}}, \code{\link{all.node.times}}
 #'
 #' @examples
 #' library(ape)
@@ -34,8 +34,8 @@ function(rate.sim.object, tipsonly = T, ...){
   phylogram <- rate.sim.object$phylogram
   chrono <- rate.sim.object$phylogram
   chrono$edge.length <- rate.sim.object[[2]][, 7]
-  times <- allnode.times(chrono, tipsonly)
-  substitutions <- allnode.times(phylogram, tipsonly)
+  times <- all.node.times(chrono, tipsonly)
+  substitutions <- all.node.times(phylogram, tipsonly)
   plot(times, substitutions, ...)
   return(data.frame(times, substitutions))
 }

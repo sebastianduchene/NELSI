@@ -3,7 +3,7 @@
 #' Computes the age at the midpoint of each branch in a phylogenetic tree.
 #' For ultrametric trees the midpoint is the daughter-node age plus half the
 #' branch length. For non-ultrametric trees the ages are first rescaled so
-#' that the root age equals the maximum \code{allnode.times} value, then the
+#' that the root age equals the maximum \code{all.node.times} value, then the
 #' same formula is applied.
 #'
 #' @param phylo A rooted phylogenetic tree of class \code{"phylo"} with branch
@@ -12,7 +12,7 @@
 #' @return A numeric vector of midpoint ages, one per branch, in the same
 #'   order as \code{phylo$edge}.
 #'
-#' @seealso \code{\link{get.tree.data.matrix}}, \code{\link{allnode.times}}
+#' @seealso \code{\link{get.tree.data.matrix}}, \code{\link{all.node.times}}
 #'
 #' @examples
 #' library(ape)
@@ -23,7 +23,7 @@
 #' @export
 mid.edge.ages <-
 function(phylo){
-	rootage <- max(allnode.times(phylo))
+	rootage <- max(all.node.times(phylo))
 	if(is.ultrametric(phylo) == TRUE){
 
 		midages <- vector()
