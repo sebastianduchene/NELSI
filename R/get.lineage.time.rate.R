@@ -1,3 +1,30 @@
+#' Rate and time profile along a lineage
+#'
+#' Traces the path from a tip to the root and records the midpoint age and
+#' rate of each branch along the lineage. The result can be used to plot how
+#' the evolutionary rate changed through time on the lineage leading to a
+#' given taxon.
+#'
+#' @param taxon Integer. Index of the tip (node index in ape convention,
+#'   i.e. between 1 and the number of tips).
+#' @param sim.rate.object An object of class \code{"ratesim"} as returned by
+#'   \code{\link{simulate.rate}}.
+#'
+#' @return A \code{data.frame} with columns \code{branch.times} (age of each
+#'   node along the root-to-tip path) and \code{rate.time} (branch rate at
+#'   that age). The vector is padded at both ends with the root age and the
+#'   tip's node time.
+#'
+#' @seealso \code{\link{simulate.rate}}, \code{\link{plot.ratesim}}
+#'
+#' @examples
+#' library(ape)
+#' set.seed(1)
+#' tr <- rcoal(10)
+#' sim <- simulate.rate(tr, simulate.clock, list(rate = 0.005, noise = 1e-6))
+#' get.lineage.time.rate(1, sim)
+#'
+#' @export
 get.lineage.time.rate <-
 function(taxon, sim.rate.object){
         tree.data.matrix <- sim.rate.object[[2]]

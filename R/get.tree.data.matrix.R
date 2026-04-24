@@ -1,3 +1,28 @@
+#' Build the branch data matrix for a tree
+#'
+#' Constructs the internal matrix used by all NELSI rate-simulation functions.
+#' Each row corresponds to one branch; columns record its index, parent and
+#' daughter nodes, midpoint age, rate (initially \code{NA}), substitution
+#' length (initially \code{NA}), and time length.
+#'
+#' @param phylo A rooted phylogenetic tree of class \code{"phylo"} with branch
+#'   lengths in units of time.
+#'
+#' @return A numeric matrix of class \code{"tree.data.matrix"} with columns
+#'   \code{branch.index}, \code{parent.node}, \code{daughter.node},
+#'   \code{branch.midage}, \code{branch.rate}, \code{length.subst}, and
+#'   \code{length.time}.
+#'
+#' @seealso \code{\link{simulate.rate}}, \code{\link{mid.edge.ages}}
+#'
+#' @examples
+#' library(ape)
+#' set.seed(1)
+#' tr <- rcoal(5)
+#' m <- get.tree.data.matrix(tr)
+#' colnames(m)
+#'
+#' @export
 get.tree.data.matrix <-
 function(phylo){
     require(phangorn)

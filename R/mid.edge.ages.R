@@ -1,3 +1,26 @@
+#' Midpoint ages of all branches
+#'
+#' Computes the age at the midpoint of each branch in a phylogenetic tree.
+#' For ultrametric trees the midpoint is the daughter-node age plus half the
+#' branch length. For non-ultrametric trees the ages are first rescaled so
+#' that the root age equals the maximum \code{allnode.times} value, then the
+#' same formula is applied.
+#'
+#' @param phylo A rooted phylogenetic tree of class \code{"phylo"} with branch
+#'   lengths in units of time.
+#'
+#' @return A numeric vector of midpoint ages, one per branch, in the same
+#'   order as \code{phylo$edge}.
+#'
+#' @seealso \code{\link{get.tree.data.matrix}}, \code{\link{allnode.times}}
+#'
+#' @examples
+#' library(ape)
+#' set.seed(1)
+#' tr <- rcoal(5)
+#' mid.edge.ages(tr)
+#'
+#' @export
 mid.edge.ages <-
 function(phylo){
     require(phangorn)

@@ -1,3 +1,25 @@
+#' Find tips in the sister clade
+#'
+#' Identifies the tip indices in the sister group of a given set of tips.
+#' The sister is defined as all tips descending from the parent of the MRCA
+#' of \code{clade} that are not in \code{clade}.
+#'
+#' @param tr A rooted phylogenetic tree of class \code{"phylo"}.
+#' @param clade Integer vector of tip indices whose sister group is sought.
+#' @param allow.polytomy Logical. If \code{TRUE} (default), when the MRCA is
+#'   a polytomy whose children are all in \code{clade} the function goes up
+#'   one level to find the sister.
+#'
+#' @return An integer vector of tip indices constituting the sister clade.
+#'
+#' @seealso \code{\link{get.mrca}}, \code{\link{get.descending.nodes.branches}}
+#'
+#' @examples
+#' library(ape)
+#' tr <- read.tree(text = '((((a, b, c, d), e), f), (g, h));')
+#' find.sister(tr, 1)
+#'
+#' @export
 find.sister <- function(tr, clade, allow.polytomy = T){
 tips <- 1:length(tr$tip.label)
 mrca.node <- get.mrca(tr, clade)

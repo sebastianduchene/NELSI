@@ -1,3 +1,26 @@
+#' Node plotting coordinates for a phylogenetic tree
+#'
+#' Computes x and y plotting coordinates for every node (tips and internal
+#' nodes) of a phylogenetic tree. x coordinates are node ages (from
+#' \code{\link{allnode.times}}); y coordinates are based on the average
+#' ordinate of direct descendants, assigned from leaves upward. Used
+#' internally by \code{\link{plot.tree.lines}}.
+#'
+#' @param tr A rooted phylogenetic tree of class \code{"phylo"}.
+#'
+#' @return A numeric matrix with columns \code{x.coord} (node age),
+#'   \code{node.index} (ape node index), and \code{y.coord} (plotting
+#'   ordinate).
+#'
+#' @seealso \code{\link{plot.tree.lines}}, \code{\link{allnode.times}}
+#'
+#' @examples
+#' library(ape)
+#' set.seed(1)
+#' tr <- rcoal(10)
+#' head(get.ordinates(tr))
+#'
+#' @export
 get.ordinates <- function(tr){
     nodeHeights <- allnode.times(tr, reverse = T)
     nodeHeights <- nodeHeights[!names(nodeHeights) %in% 1:length(tr$tip.label)]

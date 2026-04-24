@@ -1,3 +1,42 @@
+#' Simulate rates under a fixed local clock model
+#'
+#' Simulates evolutionary rates along a phylogenetic tree under a fixed local
+#' clock (FLC) model. A background rate is applied to all branches; user-
+#' specified clades can override this rate with local rates, optionally
+#' including or excluding their stem branches.
+#'
+#' @param tree A rooted chronogram of class \code{"phylo"} with branch lengths
+#'   in units of time.
+#' @param params A list with elements:
+#'   \describe{
+#'     \item{\code{clade.list}}{List of tip indices or tip labels defining the
+#'       local-clock clades.}
+#'     \item{\code{stem.clade.indicator}}{List of logical vectors of length 2.
+#'       Each element \code{c(stem, clade)} controls whether the rate change
+#'       applies to the stem branch (\code{TRUE}/\code{FALSE}) and/or to the
+#'       clade branches (\code{TRUE}/\code{FALSE}).}
+#'     \item{\code{background.rate}}{Numeric. Rate applied to all branches not
+#'       covered by a local clock.}
+#'     \item{\code{local.rates}}{List of numeric scalars, one rate per clade.}
+#'   }
+#'
+#' @return An object of class \code{"ratesim"}; see \code{\link{simulate.rate}}.
+#'
+#' @seealso \code{\link{simulate.rate}}, \code{\link{simulate.clock}}
+#'
+#' @examples
+#' library(ape)
+#' set.seed(1800226)
+#' tr <- rcoal(10)
+#' sim <- simulate.FLC(tr, params = list(
+#'   clade.list            = list(c(7, 6), c(1, 2, 3)),
+#'   stem.clade.indicator  = list(c(TRUE, FALSE), c(FALSE, TRUE)),
+#'   background.rate       = 7e-4,
+#'   local.rates           = list(28e-4, 14e-4)
+#' ))
+#' plot(sim)
+#'
+#' @export simulate.FLC
 simulate.FLC <- function(tree, params = list(clade.list, stem.clade.indicator, background.rate, local.rates)){
     clade.list = params$clade.list
     stem.clade.indicator = params$stem.clade.indicator

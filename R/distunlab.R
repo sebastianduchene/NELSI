@@ -59,6 +59,29 @@ labeldistance <- function(x,y) {
 
 
 
+#' Topological distance between unlabelled trees
+#'
+#' Computes a topological distance between two phylogenetic trees that is
+#' independent of tip-label assignment. Each node is assigned a canonical
+#' label derived from the labels of its descendants, and the distance is the
+#' symmetric difference between the two label multisets.
+#'
+#' @param tree1 A rooted phylogenetic tree of class \code{"phylo"}.
+#' @param tree2 A rooted phylogenetic tree of class \code{"phylo"}.
+#'
+#' @return A non-negative numeric scalar: the label-distance between the two
+#'   trees.
+#'
+#' @seealso \code{\link{dist.topo.normalised}}
+#'
+#' @examples
+#' library(ape)
+#' set.seed(1)
+#' tr1 <- rcoal(6)
+#' tr2 <- rcoal(6)
+#' distunlab(tr1, tr2)
+#'
+#' @export
 distunlab<-function(tree1,tree2) {
     lab1=treelabels(tree1)
     lab2=treelabels(tree2)

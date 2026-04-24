@@ -1,3 +1,31 @@
+#' Plot a rate simulation object
+#'
+#' S3 plot method for objects of class \code{"ratesim"}. Produces a two-panel
+#' figure: a rate-through-time plot (one line per tip lineage) and a
+#' phylogram with branch widths proportional to the log rate.
+#'
+#' @param rate.sim.object An object of class \code{"ratesim"} as returned by
+#'   \code{\link{simulate.rate}}.
+#' @param col.lineages Character vector of colours, one per tip lineage.
+#'   Default uses \code{\link[grDevices]{colors}()}.
+#' @param type Character. Line type passed to \code{\link[graphics]{plot}}.
+#'   Default \code{"l"}.
+#'
+#' @return \code{NULL} invisibly. The function is called for its plotting side
+#'   effect.
+#'
+#' @seealso \code{\link{simulate.rate}}, \code{\link{get.lineage.time.rate}}
+#'
+#' @examples
+#' library(ape)
+#' set.seed(1)
+#' tr <- rcoal(10)
+#' sim <- simulate.rate(tr, simulate.clock, list(rate = 0.005, noise = 1e-6))
+#' pdf(NULL)
+#' plot(sim)
+#' dev.off()
+#'
+#' @export
 plot.ratesim <-
 function(rate.sim.object, col.lineages = colors(), type = "l"){
   

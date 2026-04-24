@@ -1,4 +1,46 @@
-plot.tree.lines <- function(tree, rotation.angle = 0, x.offset = 0, y.offset = 0, log.scale = F, 
+#' Plot a phylogenetic tree using line segments
+#'
+#' Draws a phylogenetic tree as a series of line segments with optional
+#' rotation, offset, and log-scale y axis. Unlike standard \code{plot.phylo},
+#' this function uses internally computed node coordinates
+#' (\code{\link{get.ordinates}}) and supports per-branch colouring.
+#'
+#' @param tree A rooted phylogenetic tree of class \code{"phylo"}.
+#' @param rotation.angle Numeric. Angle in radians by which to rotate the
+#'   entire plot. Default \code{0}.
+#' @param x.offset Numeric. Horizontal shift applied after rotation. Default
+#'   \code{0}.
+#' @param y.offset Numeric. Vertical shift. If \code{0} (default) the minimum
+#'   y coordinate is set to 0.
+#' @param log.scale Logical. If \code{TRUE}, y coordinates are
+#'   \code{log10(1 + y)}. Default \code{FALSE}.
+#' @param line.type Character. Line type passed to \code{\link[graphics]{lines}}.
+#'   Default \code{"s"} (staircase).
+#' @param plot.new Logical. If \code{TRUE}, a new blank plot is opened before
+#'   drawing. Default \code{FALSE}.
+#' @param show.tip.labels Logical. If \code{TRUE}, tip labels are printed.
+#'   Default \code{FALSE}.
+#' @param lines.colour Character vector. Colours for each branch (recycled to
+#'   match number of edges). Default \code{"darkgrey"}.
+#' @param tips.colour Character. Colour for tip points. Default \code{"black"}.
+#' @param branch.width Numeric. Line width. Default \code{2}.
+#' @param ... Additional arguments passed to \code{\link[graphics]{plot}} when
+#'   \code{plot.new = TRUE}.
+#'
+#' @return \code{NULL} invisibly. Called for its plotting side effect.
+#'
+#' @seealso \code{\link{get.ordinates}}
+#'
+#' @examples
+#' library(ape)
+#' set.seed(1)
+#' tr <- rcoal(10)
+#' pdf(NULL)
+#' plot.tree.lines(tr, plot.new = TRUE)
+#' dev.off()
+#'
+#' @export plot.tree.lines
+plot.tree.lines <- function(tree, rotation.angle = 0, x.offset = 0, y.offset = 0, log.scale = F,
                             line.type = "s", plot.new = F, show.tip.labels = F, lines.colour = "darkgrey",
                             tips.colour = "black", branch.width = 2, ...){
     rotate <- function(v, angle){

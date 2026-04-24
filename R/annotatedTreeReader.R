@@ -228,6 +228,39 @@
     obj
 }
 
+#' Read Newick trees with BEAST-style annotations
+#'
+#' Reads one or more Newick-format trees that contain BEAST-style square-
+#' bracket annotations (e.g. \code{[&rate_median=0.01,length=0.5]}). The
+#' annotations are parsed and stored in the \code{$annotations} list of the
+#' returned \code{"phylo"} object. Largely derived from \code{ape::read.tree}.
+#'
+#' @param file Character. Path to the Newick file. Ignored if \code{text} is
+#'   supplied. Default \code{""} (reads from standard input).
+#' @param text Character vector of Newick strings, one per tree. If
+#'   non-\code{NULL}, overrides \code{file}.
+#' @param tree.names Character vector of tree names. Default \code{NULL}.
+#' @param skip Integer. Number of lines to skip at the start of \code{file}.
+#'   Default \code{0}.
+#' @param comment.char Character. Lines beginning with this character are
+#'   ignored. Default \code{"#"}.
+#' @param keep.multi Logical. If \code{TRUE}, a single tree is still returned
+#'   as a \code{"multiPhylo"} list. Default \code{FALSE}.
+#' @param ... Additional arguments passed to \code{\link[base]{scan}}.
+#'
+#' @return A \code{"phylo"} object (or \code{"multiPhylo"} for multiple trees)
+#'   with an additional \code{$annotations} list element containing the parsed
+#'   BEAST annotations for each branch.
+#'
+#' @seealso \code{\link{read.annotated.nexus}}, \code{\link{trann2trdat}}
+#'
+#' @examples
+#' \dontrun{
+#' tr <- read.annotated.tree("beast_mcc.tree")
+#' names(tr$annotations[[1]])
+#' }
+#'
+#' @export
 read.annotated.tree <- function (file = "", text = NULL, tree.names = NULL, skip = 0,
                                   comment.char = "#", keep.multi = FALSE, ...)
 {
@@ -312,6 +345,30 @@ read.annotated.tree <- function (file = "", text = NULL, tree.names = NULL, skip
     obj
 }
 
+#' Read a NEXUS file with BEAST-style annotations
+#'
+#' Reads a NEXUS-format file produced by BEAST or similar software, parsing
+#' branch-level annotations stored in BEAST's square-bracket notation. Handles
+#' TRANSLATE blocks and returns an annotated \code{"phylo"} or
+#' \code{"multiPhylo"} object.
+#'
+#' @param file Character. Path to the NEXUS file.
+#' @param tree.names Character vector of tree names to assign. Default
+#'   \code{NULL} (names are read from the file).
+#'
+#' @return A \code{"phylo"} object (or \code{"multiPhylo"} for multiple trees)
+#'   with an additional \code{$annotations} list containing parsed branch
+#'   annotations.
+#'
+#' @seealso \code{\link{read.annotated.tree}}, \code{\link{trann2trdat}}
+#'
+#' @examples
+#' \dontrun{
+#' tr <- read.annotated.nexus("beast_output.trees")
+#' dat <- trann2trdat(tr)
+#' }
+#'
+#' @export
 read.annotated.nexus <- function (file, tree.names = NULL) {
     X <- scan(file = file, what = "", sep = "\n", quiet = TRUE)
     LEFT <- grep("\\[", X)
