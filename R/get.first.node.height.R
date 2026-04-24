@@ -19,5 +19,5 @@
 #'
 #' @export
 get.first.node.height <- function(tr){
-   sort(int.node.times(tr), dec = T)[3]
+   sort(int.node.times(tr), decreasing = TRUE)[3]
 }

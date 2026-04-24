@@ -4,10 +4,10 @@
 \alias{plot.ratesim}
 \title{Plot a rate simulation object}
 \usage{
-\method{plot}{ratesim}(rate.sim.object, col.lineages = colors(), type = "l")
+\method{plot}{ratesim}(x, col.lineages = colors(), type = "l")
 }
 \arguments{
-\item{rate.sim.object}{An object of class \code{"ratesim"} as returned by
+\item{x}{An object of class \code{"ratesim"} as returned by
 \code{\link{simulate.rate}}.}
 
 \item{col.lineages}{Character vector of colours, one per tip lineage.

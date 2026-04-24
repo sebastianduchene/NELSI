@@ -21,6 +21,6 @@
 #' @export
 get.branches.age.sorted <- function(tr){
     # Return branches sorted by the height of their terminal nodes. 
-    sorted_node_heights <- sort(all.node.times(tr), dec = T)[-1]
+    sorted_node_heights <- sort(all.node.times(tr), decreasing = TRUE)[-1]
     tr$edge.length[match(names(sorted_node_heights), tr$edge[, 2])]
 }

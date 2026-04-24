@@ -4,7 +4,7 @@
 #' figure: a rate-through-time plot (one line per tip lineage) and a
 #' phylogram with branch widths proportional to the log rate.
 #'
-#' @param rate.sim.object An object of class \code{"ratesim"} as returned by
+#' @param x An object of class \code{"ratesim"} as returned by
 #'   \code{\link{simulate.rate}}.
 #' @param col.lineages Character vector of colours, one per tip lineage.
 #'   Default uses \code{\link[grDevices]{colors}()}.
@@ -27,26 +27,26 @@
 #'
 #' @export
 plot.ratesim <-
-function(rate.sim.object, col.lineages = colors(), type = "l"){
-  if (!inherits(rate.sim.object, "ratesim"))
-      stop("'rate.sim.object' must be an object of class \"ratesim\"")
+function(x, col.lineages = colors(), type = "l"){
+  if (!inherits(x, "ratesim"))
+      stop("'x' must be an object of class \"ratesim\"")
   rates.time.list <- list()
-  for(i in 1:length(rate.sim.object[[1]]$tip.label)){
-      rates.time.list[[i]]<- get.lineage.time.rate(i, rate.sim.object)
+  for(i in 1:length(x[[1]]$tip.label)){
+      rates.time.list[[i]]<- get.lineage.time.rate(i, x)
    }
 
    ylims <- range(lapply(rates.time.list, function(y) range(y[,2])))
-   chrono <- rate.sim.object[[1]]
-   chrono$edge.length <- rate.sim.object[[2]][, 7]
+   chrono <- x[[1]]
+   chrono$edge.length <- x[[2]][, 7]
    node.ages <- all.node.times(chrono)
-   xlims <- sort(range(node.ages), decreasing = T)      
+   xlims <- sort(range(node.ages), decreasing = TRUE)
 
    par(mfrow = c(1, 2))
    plot(rates.time.list[[1]][, 1], rates.time.list[[1]][, 2], ylim = ylims, xlim = xlims,  ylab = "Rate", xlab = "Time", type = type, lwd = 3, col = col.lineages[1])
    for(k in 2:length(rates.time.list)){
-     lines(rates.time.list[[k]][, 1], rates.time.list[[k]][, 2], ylim = ylims, xlim = xlims, col = col.lineages[k], lwd = 3, type = type) 
+     lines(rates.time.list[[k]][, 1], rates.time.list[[k]][, 2], ylim = ylims, xlim = xlims, col = col.lineages[k], lwd = 3, type = type)
      }
 
-     plot(chrono, edge.width = 1 + log( rate.sim.object[[2]][, 5] / min(rate.sim.object[[2]][, 5])), show.tip.label = F, root.edge = T)
+     plot(chrono, edge.width = 1 + log( x[[2]][, 5] / min(x[[2]][, 5])), show.tip.label = F, root.edge = T)
      tiplabels(pch = 16, col = col.lineages, cex = 1.5)
 }
