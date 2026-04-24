@@ -32,6 +32,10 @@
 #'
 #' @export
 pathnode <- function(phylo, tipsonly = TRUE) {
+    if (!inherits(phylo, "phylo"))
+        stop("'phylo' must be an object of class \"phylo\"")
+    if (!ape::is.rooted(phylo))
+        stop("'phylo' must be a rooted tree")
     Ntips     <- length(phylo$tip.label)
     n_clades  <- Ntips + phylo$Nnode
     root_node <- phylo$edge[!(phylo$edge[, 1] %in% phylo$edge[, 2]), 1][1]

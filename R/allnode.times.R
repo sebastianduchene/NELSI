@@ -29,6 +29,10 @@
 #'
 #' @export
 allnode.times <- function(phylo, tipsonly = FALSE, reverse = TRUE, keeproot = FALSE) {
+    if (!inherits(phylo, "phylo"))
+        stop("'phylo' must be an object of class \"phylo\"")
+    if (is.null(phylo$edge.length))
+        stop("'phylo' must have branch lengths")
     dists <- castor::get_all_distances_to_root(phylo)
     phylo.depth <- max(dists)
     node.times <- phylo.depth - dists

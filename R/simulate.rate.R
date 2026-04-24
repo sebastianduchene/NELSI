@@ -44,6 +44,10 @@
 #'
 #' @export simulate.rate
 simulate.rate <- function(tree, FUN, ...) {
+    if (!inherits(tree, "phylo"))
+        stop("'tree' must be an object of class \"phylo\"")
+    if (!is.function(FUN))
+        stop("'FUN' must be a function (e.g. simulate.clock, simulate.uncor.lnorm)")
     ratesim.object <- FUN(tree, ...)
     return(ratesim.object)
 }

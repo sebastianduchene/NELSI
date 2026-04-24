@@ -25,6 +25,8 @@
 #' @export
 get.rate.descendant.pairs <-
 function(rate.sim.object){
+	if (!inherits(rate.sim.object, "ratesim"))
+	    stop("'rate.sim.object' must be an object of class \"ratesim\"")
 	dat <- rate.sim.object$tree.data.matrix
 	parent.rate <- vector()
 	daughter.rate <- vector()

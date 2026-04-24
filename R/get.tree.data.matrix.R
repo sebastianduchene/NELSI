@@ -25,6 +25,12 @@
 #' @export
 get.tree.data.matrix <-
 function(phylo){
+    if (!inherits(phylo, "phylo"))
+        stop("'phylo' must be an object of class \"phylo\"")
+    if (!ape::is.rooted(phylo))
+        stop("'phylo' must be a rooted tree")
+    if (is.null(phylo$edge.length))
+        stop("'phylo' must have branch lengths")
     data.matrix <- matrix(data = NA, ncol = 7, nrow = length(phylo$edge.length))
     colnames(data.matrix) <- c("branch.index", "parent.node", "daughter.node", "branch.midage", "branch.rate", "length.subst", "length.time")
     data.matrix[, 1] <- 1:length(phylo$edge.length)

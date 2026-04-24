@@ -28,7 +28,8 @@
 #' @export
 plot.ratesim <-
 function(rate.sim.object, col.lineages = colors(), type = "l"){
-  
+  if (!inherits(rate.sim.object, "ratesim"))
+      stop("'rate.sim.object' must be an object of class \"ratesim\"")
   rates.time.list <- list()
   for(i in 1:length(rate.sim.object[[1]]$tip.label)){
       rates.time.list[[i]]<- get.lineage.time.rate(i, rate.sim.object)

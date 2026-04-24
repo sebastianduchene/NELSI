@@ -27,6 +27,10 @@
 #' @export
 get.lineage.time.rate <-
 function(taxon, sim.rate.object){
+        if (!inherits(sim.rate.object, "ratesim"))
+            stop("'sim.rate.object' must be an object of class \"ratesim\"")
+        if (!is.numeric(taxon) || length(taxon) != 1L || taxon < 1L)
+            stop("'taxon' must be a single positive integer tip index")
         tree.data.matrix <- sim.rate.object[[2]]
 	chrono <- sim.rate.object[[1]]
 	chrono$edge.length <- tree.data.matrix[, 7]

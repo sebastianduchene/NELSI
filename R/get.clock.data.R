@@ -29,6 +29,8 @@
 #' @export
 get.clock.data <-
 function(rate.sim.object, tipsonly = T, ...){
+  if (!inherits(rate.sim.object, "ratesim"))
+      stop("'rate.sim.object' must be an object of class \"ratesim\"")
   phylogram <- rate.sim.object$phylogram
   chrono <- rate.sim.object$phylogram
   chrono$edge.length <- rate.sim.object[[2]][, 7]

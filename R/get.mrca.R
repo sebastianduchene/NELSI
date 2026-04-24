@@ -19,6 +19,8 @@
 #'
 #' @export
 get.mrca <- function(tr, tips) {
+    if (!inherits(tr, "phylo"))
+        stop("'tr' must be an object of class \"phylo\"")
     if (length(tips) == 1L) {
         return(tr$edge[tr$edge[, 2] == tips, 1])
     }
