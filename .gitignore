@@ -1,0 +1,18 @@
+# R session artefacts
+.Rhistory
+.RData
+.Rproj.user/
+
+# RStudio project file (user-specific)
+*.Rproj
+
+# roxygen2 / devtools cache
+/.Rbuildignore
+/Meta/
+
+# Package build output
+*.tar.gz
+*.zip
+
+# Jupyter (if notebooks are ever added)
+.ipynb_checkpoints/
