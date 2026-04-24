@@ -35,8 +35,6 @@
 #' @export simulate.autocor.thorne
 simulate.autocor.thorne <-
 function(tree, params = list(initial.rate = 0.01, v = 0.3)){
-    require(phangorn)
-    require(geiger)
     initial.rate <- params$initial.rate
     v = params$v
     data.matrix <- get.tree.data.matrix(tree)

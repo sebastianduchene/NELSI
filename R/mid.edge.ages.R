@@ -23,7 +23,6 @@
 #' @export
 mid.edge.ages <-
 function(phylo){
-    require(phangorn)
 	rootage <- max(allnode.times(phylo))
 	if(is.ultrametric(phylo) == TRUE){
 

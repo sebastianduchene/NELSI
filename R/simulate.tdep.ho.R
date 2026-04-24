@@ -40,8 +40,6 @@
 #' @export simulate.tdep.ho
 simulate.tdep.ho <-
 function(tree, params = list(mu = 0.035, srate = 0.015, lambda = 0.1, noise = 0.001)){
-    require(phangorn)
-    require(geiger)
     mu <- params$mu
     srate <- params$srate
     lambda <- params$lambda

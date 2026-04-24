@@ -7,7 +7,7 @@ Author: David Duchene and Sebastian Duchene
 Maintainer: Sebastian Duchene <sebastian.duchene@sydney.edu.au>
 Description: NELSI simulates rates of molecular evolution along phylogenetic trees.
 Depends: R (>= 3.6.0), ape (>= 4.0)
-Imports: castor (>= 1.7.0)
+Imports: castor (>= 1.7.0), digest
 Suggests: phangorn (>= 2.0.0), testthat (>= 3.0.0)
 License: GPL (>=2)
 Encoding: UTF-8

@@ -1,6 +1,3 @@
-require(ape)
-require(digest)
-
 getLabelFromPairs <-function( twolabels,useAllCharacters=FALSE ) {
     if (useAllCharacters==TRUE) {
         minMax=charMinMax(twolabels)
@@ -14,7 +11,7 @@ getLabelFromPairs <-function( twolabels,useAllCharacters=FALSE ) {
             k = max(as.numeric(l1),as.numeric(l2))
             j = min(as.numeric(l1),as.numeric(l2))
             return( k*(k-1)/2 + j + 1) # NOTE if 1 is a tip and there are no 0s allowed (full binary tree) the correct expression is 1/2 k (k-1) + j + 1.
-        } else { return(digest(sort(c(l1,l2)))) }
+        } else { return(digest::digest(sort(c(l1,l2)))) }
     }
 }
 
