@@ -432,11 +432,35 @@ Bugs and version history
 
 New features — April 2026 (v0.22)
 ----
+
+**Performance and dependencies**
 - Replaced phangorn-based node-age calculation with [castor](https://cran.r-project.org/package=castor) (`get_all_distances_to_root`), giving substantially faster performance on large trees.
-- Removed geiger from dependencies; phangorn moved to Suggests (only needed if you use `simSeq` to simulate sequences).
-- All documentation regenerated with roxygen2; every exported function now has a `man/` page with examples.
-- Added `print.ratesim()` and `summary.ratesim()` S3 methods for quick inspection of simulation output.
-- Added input validation (`stop()` checks) to key user-facing functions: `all.node.times`, `simulate.rate`, `get.tree.data.matrix`, `get.lineage.time.rate`, `get.clock.data`, `get.rate.descendant.pairs`, `plot.ratesim`, `sum.descending.branches`, and `get.tree.data.matrix`.
+- Removed geiger from dependencies entirely; phangorn moved to Suggests (only needed for `simSeq` to simulate sequences).
+
+**Function naming — standardised to dot-separated lowercase throughout**
+- `allnode.times` → `all.node.times`
+- `intnode.times` → `int.node.times`
+- `simulate.FLC` → `simulate.flc`
+- `pathnode` → `path.node`
+- `distunlab` → `dist.unlab`
+- Internal helpers in `dist.unlab.R` renamed to dot-prefixed style (e.g. `.get.label.from.pairs`)
+
+**New S3 methods**
+- `print.ratesim()`: prints a one-line summary of a rate simulation (tips, branches, rate range).
+- `summary.ratesim()`: prints tree dimensions, total branch length, and a five-number summary of branch rates.
+
+**Documentation**
+- All documentation regenerated with roxygen2; every exported function now has a `man/` page with a runnable example.
+- README updated: corrected dependency descriptions, R version requirement (≥ 3.6.0), contact details, and version history.
+
+**Robustness**
+- Added input validation (`stop()` checks) to key user-facing functions: `all.node.times`, `simulate.rate`, `get.tree.data.matrix`, `get.lineage.time.rate`, `get.clock.data`, `get.rate.descendant.pairs`, `plot.ratesim`, `sum.descending.branches`.
+- Fixed `get.ordinates()`: rewrote to use a correct post-order traversal and direct child lookup from `tr$edge`; the previous code silently produced `NA` coordinates for many tree topologies.
+- Fixed `simulate.dpp()`: `rdirichlet()` was called but never declared as a dependency; now implemented inline.
+
+**Testing and CI**
+- Added GitHub Actions workflow (`.github/workflows/R-CMD-check.yml`) that runs `R CMD check` on Ubuntu, macOS, and Windows across R release and devel.
+- Fixed the test suite: source files were listed but never actually loaded; corrected a path computation error that caused the sourcing mechanism to look in the wrong directory.
 
 New Features 2 June 2022
 - Functions to simulate fixed local clocks (simulate.flc).
