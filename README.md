@@ -566,7 +566,7 @@ Zuckerkandl,E. and Pauling,L. (1962) Molecular disease, evolution, and genic het
 Bugs and version history
 ------------------------
 
-Bug fixes — August 2026 (v0.23)
+New features and bug fixes — August 2026 (v0.23)
 ----
 
 **`read.annotated.nexus` rewritten** (see section 10 of the tutorial)
@@ -614,6 +614,12 @@ New features — April 2026 (v0.22)
 - Added GitHub Actions workflow (`.github/workflows/R-CMD-check.yml`) that runs `R CMD check` on Ubuntu, macOS, and Windows across R release and devel.
 - Fixed the test suite: source files were listed but never actually loaded; corrected a path computation error that caused the sourcing mechanism to look in the wrong directory.
 
+New features 17 May 2024
+----
+
+- New function plot.tree.lines to plot a phylogenetic tree using line segments, which gives full control over how each branch is drawn.
+
+
 New Features 2 June 2022
 - Functions to simulate fixed local clocks (simulate.flc).
 
@@ -626,6 +632,44 @@ New features 12 April 2022
 ------------
 
 - Function is.polytomy to query whether a particular node is a polytomy. This function should then be used with extensions to travere trees and find monophyletic groups and their sister taxa.
+
+- Function find.sister to obtain the tips in the sister clade of a given node or set of tips.
+
+
+New features 30 June 2020
+------------
+
+- New function get.mrca to obtain the most recent common ancestor of a set of tips.
+
+
+New features June 2018
+------------
+
+Several functions to summarise the branch lengths of a tree, mostly for use as summary statistics:
+
+- get.branches.age.sorted: branch lengths sorted by the age of their terminal node.
+
+- get.external.branch.length and get.internal.branch.length: the external (terminal) and internal branch lengths.
+
+- get.deepest.br.length: total length of the branches descending from the root.
+
+- get.oldest.branch.length: length of the shortest root-descending branch.
+
+- get.first.node.height: age of the third-oldest internal node.
+
+
+New features October and November 2017
+------------
+
+- New function make.lsd.dates to write a sampling-date file for [LSD](https://github.com/tothuhien/lsd2).
+
+- New function get.internal.branch.length for the internal branch lengths of a tree.
+
+
+New features 20 December 2016
+------------
+
+- New function stemmy to calculate the stemminess of a phylogenetic tree.
 
 
 New features 13 December 2016
@@ -644,8 +688,28 @@ New features 13 December 2016
 - Experimental function to get all the tips that descend from a node. Similar to function 'tips' from GEIGER.
 
 
+New features 24 November 2016
+------------
+
+- New function get.df to calculate a branch-length imbalance statistic.
+
+
 6 November 2014
 
 - 0.21 - Removed phangorn dependency in all.node.times
+
+
+Functions present since the first release (March 2014) but not listed above
+------------
+
+For completeness, these exported functions have been in the package from the beginning and had never been mentioned in this history:
+
+- get.rtt.dist and node.to.tip.dist: patristic distance from the root to each tip. The two are equivalent; node.to.tip.dist is kept as an alias.
+
+- mid.edge.ages: midpoint ages of all branches.
+
+- simulate.uncor.exp, simulate.uncor.gamma and simulate.white.noise: uncorrelated exponential, uncorrelated gamma and white-noise rate models, alongside the lognormal model described in section 5 of the tutorial.
+
+- simulate.tdep.ho: time-dependent rates under the model of [Ho *et al*. (2005)](#references).
 
 
