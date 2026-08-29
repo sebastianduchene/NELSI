@@ -25,3 +25,8 @@ test_results <- testthat::test_file(
   "tests/testthat/test-find-sister.R",
   reporter = "progress"
 )
+
+test_results <- testthat::test_file(
+  "tests/testthat/test-branch-length-stats.R",
+  reporter = "progress"
+)

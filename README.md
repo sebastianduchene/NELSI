@@ -583,6 +583,9 @@ New features and bug fixes — August 2026 (v0.23)
 - Input is validated: out-of-range or non-integer nodes, an empty `clade`, a mix of tips and internal nodes, and the root (which has no sister) all give an informative error instead of `argument is of length zero`.
 - Tip indices are returned in increasing order.
 
+**`get.oldest.branch.length`** (documentation only, the code is unchanged)
+- Clarified what the function returns and why it is named that way. It returns the `min()` of the branches descending from the root, and the name refers to what that branch means on a time-scaled tree: a child of the root is reached sooner along a shorter branch, so the shortest root-descending branch subtends the *oldest* of the root's children. This holds for any chronogram, ultrametric or heterochronous. On a phylogram, with branch lengths in substitutions, the value is just the shortest root-descending branch and says nothing about age. The tree is not checked, since a chronogram cannot be told from a phylogram by inspection.
+
 **`read.annotated.tree` and the shared Newick parser**
 - `$annotations` is now named by node, exactly as in `read.annotated.nexus`, and `read.annotated.tree` gained the same `simplify` argument.
 - Fixed the mapping of annotations onto nodes in `.annotated.tree.build`. Annotations were taken in file order and handed out one per node visited, which assumes that every node is annotated. A tree in which only some nodes carry `[&...]` metadata failed with `Error in annotations[[k]] : subscript out of bounds`, or, when the counts happened to line up, silently attached annotations to the wrong nodes. Each node's annotation is now identified from the placeholder left in its own token, so trees that are fully, partly, or not at all annotated are all read correctly.
