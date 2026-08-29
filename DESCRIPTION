@@ -1,8 +1,8 @@
 Package: NELSI
 Type: Package
 Title: NELSI: Nucleotide EvoLution Simulator
-Version: 0.22
-Date: 2026-04-24
+Version: 0.23
+Date: 2026-08-29
 Author: David Duchene and Sebastian Duchene
 Maintainer: Sebastian Duchene <sduchene@pasteur.fr>
 Description: NELSI simulates rates of molecular evolution along phylogenetic trees.

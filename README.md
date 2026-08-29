@@ -395,6 +395,142 @@ summary(hivRegression)
 In this case it the data appear to have clock-like behaviour.
 
 
+
+10. Reading BEAST 2 summary trees and their annotations
+--------------------------------------------------------
+
+The tree used in sections 7 to 9 was estimated in BEAST 1. The same function, `read.annotated.nexus`, reads the maximum clade credibility (MCC) trees written by TreeAnnotator in BEAST 2. The example_data folder contains `h1n1_beast2_mcc.tree`, an MCC tree summarised from a BEAST 2.7 analysis of 34 influenza A/H1N1 sequences collected in 2009 (TreeAnnotator was run with `-burnin 10 -height keep -topology MCC`).
+
+ - Read the tree:
+
+```coffee
+tr <- read.annotated.nexus("h1n1_beast2_mcc.tree")
+names(tr)
+```
+
+```coffee
+## [1] "edge"        "Nnode"       "tip.label"   "edge.length" "root.edge"
+## [6] "annotations"
+```
+
+The object is an ordinary `phylo`, so everything else in ape and NELSI works on it. The metadata that BEAST wrote between square brackets is in `tr$annotations`.
+
+### How the annotations are indexed
+
+`tr$annotations` is a **named** list. The names are node numbers, given in the row order of `tr$edge`:
+
+```coffee
+names(tr$annotations)[1:6]
+tr$edge[1:6, 2]
+```
+
+```coffee
+## [1] "36" "37" "38" "39" "40" "1"
+## [1] 36 37 38 39 40  1
+```
+
+So element `i` holds the annotations of the node at the child end of edge `i`, and therefore describes both that node and the branch `tr$edge.length[i]` leading to it. Annotations can be pulled out either positionally, by edge, or by node number — they give the same thing:
+
+```coffee
+tr$annotations[[1]]$posterior       # by edge: the branch in row 1 of tr$edge
+tr$annotations[["36"]]$posterior    # by node: node 36
+```
+
+```coffee
+## [1] 0.5774416
+## [1] 0.5774416
+```
+
+There is one element per edge plus one for the root, which is the last element and is named with the root node number, `Ntip(tr) + 1`:
+
+```coffee
+str(tr$annotations[[as.character(Ntip(tr) + 1)]])
+```
+
+```coffee
+## List of 6
+##  $ height        : num 0.198
+##  $ height_95%_HPD: num [1:2] 0.144 0.265
+##  $ height_median : num 0.192
+##  $ height_range  : num [1:2] 0.122 0.515
+##  $ length        : num 0
+##  $ posterior     : num 1
+```
+
+Interval-valued annotations such as `height_95%_HPD` are returned as length-two vectors. Use `simplify = FALSE` for the older behaviour, in which they are lists of two length-one elements.
+
+### Collecting annotations into a data frame
+
+Because the names are node numbers, the annotations of any subset of nodes can be gathered directly. Here are the posterior support and node ages of the internal nodes:
+
+```coffee
+internal <- as.integer(names(tr$annotations)) > Ntip(tr)
+support <- data.frame(
+    node      = as.integer(names(tr$annotations))[internal],
+    posterior = sapply(tr$annotations[internal], function(a) a$posterior),
+    height    = sapply(tr$annotations[internal], function(a) a$height),
+    hpd.low   = sapply(tr$annotations[internal], function(a) a[["height_95%_HPD"]][1]),
+    hpd.high  = sapply(tr$annotations[internal], function(a) a[["height_95%_HPD"]][2]))
+head(support, 5)
+```
+
+```coffee
+##    node posterior    height    hpd.low  hpd.high
+## 36   36 0.5774416 0.1794936 0.13083709 0.2380253
+## 37   37 0.3044500 0.1794276 0.12900099 0.2397522
+## 38   38 1.0000000 0.1481526 0.10958936 0.1927642
+## 39   39 1.0000000 0.1320397 0.09818244 0.1719970
+## 40   40 1.0000000 0.1207624 0.08765353 0.1587288
+```
+
+```coffee
+sum(support$posterior > 0.95)  # well-supported clades, out of 33
+```
+
+```coffee
+## [1] 28
+```
+
+Because the node numbering matches the tree, these values can be put straight onto a plot:
+
+```coffee
+plot(tr, show.tip.label = FALSE)
+nodelabels(round(support$posterior, 2), node = support$node, frame = "none", cex = 0.6)
+axisPhylo()
+```
+
+### Files with more than one tree
+
+Annotations are only parsed for files that contain a single tree, which is the usual case for summary trees. A posterior sample of trees (a BEAST `.trees` file, not included here because such files are large) is returned as a `multiPhylo` object **without** annotations, with a warning:
+
+```coffee
+posterior <- read.annotated.nexus("my_beast2_run.trees")
+```
+
+```coffee
+## Warning message:
+## the file contains 1094 trees: returning a 'multiPhylo' object WITHOUT
+## annotations. Annotations are only parsed for files with a single tree, such
+## as summary trees written by TreeAnnotator.
+```
+
+Reading a posterior sample this way is fast, and the trees are the same as those returned by `ape::read.nexus`. A TREES block that was never closed, for example because a run was stopped part way through writing it, is read up to the last complete tree.
+
+### A note on tip labels
+
+Up to version 0.22, `read.annotated.nexus` assigned translated tip labels positionally, which assumed that the tips appeared in the Newick string in the same order as in the TRANSLATE block of the NEXUS file. BEAST writes them in topological order instead, so the function returned trees with the right topology and branch lengths but permuted, and therefore wrong, tip labels. This is fixed: the order in which the tips actually occur in the Newick string is re-derived and the labels are mapped through the TRANSLATE table. The result can be checked against ape at any time:
+
+```coffee
+all.equal(tr, read.nexus("h1n1_beast2_mcc.tree"), use.edge.length = TRUE)
+```
+
+```coffee
+## [1] TRUE
+```
+
+Passing `check = TRUE` to `read.annotated.nexus` makes it run this comparison itself and warn if the two disagree.
+
+
 References
 ----------
 
@@ -429,6 +565,18 @@ Zuckerkandl,E. and Pauling,L. (1962) Molecular disease, evolution, and genic het
 
 Bugs and version history
 ------------------------
+
+Bug fixes — August 2026 (v0.23)
+----
+
+**`read.annotated.nexus` rewritten** (see section 10 of the tutorial)
+- Fixed wrong tip labels. Translated labels were assigned positionally (`tree$tip.label <- TRANS[, 2]`), which assumes the tips appear in the Newick string in TRANSLATE-block order. BEAST writes them in topological order, so the function returned trees with the correct topology and branch lengths but permuted tip labels. The tip order is now re-derived from the Newick string and the labels mapped through the TRANSLATE table. This affected the package's own `example_data/hiv_A_env.tree`.
+- `$annotations` is now a named list, the names being node numbers in the row order of `$edge`, so annotations can be retrieved by node as well as by edge.
+- Files with several trees now return a `multiPhylo` object without annotations and with a warning, instead of a mislabelled annotated object.
+- A TREES block with no closing `End;`, as left by a run that was stopped part way through writing, is now read up to its last complete tree rather than failing with `Error in start:end : NA/NaN argument`.
+- Tree names are no longer mangled for tab-indented NEXUS files (`"\ttree STATE_1"` instead of `"STATE_1"`).
+- New arguments `simplify` (return interval annotations such as `height_95%_HPD` as length-two vectors; default `TRUE`) and `check` (compare the result with `ape::read.nexus` and warn if they differ; default `FALSE`).
+- New tests in `tests/testthat/test-annotated-tree-reader.R`, and a BEAST 2.7 example tree in `example_data/h1n1_beast2_mcc.tree`.
 
 New features — April 2026 (v0.22)
 ----
