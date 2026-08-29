@@ -15,3 +15,8 @@ test_results <- testthat::test_file(
   "tests/testthat/test-castor-integration.R",
   reporter = "progress"
 )
+
+test_results <- testthat::test_file(
+  "tests/testthat/test-annotated-tree-reader.R",
+  reporter = "progress"
+)

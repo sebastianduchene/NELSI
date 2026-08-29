@@ -345,188 +345,246 @@ read.annotated.tree <- function (file = "", text = NULL, tree.names = NULL, skip
     obj
 }
 
+## Order in which the tips occur in a Newick string.
+##
+## .annotated.tree.build() numbers the tips in the order it meets them while
+## walking the string, so this is the order of the tip indices used in $edge.
+## A tip label is a token that follows "(" or "," and is followed by ":"; an
+## internal node label follows ")" and is therefore not matched.
+.tip.order <- function(tp) {
+    s <- gsub("\\[.*?\\]", "", tp)
+    s <- gsub("[[:space:]]", "", s)
+    hits <- regmatches(s, gregexpr("[(,][^(),:]+:", s))[[1]]
+    sub(":$", "", sub("^[(,]", "", hits))
+}
+
+
+## Name the elements of tree$annotations with the node they describe, following
+## the row order of tree$edge. NELSI appends the root's annotations last.
+.name.annotations <- function(tree) {
+    n.edge <- nrow(tree$edge)
+    n.ann <- length(tree$annotations)
+    root <- length(tree$tip.label) + 1L
+    if (n.ann == n.edge + 1L) {
+        nodes <- c(tree$edge[, 2], root)
+    } else if (n.ann == n.edge) {
+        nodes <- tree$edge[, 2]
+    } else {
+        stop(sprintf("cannot match %d annotations to %d edges.\n", n.ann, n.edge))
+    }
+    names(tree$annotations) <- as.character(nodes)
+    tree
+}
+
+
+## Turn the two-element lists that .parse.traits returns for interval-valued
+## annotations (height_95%_HPD, length_range, ...) into plain vectors.
+.simplify.annotations <- function(annotations) {
+    lapply(annotations, function(a) {
+        if (!is.list(a)) return(a)
+        lapply(a, function(v) if (is.list(v) && all(lengths(v) == 1L)) unlist(v) else v)
+    })
+}
+
+
 #' Read a NEXUS file with BEAST-style annotations
 #'
 #' Reads a NEXUS-format file produced by BEAST or similar software, parsing
-#' branch-level annotations stored in BEAST's square-bracket notation. Handles
-#' TRANSLATE blocks and returns an annotated \code{"phylo"} or
-#' \code{"multiPhylo"} object.
+#' branch-level annotations stored in BEAST's square-bracket notation and
+#' handling TRANSLATE blocks.
+#'
+#' The annotations are returned in \code{$annotations}, a \emph{named} list
+#' whose names are the node numbers in the row order of \code{$edge}:
+#'
+#' \preformatted{names(tree$annotations)[i] == as.character(tree$edge[i, 2])}
+#'
+#' Element \code{i} therefore holds the annotations of the node at the child end
+#' of edge \code{i}, describing both that node and the branch
+#' \code{tree$edge.length[i]} subtending it. One extra, final element holds the
+#' annotations of the root and is named with the root node number
+#' (\code{Ntip(tree) + 1}). Elements can be retrieved either positionally
+#' (\code{tree$annotations[[i]]}, matching edge \code{i}) or by node number
+#' (\code{tree$annotations[["36"]]}).
+#'
+#' Annotations are only parsed for files that contain a single tree, which is
+#' the usual case for summary trees such as those written by TreeAnnotator. If
+#' the file holds several trees a \code{"multiPhylo"} object is returned
+#' \emph{without} annotations and a warning is issued.
+#'
+#' @section Tip labels:
+#' Earlier versions assigned translated tip labels positionally
+#' (\code{tree$tip.label <- TRANS[, 2]}), which assumes the tips appear in the
+#' Newick string in the same order as in the TRANSLATE block. BEAST writes them
+#' in topological order instead, so those versions returned a tree with the
+#' correct topology and branch lengths but permuted, i.e. wrong, tip labels.
+#' The order in which the tips actually occur in the Newick string is now
+#' re-derived and the labels are mapped through the TRANSLATE table.
 #'
 #' @param file Character. Path to the NEXUS file.
 #' @param tree.names Character vector of tree names to assign. Default
 #'   \code{NULL} (names are read from the file).
+#' @param simplify Logical. If \code{TRUE} (default), interval-valued
+#'   annotations such as \code{height_95\%_HPD} are returned as length-two
+#'   vectors rather than as lists of two length-one elements.
+#' @param check Logical. If \code{TRUE}, the tree is compared with the one
+#'   returned by \code{ape::read.nexus} and a warning is issued if they differ.
+#'   Default \code{FALSE}.
 #'
-#' @return A \code{"phylo"} object (or \code{"multiPhylo"} for multiple trees)
-#'   with an additional \code{$annotations} list containing parsed branch
-#'   annotations.
+#' @return A \code{"phylo"} object with an additional named \code{$annotations}
+#'   list, as described above. For files containing more than one tree, a
+#'   \code{"multiPhylo"} object with no annotations.
 #'
 #' @seealso \code{\link{read.annotated.tree}}, \code{\link{trann2trdat}}
 #'
 #' @examples
 #' \dontrun{
-#' tr <- read.annotated.nexus("beast_output.trees")
+#' tr <- read.annotated.nexus("beast_mcc.tree")
+#' tr$annotations[[1]]                       # annotations of node tr$edge[1, 2]
+#' tr$annotations[[as.character(Ntip(tr) + 1)]]   # annotations of the root
 #' dat <- trann2trdat(tr)
 #' }
 #'
 #' @export
-read.annotated.nexus <- function (file, tree.names = NULL) {
+read.annotated.nexus <- function (file, tree.names = NULL, simplify = TRUE,
+                                  check = FALSE) {
     X <- scan(file = file, what = "", sep = "\n", quiet = TRUE)
-    LEFT <- grep("\\[", X)
-    RIGHT <- grep("\\]", X)
-
-    ##    browser()
-    ##
-    ##    if (length(LEFT)) {
-    ##        w <- LEFT == RIGHT
-    ##        if (any(w)) {
-    ##            s <- LEFT[w]
-    ##            X[s] <- gsub("\\[[^]]*\\]", "", X[s])
-    ##        }
-    ##        w <- !w
-    ##        if (any(w)) {
-    ##            s <- LEFT[w]
-    ##            X[s] <- gsub("\\[.*", "", X[s])
-    ##            sb <- RIGHT[w]
-    ##            X[sb] <- gsub(".*\\]", "", X[sb])
-    ##            if (any(s < sb - 1))
-    ##                X <- X[-unlist(mapply(":", (s + 1), (sb - 1)))]
-    ##        }
-    ##    }
 
     endblock <- grep("END;|ENDBLOCK;", X, ignore.case = TRUE)
     semico <- grep(";", X)
     i1 <- grep("BEGIN TREES;", X, ignore.case = TRUE)
+    if (!length(i1)) stop("no TREES block found in ", file, "\n")
+    i1 <- i1[1]
     i2 <- grep("TRANSLATE", X, ignore.case = TRUE)
-    translation <- if (length(i2) == 1 && i2 > i1)
-        TRUE
-    else FALSE
+    translation <- length(i2) == 1 && i2 > i1
     if (translation) {
         end <- semico[semico > i2][1]
-        x <- X[(i2 + 1):end]
-        x <- unlist(strsplit(x, "[,; \t]"))
+        x <- unlist(strsplit(X[(i2 + 1):end], "[,; \t]"))
         x <- x[nzchar(x)]
         TRANS <- matrix(x, ncol = 2, byrow = TRUE)
         TRANS[, 2] <- gsub("['\"]", "", TRANS[, 2])
         n <- dim(TRANS)[1]
     }
-    start <- if (translation)
-        semico[semico > i2][1] + 1
-    else semico[semico > i1][1]
+    start <- if (translation) semico[semico > i2][1] + 1 else semico[semico > i1][1]
+    if (is.na(start)) stop("could not find the start of the TREES block in ", file, "\n")
+    ## a file whose TREES block is not closed (e.g. a run stopped part way
+    ## through writing) is read up to its last line rather than failing
     end <- endblock[endblock > i1][1] - 1
+    if (is.na(end)) end <- length(X)
     tree <- X[start:end]
-
-    ##    browser()
-
     rm(X)
+
     tree <- tree[tree != ""]
     semico <- grep(";", tree)
     Ntree <- length(semico)
-    if (Ntree == 1 && length(tree) > 1)
+    if (Ntree == 1 && length(tree) > 1) {
         STRING <- paste(tree, collapse = "")
-    else {
+    } else {
         if (any(diff(semico) != 1)) {
             STRING <- character(Ntree)
             s <- c(1, semico[-Ntree] + 1)
             j <- mapply(":", s, semico)
             if (is.list(j)) {
-                for (i in 1:Ntree) STRING[i] <- paste(tree[j[[i]]],collapse = "")
+                for (i in 1:Ntree) STRING[i] <- paste(tree[j[[i]]], collapse = "")
+            } else {
+                for (i in 1:Ntree) STRING[i] <- paste(tree[j[, i]], collapse = "")
             }
-            else {
-                for (i in 1:Ntree) STRING[i] <- paste(tree[j[,i]], collapse = "")
-            }
-        }
-        else STRING <- tree
+        } else STRING <- tree
     }
     rm(tree)
 
-    ##    browser()
-
     STRING <- STRING[grep("^[[:blank:]]*tree.*= *", STRING, ignore.case = TRUE)]
     Ntree <- length(STRING)
+    if (Ntree == 0) stop("no tree found in the TREES block.\n")
+
+    ## Annotations are only parsed for single-tree files. For tree sets (e.g. a
+    ## posterior sample) fall back on ape::read.nexus, which reads the topology
+    ## and branch lengths but discards the [&...] metadata.
+    nms.trees <- sub("[[:blank:]]*=.*", "", STRING)
+    nms.trees <- sub("^[[:blank:]]*tree[[:blank:]]*", "", nms.trees, ignore.case = TRUE)
 
     STRING <- gsub("\\[&R\\]", "", STRING)
-
-    ## TODO Parse out tree-level traits
-    nms.trees <- sub(" *= *.*", "", STRING)
-    nms.trees <- sub("^ *tree *", "", nms.trees, ignore.case = TRUE)
-
     STRING <- sub("^.*?= *", "", STRING)
     STRING <- gsub("\\s", "", STRING)
 
-    ##    browser()
-
-    colon <- grep(":", STRING)
-    if (!length(colon)) {
-        stop(".annotated.clado.build is not yet implemented.\n")
-        trees <- lapply(STRING, .annotated.clado.build)
-    } else if (length(colon) == Ntree) {
-        ##        trees <- if (translation) {
-        ##            browser()
-        ##            stop("treeBuildWithTokens is not yet implemented.\n")
-        ##            lapply(STRING, .treeBuildWithTokens)
-        ##        }
-        ##        else lapply(STRING, .annotated.tree.build)
-        trees <- lapply(STRING, .annotated.tree.build)
-        ##        browser()
-    } else {
-        ##        trees <- vector("list", Ntree)
-        ##        trees[colon] <- lapply(STRING[colon], .annotated.tree.build)
-        ##        nocolon <- (1:Ntree)[!1:Ntree %in% colon]
-        ##        trees[nocolon] <- lapply(STRING[nocolon], .annotated.clado.build)
-        ##        if (translation) {
-        ##            for (i in 1:Ntree) {
-        ##                tr <- trees[[i]]
-        ##                for (j in 1:n) {
-        ##                  ind <- which(tr$tip.label[j] == TRANS[, 1])
-        ##                  tr$tip.label[j] <- TRANS[ind, 2]
-        ##                }
-        ##                if (!is.null(tr$node.label)) {
-        ##                  for (j in 1:length(tr$node.label)) {
-        ##                    ind <- which(tr$node.label[j] == TRANS[,
-        ##                      1])
-        ##                    tr$node.label[j] <- TRANS[ind, 2]
-        ##                  }
-        ##                }
-        ##                trees[[i]] <- tr
-        ##            }
-        ##            translation <- FALSE
-        ##        }
-        stop("Unknown error in read.annotated.nexus.\n")
-    }
-    for (i in 1:Ntree) {
-        tr <- trees[[i]]
-        if (!translation)
-            n <- length(tr$tip.label)
-        ROOT <- n + 1
-        if (sum(tr$edge[, 1] == ROOT) == 1 && dim(tr$edge)[1] >
-            1) {
-            stop(paste("The tree has apparently singleton node(s): cannot read tree file.\n  Reading NEXUS file aborted at tree no.",
-                       i, sep = ""))
+    if (Ntree > 1) {
+        warning(sprintf(paste0("the file contains %d trees: returning a ",
+                               "'multiPhylo' object WITHOUT annotations. ",
+                               "Annotations are only parsed for files with a ",
+                               "single tree, such as summary trees written by ",
+                               "TreeAnnotator."), Ntree), call. = FALSE)
+        ## strip the annotations and let ape's parser build the trees
+        tp <- gsub("\\[.*?\\]", "", STRING)
+        keep <- grepl(";$", tp)
+        if (any(!keep)) {
+            warning(sprintf("dropping %d incomplete tree(s) at the end of the file.",
+                            sum(!keep)), call. = FALSE)
         }
-    }
-    if (Ntree == 1) {
-        trees <- trees[[1]]
-        if (translation) {
-            trees$tip.label <- if (length(colon))
-                TRANS[, 2]
-            else TRANS[, 2][as.numeric(trees$tip.label)]
+        if (!any(keep)) stop("no complete tree found in ", file, "\n")
+        trees <- ape::read.tree(text = tp[keep])
+        if (inherits(trees, "phylo")) {
+            trees <- structure(list(trees), class = "multiPhylo")
         }
-    }
-    else {
-        if (!is.null(tree.names))
-            names(trees) <- tree.names
         if (translation) {
-            if (length(colon) == Ntree)
-                attr(trees, "TipLabel") <- TRANS[, 2]
-            else {
-                for (i in 1:Ntree) trees[[i]]$tip.label <- TRANS[, 2][as.numeric(trees[[i]]$tip.label)]
-                trees <- .compressTipLabel(trees)
+            for (i in seq_along(trees)) {
+                ind <- match(trees[[i]]$tip.label, TRANS[, 1])
+                if (anyNA(ind)) {
+                    stop("tip(s) missing from the TRANSLATE block: ",
+                         paste(trees[[i]]$tip.label[is.na(ind)], collapse = ", "), "\n")
+                }
+                trees[[i]]$tip.label <- TRANS[ind, 2]
             }
         }
-        class(trees) <- "multiPhylo"
-        if (!all(nms.trees == ""))
-            names(trees) <- nms.trees
+        ## use ape's shared tip-label convention when the trees share a tip set
+        cmp <- try(ape::.compressTipLabel(trees), silent = TRUE)
+        if (!inherits(cmp, "try-error")) trees <- cmp
+        if (!is.null(tree.names)) {
+            names(trees) <- tree.names
+        } else if (!all(nms.trees[keep] == "")) {
+            names(trees) <- nms.trees[keep]
+        }
+        return(trees)
     }
+
+    if (!length(grep(":", STRING))) {
+        stop(".annotated.clado.build is not yet implemented.\n")
+    }
+
+    trees <- .annotated.tree.build(STRING)
+
+    if (!translation) n <- length(trees$tip.label)
+    ROOT <- n + 1
+    if (sum(trees$edge[, 1] == ROOT) == 1 && dim(trees$edge)[1] > 1) {
+        stop("The tree has apparently singleton node(s): cannot read tree file.\n")
+    }
+
+    ## Map the tips onto their labels using the order in which they occur in the
+    ## Newick string, which is the order .annotated.tree.build numbered them in.
+    if (translation) {
+        tips <- .tip.order(STRING)
+        if (length(tips) != length(trees$tip.label)) {
+            stop(sprintf(paste0("found %d tips in the Newick string but the ",
+                                "parsed tree has %d: cannot assign tip labels.\n"),
+                         length(tips), length(trees$tip.label)))
+        }
+        ind <- match(tips, TRANS[, 1])
+        if (anyNA(ind)) {
+            stop("tip(s) missing from the TRANSLATE block: ",
+                 paste(tips[is.na(ind)], collapse = ", "), "\n")
+        }
+        trees$tip.label <- TRANS[ind, 2]
+    }
+
+    trees <- .name.annotations(trees)
+    if (simplify) trees$annotations <- .simplify.annotations(trees$annotations)
+
+    if (check) {
+        ref <- try(ape::read.nexus(file), silent = TRUE)
+        if (!inherits(ref, "try-error") &&
+            !isTRUE(ape::all.equal.phylo(trees, ref, use.edge.length = FALSE))) {
+            warning("the tree does not match the one returned by ape::read.nexus(); ",
+                    "check the file.", call. = FALSE)
+        }
+    }
+
     trees
 } # end read.annotated.nexus
-

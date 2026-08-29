@@ -4,28 +4,67 @@
 \alias{read.annotated.nexus}
 \title{Read a NEXUS file with BEAST-style annotations}
 \usage{
-read.annotated.nexus(file, tree.names = NULL)
+read.annotated.nexus(file, tree.names = NULL, simplify = TRUE, check = FALSE)
 }
 \arguments{
 \item{file}{Character. Path to the NEXUS file.}
 
 \item{tree.names}{Character vector of tree names to assign. Default
 \code{NULL} (names are read from the file).}
+
+\item{simplify}{Logical. If \code{TRUE} (default), interval-valued
+annotations such as \code{height_95\%_HPD} are returned as length-two
+vectors rather than as lists of two length-one elements.}
+
+\item{check}{Logical. If \code{TRUE}, the tree is compared with the one
+returned by \code{ape::read.nexus} and a warning is issued if they differ.
+Default \code{FALSE}.}
 }
 \value{
-A \code{"phylo"} object (or \code{"multiPhylo"} for multiple trees)
-  with an additional \code{$annotations} list containing parsed branch
-  annotations.
+A \code{"phylo"} object with an additional named \code{$annotations}
+  list, as described above. For files containing more than one tree, a
+  \code{"multiPhylo"} object with no annotations.
 }
 \description{
 Reads a NEXUS-format file produced by BEAST or similar software, parsing
-branch-level annotations stored in BEAST's square-bracket notation. Handles
-TRANSLATE blocks and returns an annotated \code{"phylo"} or
-\code{"multiPhylo"} object.
+branch-level annotations stored in BEAST's square-bracket notation and
+handling TRANSLATE blocks.
 }
+\details{
+The annotations are returned in \code{$annotations}, a \emph{named} list
+whose names are the node numbers in the row order of \code{$edge}:
+
+\preformatted{names(tree$annotations)[i] == as.character(tree$edge[i, 2])}
+
+Element \code{i} therefore holds the annotations of the node at the child end
+of edge \code{i}, describing both that node and the branch
+\code{tree$edge.length[i]} subtending it. One extra, final element holds the
+annotations of the root and is named with the root node number
+(\code{Ntip(tree) + 1}). Elements can be retrieved either positionally
+(\code{tree$annotations[[i]]}, matching edge \code{i}) or by node number
+(\code{tree$annotations[["36"]]}).
+
+Annotations are only parsed for files that contain a single tree, which is
+the usual case for summary trees such as those written by TreeAnnotator. If
+the file holds several trees a \code{"multiPhylo"} object is returned
+\emph{without} annotations and a warning is issued.
+}
+\section{Tip labels}{
+
+Earlier versions assigned translated tip labels positionally
+(\code{tree$tip.label <- TRANS[, 2]}), which assumes the tips appear in the
+Newick string in the same order as in the TRANSLATE block. BEAST writes them
+in topological order instead, so those versions returned a tree with the
+correct topology and branch lengths but permuted, i.e. wrong, tip labels.
+The order in which the tips actually occur in the Newick string is now
+re-derived and the labels are mapped through the TRANSLATE table.
+}
+
 \examples{
 \dontrun{
-tr <- read.annotated.nexus("beast_output.trees")
+tr <- read.annotated.nexus("beast_mcc.tree")
+tr$annotations[[1]]                       # annotations of node tr$edge[1, 2]
+tr$annotations[[as.character(Ntip(tr) + 1)]]   # annotations of the root
 dat <- trann2trdat(tr)
 }
 
