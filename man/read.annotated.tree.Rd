@@ -11,6 +11,7 @@ read.annotated.tree(
   skip = 0,
   comment.char = "#",
   keep.multi = FALSE,
+  simplify = TRUE,
   ...
 )
 }
@@ -32,12 +33,17 @@ ignored. Default \code{"#"}.}
 \item{keep.multi}{Logical. If \code{TRUE}, a single tree is still returned
 as a \code{"multiPhylo"} list. Default \code{FALSE}.}
 
+\item{simplify}{Logical. If \code{TRUE} (default), interval-valued
+annotations are returned as vectors rather than as lists of length-one
+elements.}
+
 \item{...}{Additional arguments passed to \code{\link[base]{scan}}.}
 }
 \value{
 A \code{"phylo"} object (or \code{"multiPhylo"} for multiple trees)
   with an additional \code{$annotations} list element containing the parsed
-  BEAST annotations for each branch.
+  BEAST annotations. As in \code{\link{read.annotated.nexus}}, the list is
+  named by node number in the row order of \code{$edge}, with the root last.
 }
 \description{
 Reads one or more Newick-format trees that contain BEAST-style square-

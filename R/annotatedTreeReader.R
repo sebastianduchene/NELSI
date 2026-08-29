@@ -131,8 +131,8 @@
         tip.label[tip] <<- X[1]
         edge.length[j] <<- as.numeric(X[2])
         
-        permute[[j]] <<- annotations[[k]] ## permute traits
-            
+        permute[j] <<- list(.annotation.for(k))  ## permute traits
+
         k <<- k + 1L
         tip <<- tip + 1L
         j <<- j + 1L
@@ -143,7 +143,7 @@
         node.label[current.node - nb.tip] <<- X[1]
         edge.length[l] <<- as.numeric(X[2])
         
-        permute[[l]] <<- annotations[[k]] ## permute traits
+        permute[l] <<- list(.annotation.for(k))  ## permute traits
 
         k <<- k + 1L
         current.node <<- edge[l, 1]
@@ -167,8 +167,38 @@
     annotations = lapply(annotations, .parse.traits, header=TRUE)
 
     tp.stripped = gsub("\\[.*?\\]","",tp)
-    tpc <- unlist(strsplit(tp.stripped, "[\\(\\),;]"))
-    tpc <- tpc[nzchar(tpc)]
+    tpc.all <- unlist(strsplit(tp.stripped, "[\\(\\),;]"))
+    keep <- nzchar(tpc.all)
+    tpc <- tpc.all[keep]
+
+    ## .strip.annotations() leaves a "[i]" placeholder wherever it took an
+    ## annotation out, so the annotation belonging to the k-th node visited is
+    ## found by reading the placeholder in that node's token, rather than by
+    ## assuming that every node carries exactly one annotation. Trees in which
+    ## only some nodes are annotated, or none at all, are handled correctly.
+    ##
+    ## A token is a node's own token when the delimiter that closes it is ",",
+    ## ")" or ";"; the empty tokens produced by runs of "(" are not nodes. The
+    ## nodes are visited in that order, so element k below belongs to visit k.
+    ann.tokens <- unlist(strsplit(new.tp.stripped, "[\\(\\),;]"))
+    delims <- unlist(strsplit(gsub("[^(),;]", "", tp.stripped), NULL))
+    ann.index <- integer(0)
+    if (length(ann.tokens) == length(tpc.all) &&
+        length(delims) >= length(tpc.all)) {
+        is.node <- delims[seq_along(tpc.all)] %in% c(",", ")", ";")
+        node.tokens <- ann.tokens[is.node]
+        idx <- suppressWarnings(as.integer(sub(".*\\[([0-9]+)\\].*", "\\1",
+                                              node.tokens)))
+        idx[!grepl("\\[[0-9]+\\]", node.tokens)] <- NA_integer_
+        ann.index <- idx
+    } else if (length(annotations)) {
+        warning("could not match the annotations onto the tree: they are dropped.",
+                call. = FALSE)
+    }
+    .annotation.for <- function(k) {
+        if (k > length(ann.index) || is.na(ann.index[k])) return(NULL)
+        annotations[[ann.index[k]]]
+    }
 
     tsp <- unlist(strsplit(tp.stripped, NULL))
     skeleton <- tsp[tsp %in% c("(", ")", ",", ";")]
@@ -224,6 +254,7 @@
     class(obj) <- "phylo"
     attr(obj, "order") <- "cladewise"
 
+    if (length(permute) < nb.edge) permute[nb.edge] <- list(NULL)
     obj$annotations = permute
     obj
 }
@@ -246,11 +277,15 @@
 #'   ignored. Default \code{"#"}.
 #' @param keep.multi Logical. If \code{TRUE}, a single tree is still returned
 #'   as a \code{"multiPhylo"} list. Default \code{FALSE}.
+#' @param simplify Logical. If \code{TRUE} (default), interval-valued
+#'   annotations are returned as vectors rather than as lists of length-one
+#'   elements.
 #' @param ... Additional arguments passed to \code{\link[base]{scan}}.
 #'
 #' @return A \code{"phylo"} object (or \code{"multiPhylo"} for multiple trees)
 #'   with an additional \code{$annotations} list element containing the parsed
-#'   BEAST annotations for each branch.
+#'   BEAST annotations. As in \code{\link{read.annotated.nexus}}, the list is
+#'   named by node number in the row order of \code{$edge}, with the root last.
 #'
 #' @seealso \code{\link{read.annotated.nexus}}, \code{\link{trann2trdat}}
 #'
@@ -262,7 +297,8 @@
 #'
 #' @export
 read.annotated.tree <- function (file = "", text = NULL, tree.names = NULL, skip = 0,
-                                  comment.char = "#", keep.multi = FALSE, ...)
+                                  comment.char = "#", keep.multi = FALSE,
+                                  simplify = TRUE, ...)
 {
     unname <- function(treetext) {
         nc <- nchar(treetext)
@@ -333,6 +369,15 @@ read.annotated.tree <- function (file = "", text = NULL, tree.names = NULL, skip
             1)
             stop(paste("The tree has apparently singleton node(s): cannot read tree file.\n  Reading Newick file aborted at tree no.",
                        i))
+    }
+    ## name the annotations by the node they describe, as read.annotated.nexus does
+    for (i in 1:Ntree) {
+        if (!is.null(obj[[i]]$annotations)) {
+            obj[[i]] <- .name.annotations(obj[[i]])
+            if (simplify) {
+                obj[[i]]$annotations <- .simplify.annotations(obj[[i]]$annotations)
+            }
+        }
     }
     if (Ntree == 1 && !keep.multi)
         obj <- obj[[1]]
@@ -574,8 +619,10 @@ read.annotated.nexus <- function (file, tree.names = NULL, simplify = TRUE,
         trees$tip.label <- TRANS[ind, 2]
     }
 
-    trees <- .name.annotations(trees)
-    if (simplify) trees$annotations <- .simplify.annotations(trees$annotations)
+    if (!is.null(trees$annotations)) {
+        trees <- .name.annotations(trees)
+        if (simplify) trees$annotations <- .simplify.annotations(trees$annotations)
+    }
 
     if (check) {
         ref <- try(ape::read.nexus(file), silent = TRUE)

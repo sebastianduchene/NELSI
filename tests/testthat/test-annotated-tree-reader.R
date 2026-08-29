@@ -125,3 +125,61 @@ test_that("a TREES block that is not closed is still read", {
     expect_warning(res <- read.annotated.nexus(f), "WITHOUT annotations")
     expect_length(res, 3)
 })
+
+test_that("read.annotated.tree names its annotations the same way", {
+    f <- tempfile(fileext = ".tree")
+    writeLines("((1[&id=1]:1.0,2[&id=2]:1.0)[&id=3]:1.0,3[&id=4]:2.0)[&id=5]:0.0;", f)
+    tr <- read.annotated.tree(f)
+    expect_identical(names(tr$annotations),
+                     as.character(c(tr$edge[, 2], length(tr$tip.label) + 1L)))
+    expect_equal(tr$annotations[[as.character(length(tr$tip.label) + 1L)]]$id, 5)
+})
+
+test_that("trees with no annotations at all are read", {
+    nwk <- tempfile(fileext = ".tree")
+    writeLines("((a:1.0,b:1.0):1.0,c:2.0):0.0;", nwk)
+    tr <- read.annotated.tree(nwk)
+    expect_s3_class(tr, "phylo")
+    expect_setequal(tr$tip.label, c("a", "b", "c"))
+    expect_length(tr$annotations, nrow(tr$edge) + 1L)
+    expect_true(all(vapply(tr$annotations, is.null, logical(1))))
+
+    nex <- tempfile(fileext = ".tree")
+    writeLines(c("#NEXUS", "", "Begin trees;", "\tTranslate",
+                 "\t\t1 a,", "\t\t2 b,", "\t\t3 c", "\t\t;",
+                 "\ttree TREE1 = ((1:1.0,2:1.0):1.0,3:2.0);", "End;"), nex)
+    tr <- read.annotated.nexus(nex)
+    expect_true(isTRUE(ape::all.equal.phylo(tr, ape::read.nexus(nex),
+                                            use.edge.length = TRUE)))
+})
+
+test_that("partially annotated trees put each annotation on the right node", {
+    nwk <- tempfile(fileext = ".tree")
+    ## tip 1 and one internal node carry no annotation
+    writeLines("((1:1.0,2[&id=2]:1.0):1.0,3[&id=3]:2.0)[&id=99]:0.0;", nwk)
+    tr <- read.annotated.tree(nwk)
+    root <- length(tr$tip.label) + 1L
+
+    get.id <- function(node) tr$annotations[[as.character(node)]]$id
+    expect_null(get.id(match("1", tr$tip.label)))
+    expect_equal(get.id(match("2", tr$tip.label)), 2)
+    expect_equal(get.id(match("3", tr$tip.label)), 3)
+    expect_equal(get.id(root), 99)
+    ## the unannotated internal node
+    internal <- setdiff(seq_len(tr$Nnode) + length(tr$tip.label), root)
+    expect_true(all(vapply(internal, function(n) is.null(get.id(n)), logical(1))))
+})
+
+test_that("annotations on trees where only the root or only the tips are annotated", {
+    mk <- function(x) { f <- tempfile(fileext = ".tree"); writeLines(x, f); f }
+    tr <- read.annotated.tree(mk("((a:1.0,b:1.0):1.0,c:2.0)[&id=9];"))
+    root <- length(tr$tip.label) + 1L
+    expect_equal(tr$annotations[[as.character(root)]]$id, 9)
+    expect_true(all(vapply(tr$annotations[-length(tr$annotations)], is.null, logical(1))))
+
+    tr <- read.annotated.tree(mk("((a[&id=1]:1.0,b[&id=2]:1.0):1.0,c[&id=3]:2.0);"))
+    for (i in seq_along(tr$tip.label)) {
+        expect_equal(tr$annotations[[as.character(i)]]$id,
+                     match(tr$tip.label[i], c("a", "b", "c")))
+    }
+})

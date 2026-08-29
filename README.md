@@ -578,6 +578,10 @@ Bug fixes — August 2026 (v0.23)
 - New arguments `simplify` (return interval annotations such as `height_95%_HPD` as length-two vectors; default `TRUE`) and `check` (compare the result with `ape::read.nexus` and warn if they differ; default `FALSE`).
 - New tests in `tests/testthat/test-annotated-tree-reader.R`, and a BEAST 2.7 example tree in `example_data/h1n1_beast2_mcc.tree`.
 
+**`read.annotated.tree` and the shared Newick parser**
+- `$annotations` is now named by node, exactly as in `read.annotated.nexus`, and `read.annotated.tree` gained the same `simplify` argument.
+- Fixed the mapping of annotations onto nodes in `.annotated.tree.build`. Annotations were taken in file order and handed out one per node visited, which assumes that every node is annotated. A tree in which only some nodes carry `[&...]` metadata failed with `Error in annotations[[k]] : subscript out of bounds`, or, when the counts happened to line up, silently attached annotations to the wrong nodes. Each node's annotation is now identified from the placeholder left in its own token, so trees that are fully, partly, or not at all annotated are all read correctly.
+
 New features — April 2026 (v0.22)
 ----
 
