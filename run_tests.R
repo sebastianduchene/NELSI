@@ -20,3 +20,8 @@ test_results <- testthat::test_file(
   "tests/testthat/test-annotated-tree-reader.R",
   reporter = "progress"
 )
+
+test_results <- testthat::test_file(
+  "tests/testthat/test-find-sister.R",
+  reporter = "progress"
+)

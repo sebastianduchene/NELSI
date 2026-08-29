@@ -4,29 +4,43 @@
 \alias{find.sister}
 \title{Find tips in the sister clade}
 \usage{
-find.sister(tr, clade, allow.polytomy = T)
+find.sister(tr, clade, allow.polytomy = TRUE)
 }
 \arguments{
 \item{tr}{A rooted phylogenetic tree of class \code{"phylo"}.}
 
-\item{clade}{Integer vector of tip indices whose sister group is sought.}
+\item{clade}{Either a single node index (a tip, \code{1..Ntip}, or an
+internal node, \code{Ntip+1..Ntip+Nnode}), or an integer vector of two or
+more tip indices.}
 
-\item{allow.polytomy}{Logical. If \code{TRUE} (default), when the MRCA is
-a polytomy whose children are all in \code{clade} the function goes up
-one level to find the sister.}
+\item{allow.polytomy}{Logical. If \code{TRUE} (default), and \code{clade}
+is a set of tips whose MRCA is a polytomy, the sister is taken to be the
+other tips of that polytomy; when \code{clade} accounts for all of them,
+the search moves up one level. If \code{FALSE}, the sister is always
+taken from the parent of the MRCA.}
 }
 \value{
-An integer vector of tip indices constituting the sister clade.
+An integer vector of tip indices, in increasing order, constituting
+  the sister clade.
 }
 \description{
-Identifies the tip indices in the sister group of a given set of tips.
-The sister is defined as all tips descending from the parent of the MRCA
-of \code{clade} that are not in \code{clade}.
+Identifies the tips in the sister group of a node, or of a set of tips.
+The sister group of a node is made up of the tips that descend from its
+parent but not from the node itself.
+}
+\details{
+\code{clade} may be a single node, either a tip or an internal node, or a
+set of two or more tips, in which case the sister group of their most
+recent common ancestor is returned. When a set of tips does not account for
+every tip below their MRCA and that MRCA is a polytomy, the remaining tips
+of the polytomy are returned instead (see \code{allow.polytomy}).
 }
 \examples{
 library(ape)
 tr <- read.tree(text = '((((a, b, c, d), e), f), (g, h));')
-find.sister(tr, 1)
+find.sister(tr, 1)     # sister of tip a
+find.sister(tr, 13)    # sister of the internal node (g, h)
+find.sister(tr, c(1, 2, 3, 4))
 
 }
 \seealso{
